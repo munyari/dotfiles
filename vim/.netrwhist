@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/thugwaffle/Documents/odin/learn-rails/blogger'
+let g:netrw_dirhist_2='/home/thugwaffle/.vim/bundle/Vundle.vim'
+let g:netrw_dirhist_3='/home/thugwaffle/Documents/odin/learn-rails/blogger/app/views'
+let g:netrw_dirhist_4='/home/thugwaffle/Documents/odin/learn-rails/blogger/app/models'
+let g:netrw_dirhist_5='/home/thugwaffle/.password-store'
+let g:netrw_dirhist_6='/home/thugwaffle'
+let g:netrw_dirhist_7='/home/thugwaffle/Documents'
+let g:netrw_dirhist_8='/home/thugwaffle/Documents/CTCI'

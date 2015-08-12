@@ -1,0 +1,7 @@
+[user]
+	name = Panashe M. Fundira
+	email = fundirap@gmail.com
+[color]
+	ui = auto
+[core]
+	excludesfile = /home/thugwaffle/.gitignore
