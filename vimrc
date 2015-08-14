@@ -223,9 +223,23 @@ endif
 " Ctags path
 set tags=./tags,tags;$HOME
 
+" leader keys
+let mapleader = ","
+let maplocalleader = "\\"
+
 " A simple mapping to move lines down
-map - ddp
+noremap <leader>- ddp
 " Easily upcase a word in insert mode
-imap <c-u> <esc>viwUi
+inoremap <leader><c-u> <esc>viwUi
 " Easily upcase a word in normal mode
-nmap <c-u> viwU
+nnoremap <leader><c-u> viwU
+" edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" source vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" email abbreviation
+iabbrev pfeml Panashe Fundira<cr>fundirap@gmail.com
+
+inoremap jk <esc>
+inoremap <esc> <nop>
