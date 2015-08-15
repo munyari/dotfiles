@@ -23,7 +23,7 @@ set si "Smart indent
 syntax enable
 set background=dark
 "colorscheme solarized
-" 
+"
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -131,7 +131,7 @@ if (exists('+colorcolumn'))
   highlight ColorColumn ctermbg=9
 endif
 
-"" Airblade - git 
+"" Airblade - git
 "Plug 'airblade/vim-gitgutter'
 
 
@@ -243,3 +243,9 @@ iabbrev pfeml Panashe Fundira<cr>fundirap@gmail.com
 
 inoremap jk <esc>
 inoremap <esc> <nop>
+
+autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+autocmd FileType java       nnoremap <buffer> <localleader>c I//<esc>
+autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
+autocmd FileType ruby       nnoremap <buffer> <localleader>c I#<esc>
+autocmd FileType markdown   setlocal spell spelllang=en_us
