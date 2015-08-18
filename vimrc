@@ -249,3 +249,15 @@ autocmd FileType java       nnoremap <buffer> <localleader>c I//<esc>
 autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
 autocmd FileType ruby       nnoremap <buffer> <localleader>c I#<esc>
 autocmd FileType markdown   setlocal spell spelllang=en_us
+
+" Buffer local abbreviations
+autocmd FileType python     :iabbrev <buffer> iff if:<left>
+autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+autocmd FileType java       :iabbrev <buffer> iff if ()<left>
+autocmd FileType java       :iabbrev <buffer> re return<left>
+autocmd FileType python     :iabbrev <buffer> re return<left>
+autocmd FileType ruby       :iabbrev <buffer> re return<left>
+" Disable the usual return
+autocmd FileType java       :iabbrev <buffer> return NOPENOPENOPE
+autocmd FileType python     :iabbrev <buffer> return NOPENOPENOPE
+autocmd FileType ruby       :iabbrev <buffer> return NOPENOPENOPE
