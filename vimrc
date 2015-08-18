@@ -244,20 +244,41 @@ iabbrev pfeml Panashe Fundira<cr>fundirap@gmail.com
 inoremap jk <esc>
 inoremap <esc> <nop>
 
-autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-autocmd FileType java       nnoremap <buffer> <localleader>c I//<esc>
-autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
-autocmd FileType ruby       nnoremap <buffer> <localleader>c I#<esc>
-autocmd FileType markdown   setlocal spell spelllang=en_us
+augroup filetype_javascript
+  autocmd!
+  autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+  autocmd FileType javascript :iabbrev <buffer> re return<left>
+  autocmd FileType javascript :iabbrev <buffer> return NOPENOPENOPE
+augroup END
+
+augroup filetype_java
+  autocmd!
+  autocmd FileType java       nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType java       :iabbrev <buffer> iff if ()<left>
+  autocmd FileType java       :iabbrev <buffer> re return<left>
+  autocmd FileType java       :iabbrev <buffer> return NOPENOPENOPE
+augroup END
+
+augroup filetype_python
+  autocmd!
+  autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
+  autocmd FileType python     :iabbrev <buffer> iff if:<left>
+  autocmd FileType python     :iabbrev <buffer> re return<left>
+  autocmd FileType python     :iabbrev <buffer> return NOPENOPENOPE
+augroup END
+
+augroup filetype_ruby
+  autocmd!
+  autocmd FileType ruby       nnoremap <buffer> <localleader>c I#<esc>
+  autocmd FileType ruby       :iabbrev <buffer> re return<left>
+  autocmd FileType ruby       :iabbrev <buffer> return NOPENOPENOPE
+augroup END
+
+augroup filetype_md
+  autocmd!
+  autocmd FileType markdown   setlocal spell spelllang=en_us
+augroup END
 
 " Buffer local abbreviations
-autocmd FileType python     :iabbrev <buffer> iff if:<left>
-autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
-autocmd FileType java       :iabbrev <buffer> iff if ()<left>
-autocmd FileType java       :iabbrev <buffer> re return<left>
-autocmd FileType python     :iabbrev <buffer> re return<left>
-autocmd FileType ruby       :iabbrev <buffer> re return<left>
 " Disable the usual return
-autocmd FileType java       :iabbrev <buffer> return NOPENOPENOPE
-autocmd FileType python     :iabbrev <buffer> return NOPENOPENOPE
-autocmd FileType ruby       :iabbrev <buffer> return NOPENOPENOPE
