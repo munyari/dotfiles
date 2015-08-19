@@ -244,6 +244,22 @@ iabbrev pfeml Panashe Fundira<cr>fundirap@gmail.com
 inoremap jk <esc>
 inoremap <esc> <nop>
 
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap in{ :<c-u>normal! f{vi{<cr>
+onoremap in[ :<c-u>normal! f[vi[<cr>
+
+onoremap il( :<c-u>normal! F)vi(<cr>
+onoremap il{ :<c-u>normal! F}vi{<cr>
+onoremap il[ :<c-u>normal! F]vi[<cr>
+
+onoremap an( :<c-u>normal! f(v%<cr>
+onoremap an{ :<c-u>normal! f{v%<cr>
+onoremap an[ :<c-u>normal! f[v%<cr>
+
+onoremap al( :<c-u>normal! F)v%<cr>
+onoremap al{ :<c-u>normal! F{v%<cr>
+onoremap al[ :<c-u>normal! F[v%<cr>
+
 augroup filetype_javascript
   autocmd!
   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
@@ -280,5 +296,4 @@ augroup filetype_md
   autocmd FileType markdown   setlocal spell spelllang=en_us
 augroup END
 
-" Buffer local abbreviations
-" Disable the usual return
+
