@@ -271,7 +271,7 @@ augroup END
 augroup filetype_java
   autocmd!
   autocmd FileType java       nnoremap <buffer> <localleader>c I//<esc>
-  autocmd FileType java       :iabbrev <buffer> iff if ()<left>
+  autocmd FileType java       iabbrev <buffer> iff if ()<left>
   autocmd FileType java       :iabbrev <buffer> re return<left>
   autocmd FileType java       :iabbrev <buffer> return NOPENOPENOPE
 augroup END
@@ -294,6 +294,9 @@ augroup END
 augroup filetype_md
   autocmd!
   autocmd FileType markdown   setlocal spell spelllang=en_us
+  autocmd FileType markdown   onoremap ih :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rkvg_"<cr> 
+  autocmd FileType markdown   onoremap ah :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rg_vk0"<cr> 
+
 augroup END
 
 
