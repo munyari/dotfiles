@@ -1,6 +1,6 @@
 " line numbers
 set number
-" disable arrow keys
+" disable arrow keys --{{{
 nnoremap <up>    <nop>
 nnoremap <down>  <nop>
 nnoremap <left>  <nop>
@@ -9,6 +9,7 @@ inoremap <up>    <nop>
 inoremap <down>  <nop>
 inoremap <left>  <nop>
 inoremap <right> <nop>
+" }}}
 set expandtab
 set shiftwidth=2
 set softtabstop=2
@@ -19,10 +20,8 @@ set smarttab
 set ai "Auto indent
 set si "Smart indent
 
-" solarized theme
 syntax enable
 set background=dark
-"colorscheme solarized
 "
 " An example for a vimrc file.
 "
@@ -227,6 +226,10 @@ set tags=./tags,tags;$HOME
 let mapleader = ","
 let maplocalleader = "\\"
 
+" email abbreviation
+iabbrev pfeml Panashe Fundira<cr>fundirap@gmail.com
+
+" Mappings ---------------{{{
 " A simple mapping to move lines down
 noremap <leader>- ddp
 " Easily upcase a word in insert mode
@@ -238,8 +241,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" email abbreviation
-iabbrev pfeml Panashe Fundira<cr>fundirap@gmail.com
 
 inoremap jk <esc>
 inoremap <esc> <nop>
@@ -259,7 +260,9 @@ onoremap an[ :<c-u>normal! f[v%<cr>
 onoremap al( :<c-u>normal! F)v%<cr>
 onoremap al{ :<c-u>normal! F{v%<cr>
 onoremap al[ :<c-u>normal! F[v%<cr>
+" }}}
 
+" Javascript file settings -------------------------------------------{{{
 augroup filetype_javascript
   autocmd!
   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
@@ -267,7 +270,9 @@ augroup filetype_javascript
   autocmd FileType javascript :iabbrev <buffer> re return<left>
   autocmd FileType javascript :iabbrev <buffer> return NOPENOPENOPE
 augroup END
+" }}}
 
+" Java file settings -------------------------------------------------{{{
 augroup filetype_java
   autocmd!
   autocmd FileType java       nnoremap <buffer> <localleader>c I//<esc>
@@ -275,7 +280,9 @@ augroup filetype_java
   autocmd FileType java       :iabbrev <buffer> re return<left>
   autocmd FileType java       :iabbrev <buffer> return NOPENOPENOPE
 augroup END
+" }}}
 
+" Python file settings ---------------------------------------------------{{{
 augroup filetype_python
   autocmd!
   autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
@@ -283,20 +290,37 @@ augroup filetype_python
   autocmd FileType python     :iabbrev <buffer> re return<left>
   autocmd FileType python     :iabbrev <buffer> return NOPENOPENOPE
 augroup END
+" }}}
 
+" Ruby file settings ---------------------------------------------------{{{
 augroup filetype_ruby
   autocmd!
   autocmd FileType ruby       nnoremap <buffer> <localleader>c I#<esc>
   autocmd FileType ruby       :iabbrev <buffer> re return<left>
   autocmd FileType ruby       :iabbrev <buffer> return NOPENOPENOPE
 augroup END
+" }}}
 
+
+" TeX file settings -------------------------------------------------{{{
+augroup filetype_tex
+  autocmd!
+  autocmd FileType tex   setlocal spell spelllang=en_us
+augroup END
+" }}}
+
+" Markdown file settings -------------------------------------------------{{{
 augroup filetype_md
   autocmd!
   autocmd FileType markdown   setlocal spell spelllang=en_us
   autocmd FileType markdown   onoremap ih :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rkvg_"<cr> 
   autocmd FileType markdown   onoremap ah :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rg_vk0"<cr> 
-
 augroup END
+" }}}
 
-
+" Vimscript file settings --------------------{{{
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
