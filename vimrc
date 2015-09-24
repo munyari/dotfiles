@@ -240,7 +240,8 @@ nnoremap <leader><c-u> viwU
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
+" vertical split with previous buffer
+nnoremap <leader>vs :execute "rightbelow vsplit " . bufname("#")
 
 inoremap jk <esc>
 inoremap <esc> <nop>
