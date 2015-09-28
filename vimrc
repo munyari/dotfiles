@@ -242,6 +242,8 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " vertical split with previous buffer
 nnoremap <leader>vs :execute "rightbelow vsplit " . bufname("#")
+" automatically make searches "very magic"
+nnoremap / /\v
 
 inoremap jk <esc>
 inoremap <esc> <nop>
