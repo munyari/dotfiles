@@ -18,6 +18,9 @@ bspc rule -a file-roller floating=on
 bspc rule -a dmenu border=on
 bspc rule -a thunar floating=on
 
+# set wallpaper
+feh --bg-scale ~/images/wallpaper.jpg &
+
 # Launches mpd
 mpd &
 
