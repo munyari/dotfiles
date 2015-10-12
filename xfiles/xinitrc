@@ -1,15 +1,11 @@
-#
-
-# Set wallpaper
-#hsetroot -title ~/wallpaper.jpg &
-
 # Load X resources
 xrdb -load ~/.Xresources &
 
 xrdb -I$HOME/.colors -merge ~/.Xresources
 #exec openbox-session
 
-feh --bg-scale ~/.wallpaper.jpg &
+# set wallpaper
+feh --bg-scale ~/images/wallpaper.jpg &
 sxhkd &
 xsetroot -cursor_name left_ptr &
 exec bspwm

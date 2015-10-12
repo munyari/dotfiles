@@ -1,10 +1,9 @@
-#include ".colors/base-16/base16-railscasts.dark.256.xresources"
+#include "/home/nash/.colors/base-16/base16-railscasts.dark.256.xresources"
 
 Xft.dpi: 160
 
 ! URxvt config
 URxvt.scrollstyle: plain
-!URxvt.font: xft:CamingoCode:size=8
 URxvt.font: xft:SourceCodePro-Light:size=8
 URxvt*.transparent: true
 URxvt*.shading: 10
