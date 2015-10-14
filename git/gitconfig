@@ -4,4 +4,4 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = /home/thugwaffle/.gitignore
+	excludesfile = /home/nash/.gitignore_global

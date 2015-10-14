@@ -1,0 +1,3 @@
+#!/bin/sh
+# this script is executed by xinit to set the wallpaper
+feh --bg-scale '/home/nash/images/wallpaper.jpg'
