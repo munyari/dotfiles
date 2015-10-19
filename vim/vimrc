@@ -188,10 +188,13 @@ Plugin 'garbas/vim-snipmate'
 " Optional:
 Plugin 'honza/vim-snippets'
 
-" base16
+" base16 ocean colorscheme
 Plugin 'chriskempson/base16-vim'
 colorscheme base16-ocean
 let base16colorspace=256
+
+" Plugin: Powerline
+Bundle 'powerline/powerline', {'rtp' : 'powerline/bindings/vim'}
 
 " eof character
 set list
@@ -282,6 +285,18 @@ augroup filetype_java
   autocmd FileType java       iabbrev <buffer> iff if ()<left>
   autocmd FileType java       :iabbrev <buffer> re return<left>
   autocmd FileType java       :iabbrev <buffer> return NOPENOPENOPE
+  autocmd FileType java       :iabbrev <buffer> ab abstract<left>
+  autocmd FileType java       :iabbrev <buffer> abstract NOPENOPENOPE
+  autocmd FileType java       :iabbrev <buffer> as assert<left>
+  autocmd FileType java       :iabbrev <buffer> assert NOPENOPENOPE
+  autocmd FileType java       :iabbrev <buffer> bo boolean<left>
+  autocmd FileType java       :iabbrev <buffer> boolean NOPENOPENOPE
+  autocmd FileType java       :iabbrev <buffer> br break<left>
+  autocmd FileType java       :iabbrev <buffer> break NOPENOPENOPE
+  autocmd FileType java       :iabbrev <buffer> by byte<left>
+  autocmd FileType java       :iabbrev <buffer> byte NOPENOPENOPE
+  autocmd FileType java       :iabbrev <buffer> ca case<left>
+  autocmd FileType java       :iabbrev <buffer> case NOPENOPENOPE
 augroup END
 " }}}
 

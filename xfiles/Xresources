@@ -1,15 +1,36 @@
-#include "/home/nash/.colors/base-16/base16-railscasts.dark.256.xresources"
+#include "/home/nash/.colors/base-16/base16-ocean.dark.256.xresources"
 
-Xft.dpi: 160
+! clean up urxvt, add keybinds
+URxvt.intensityStyles: false
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.resize-font.smaller: C-down
+URxvt.resize-font.higher: C-up
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 ! URxvt config
 URxvt.scrollstyle: plain
-URxvt.font: xft:SourceCodePro-Light:size=8
-URxvt*.transparent: true
-URxvt*.shading: 10
+URxvt.font: xft:InputMono:size=12
+!URxvt.font: xft:Iosevka:size=12
+!URxvt*.transparent: true
+URxvt*.shading: 1
+
+! terminal padding
+URxvt.internalBorder: 15
+
+! make otf/ttf fonts look good
+!Xft.dpi: 160
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
 
 ! Scrollbar
-*scrollBar: false
+!*scrollBar: false
 
 ! And scrolling
 *scrollTtyOutput: false
@@ -19,11 +40,11 @@ URxvt*.shading: 10
 !URLs
 *underlineURLs: true
 
+! clickable links, clipboard support, mouse wheel support
+! fly font resizing
+URxvt.perl-ext-common: default,clipboard,vtwheel
+URxvt.url-launcher: /usr/bin/firefox
+
 ! clipboard
-URxvt.perl-ext-common: default,clipboard
-URxvt.iso14755: false
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-!URxvt.keysym.M-c: perl:clipboard:copy
-!URxvt.keysym.M-v: perl:clipboard:paste
-!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
