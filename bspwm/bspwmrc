@@ -28,6 +28,9 @@ sh ~/.config/panel/bar.sh | lemonbar -p &
 # Launches mpd
 mpd &
 
+# redshit
+redshift -l 41.04:-73.71 &
+
 # autom usb mount
 devmon &
 
