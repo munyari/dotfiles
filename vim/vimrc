@@ -293,8 +293,6 @@ augroup filetype_java
   autocmd FileType java       :iabbrev <buffer> boolean NOPENOPENOPE
   autocmd FileType java       :iabbrev <buffer> br break<left>
   autocmd FileType java       :iabbrev <buffer> break NOPENOPENOPE
-  autocmd FileType java       :iabbrev <buffer> by byte<left>
-  autocmd FileType java       :iabbrev <buffer> byte NOPENOPENOPE
   autocmd FileType java       :iabbrev <buffer> ca case<left>
   autocmd FileType java       :iabbrev <buffer> case NOPENOPENOPE
 augroup END
