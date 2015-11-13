@@ -287,8 +287,6 @@ augroup filetype_java
   autocmd FileType java       :iabbrev <buffer> return NOPENOPENOPE
   autocmd FileType java       :iabbrev <buffer> ab abstract<left>
   autocmd FileType java       :iabbrev <buffer> abstract NOPENOPENOPE
-  autocmd FileType java       :iabbrev <buffer> as assert<left>
-  autocmd FileType java       :iabbrev <buffer> assert NOPENOPENOPE
   autocmd FileType java       :iabbrev <buffer> bo boolean<left>
   autocmd FileType java       :iabbrev <buffer> boolean NOPENOPENOPE
   autocmd FileType java       :iabbrev <buffer> br break<left>
