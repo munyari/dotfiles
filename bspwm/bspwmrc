@@ -13,10 +13,12 @@ bspc config initial_polarity second_child
 bspc config ignore_ewmh_focus true
 
 # Workspace *
-bspc rule -a firefox floating=on
+bspc rule -a connman-gtk floating=on
+bspc rule -a dmenu border=on
 bspc rule -a feh floating=on
 bspc rule -a file-roller floating=on
-bspc rule -a dmenu border=on
+bspc rule -a firefox floating=on
+bspc rule -a pavucontrol floating=on
 bspc rule -a thunar floating=on
 
 # set wallpaper
@@ -36,4 +38,5 @@ devmon &
 
 # Compton
 compton --config ~/.config/compton/compton.conf &
+
 #compton --backend glx --paint-on-overlay --vsync opengl-swc &

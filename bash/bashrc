@@ -4,9 +4,11 @@ PATH=$PATH:/home/nash/.gem/ruby/2.2.0/bin
 export PATH
 
 # aliases
+# compile and run java source with junit
 alias junitc='javac -cp .:/opt/junit-4.12/junit-4.12.jar'
 alias junit='java -cp .:/opt/junit-4.12/junit-4.12.jar:/opt/junit-4.12/hamcrest-core-1.3.jar org.junit.runner.JUnitCore'
 alias wifi='sudo bash ~/restart-wifi.sh'
 # updates pacman's mirror list with the reflector tool
 alias umirror='sudo reflector -- sort rate -- save /etc/pacman.d/mirrorlist -c "United States"'
-
+# connman gui
+alias cg='connman-gtk'
