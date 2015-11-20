@@ -12,3 +12,5 @@ alias wifi='sudo bash ~/restart-wifi.sh'
 alias umirror='sudo reflector -- sort rate -- save /etc/pacman.d/mirrorlist -c "United States"'
 # connman gui
 alias cg='connman-gtk'
+# tarsnap backup
+alias tbackup='sudo /root/tarsnap-backup.sh'

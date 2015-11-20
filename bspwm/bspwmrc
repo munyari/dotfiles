@@ -18,6 +18,7 @@ bspc rule -a dmenu border=on
 bspc rule -a feh floating=on
 bspc rule -a file-roller floating=on
 bspc rule -a firefox floating=on
+bspc rule -a nautilus floating=on
 bspc rule -a pavucontrol floating=on
 bspc rule -a thunar floating=on
 
@@ -25,7 +26,8 @@ bspc rule -a thunar floating=on
 sh ~/.config/feh/fehbg &
 
 # lemonbar startup
-sh ~/.config/panel/bar.sh | lemonbar -p &
+# TODO: move font stuff to the script itself. It doesn't belong here!
+sh ~/.config/panel/bar.sh | lemonbar -p -f "Input\ Mono\ Medium:size=8"&
 
 # Launches mpd
 mpd &
