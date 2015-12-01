@@ -2,18 +2,22 @@
 # bspwm hotkeys
 #
 
+# quit bspwm
 super + alt + Escape
 	bspc quit
 
+# close window
 super + w
 	bspc window -c
 
+# maximize current windo
 super + t
 	bspc desktop -l next
 
 super + b
 	bspc desktop -B
 
+# floating and full screen
 super + {s,f}
 	bspc window -t {floating,fullscreen}
 
@@ -46,6 +50,7 @@ super + {comma,period}
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
+# select where to place the next window
 super + ctrl + {h,j,k,l}
 	bspc window -p {left,down,up,right}
 

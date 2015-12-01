@@ -5,3 +5,10 @@
 	ui = auto
 [core]
 	excludesfile = /home/nash/.gitignore_global
+[merge]
+	tool = vimdiff
+[alias]
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
