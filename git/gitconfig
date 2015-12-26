@@ -12,3 +12,7 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
+	di = diff
+	ch = checkout
+[push]
+	default = simple
