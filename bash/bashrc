@@ -2,7 +2,7 @@
 source ~/.git-completion.bash
 
 # environment variables
-export VISUAL='vim'
+export VISUAL='nvim'
 PATH=$PATH:/home/nash/.gem/ruby/2.2.0/bin
 export PATH
 
