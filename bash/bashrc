@@ -20,3 +20,5 @@ alias umirror='sudo reflector --sort rate --save /etc/pacman.d/mirrorlist -c "Un
 alias cg='connman-gtk'
 # tarsnap backup
 alias tbackup='sudo /root/tarsnap-backup.sh'
+# make vimdiff use nvim
+alias vimdiff='nvim -d'
