@@ -32,8 +32,11 @@ sh ~/.config/panel/bar.sh | lemonbar -p -f "Input\ Mono\ Medium:size=8"&
 # Launches mpd
 mpd &
 
-# redshit
-redshift -l 41.04:-73.71 &
+# redshift
+# purchase coordinates
+# redshift -l 41.04:-73.71 &
+# harare coordinates
+redshift -l -17.82:-31.05 &
 
 # autom usb mount
 devmon &
