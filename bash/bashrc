@@ -7,3 +7,8 @@ source ~/.bash_aliases
 export VISUAL='nvim'
 PATH=$PATH:/home/nash/.gem/ruby/2.2.0/bin
 export PATH
+
+# run startx at login
+if [[ $(tty) == /dev/tty1 ]]; then
+  exec startx
+fi
