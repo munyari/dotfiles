@@ -1,1 +1,2 @@
-/home/nash/.bash_aliases
+#!/bin/sh
+alias ls='ls --color --group-directories-first'
