@@ -1,14 +1,22 @@
 # script for git completion
-source ~/.git-completion.bash
+if [ -f ~/git-completion.bash ]; then
+  source ~/.git-completion.bash
+fi
 # aliases
-source ~/.bash_aliases
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
 
 # environment variables
-export VISUAL='nvim'
-PATH=$PATH:/home/nash/.gem/ruby/2.2.0/bin
-export PATH
+if [ -f ~/.env_var ]; then
+  source ~/.env_var
+fi
 
 # run startx at login
 if [[ $(tty) == /dev/tty1 ]]; then
   exec startx
+fi
+# Run twolfson/sexy-bash-prompt
+if [ -f ~/.bash_prompt ]; then
+  source ~/.bash_prompt
 fi
