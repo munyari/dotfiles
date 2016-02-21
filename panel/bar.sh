@@ -1,3 +1,4 @@
+#!/bin/sh
 # Fetch infos on your computer, and print them to stdout every second.
 
 clock() {
