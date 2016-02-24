@@ -40,7 +40,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 
 " auto-close parentheses
-Plug 'vim-scripts/AutoClose'
+Plug 'jiangmiao/auto-pairs'
 
 " base16 colors
 Plug 'chriskempson/base16-vim'
