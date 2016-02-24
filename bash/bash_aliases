@@ -1,2 +1,3 @@
 #!/bin/sh
 alias ls='ls --color --group-directories-first'
+alias cg='connman-gtk'
