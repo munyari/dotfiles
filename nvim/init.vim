@@ -12,6 +12,9 @@ inoremap <left>  <nop>
 inoremap <right> <nop>
 " }}}
 
+" NERDTree toggle
+nnoremap <leader>p :NERDTreeToggle<CR>
+
 " tab settings
 set expandtab
 set shiftwidth=2
@@ -56,6 +59,9 @@ Plug 'scrooloose/nerdtree'
 
 " shows git file changes
 Plug 'airblade/vim-gitgutter'
+
+" C++ syntax highlighting
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 " }}}
 
