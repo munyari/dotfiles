@@ -15,6 +15,12 @@ inoremap <right> <nop>
 " NERDTree toggle
 nnoremap <leader>p :NERDTreeToggle<CR>
 
+" RSpec.vim mappings
+nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>s :call RunNearestSpec()<CR>
+nnoremap <Leader>l :call RunLastSpec()<CR>
+nnoremap <Leader>a :call RunAllSpecs()<CR>
+
 " tab settings
 set expandtab
 set shiftwidth=2
@@ -62,6 +68,9 @@ Plug 'airblade/vim-gitgutter'
 
 " C++ syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
+
+" rspec in vim
+Plug 'thoughtbot/vim-rspec'
 call plug#end()
 " }}}
 
