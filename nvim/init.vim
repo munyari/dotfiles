@@ -74,6 +74,9 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 " rspec in vim
 Plug 'thoughtbot/vim-rspec'
+
+" Rails in vim
+Plug 'tpope/vim-rails'
 call plug#end()
 " }}}
 
