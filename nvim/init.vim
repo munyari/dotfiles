@@ -15,6 +15,10 @@ inoremap <right> <nop>
 " make space bar leader key
 let mapleader="\<Space>"
 
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
 " NERDTree toggle
 nnoremap <leader>p :NERDTreeToggle<CR>
 
@@ -100,6 +104,9 @@ Plug 'Yggdroot/indentLine'
 
 " asynchronus autocompletion
 Plug 'Shougo/deoplete.nvim'
+
+" vim tmux integration
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 " }}}
 "" Show the 80th column
@@ -135,6 +142,9 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldenable
 augroup END
 " }}}
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
 
 " GitGutter settings --{{{
 let g:gitgutter_sign_modified = 'Δ'
