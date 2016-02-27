@@ -24,6 +24,10 @@ nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
 nnoremap <Leader>a :call RunAllSpecs()<CR>
 
+" Vim better whitespace mappings
+nnoremap <Leader>w :StripWhitespace<CR>
+nnoremap <Leader>W :ToggleWhitespace<CR>
+
 " tab settings
 set expandtab
 set shiftwidth=2
@@ -79,6 +83,9 @@ Plug 'tpope/vim-rails'
 
 " autocloses def end in ruby, etc
 Plug 'tpope/vim-endwise'
+
+" whitespace stuff
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 " }}}
 
@@ -87,11 +94,6 @@ if (exists('+colorcolumn'))
   set colorcolumn=80
   highlight ColorColumn ctermbg=9
 endif
-
-
-" eof character
-set list
-set listchars=eol:¬,extends:…,precedes:…,tab:\ \
 
 " make vim write to swap file more frequently
 set updatetime=250
