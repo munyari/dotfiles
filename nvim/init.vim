@@ -28,6 +28,9 @@ nnoremap <Leader>a :call RunAllSpecs()<CR>
 nnoremap <Leader>w :StripWhitespace<CR>
 nnoremap <Leader>W :ToggleWhitespace<CR>
 
+" rainbow parentheses mappings
+nnoremap <Leader>r :RainbowParenthesesToggle<CR>
+
 " tab settings
 set expandtab
 set shiftwidth=2
@@ -89,9 +92,10 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " fancy start screen
 Plug 'mhinz/vim-startify'
+" rainbow parentheses
+Plug 'kien/rainbow_parentheses.vim'
 call plug#end()
 " }}}
-
 "" Show the 80th column
 if (exists('+colorcolumn'))
   set colorcolumn=80
@@ -130,6 +134,13 @@ augroup END
 let g:gitgutter_sign_modified = 'Δ'
 let g:gitgutter_sign_modified_removed = '∎'
 let g:gitgutter_sign_removed = '⨯'
+" }}}
+
+" rainbow parentheses settings --{{{
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 " }}}
 
 " color scheme settings
