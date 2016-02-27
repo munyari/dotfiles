@@ -45,8 +45,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 
 " status bar
-" Plug 'bling/vim-airline'
-Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-airline'
 
 " auto-close parentheses
 Plug 'jiangmiao/auto-pairs'
@@ -77,6 +76,9 @@ Plug 'thoughtbot/vim-rspec'
 
 " Rails in vim
 Plug 'tpope/vim-rails'
+
+" autocloses def end in ruby, etc
+Plug 'tpope/vim-endwise'
 call plug#end()
 " }}}
 
