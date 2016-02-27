@@ -110,6 +110,8 @@ Plug 'christoomey/vim-tmux-runner'
 
 " gotham color scheme
 Plug 'whatyouhide/vim-gotham'
+
+Plug 'edkolev/tmuxline.vim'
 call plug#end()
 " }}}
 "" Show the 80th column
