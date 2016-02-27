@@ -92,8 +92,11 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " fancy start screen
 Plug 'mhinz/vim-startify'
+
 " rainbow parentheses
 Plug 'kien/rainbow_parentheses.vim'
+
+Plug 'Yggdroot/indentLine'
 call plug#end()
 " }}}
 "" Show the 80th column
