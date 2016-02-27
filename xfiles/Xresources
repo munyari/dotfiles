@@ -1,4 +1,4 @@
-#include "/home/nash/.colors/base-16/base16-ocean.dark.256.xresources"
+#include "/home/nash/.files/colors/gotham.xresources"
 
 ! clean up urxvt, add keybinds
 URxvt.intensityStyles: false
@@ -48,3 +48,5 @@ URxvt.url-launcher: /usr/bin/firefox
 ! clipboard
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
+

@@ -61,9 +61,6 @@ Plug 'bling/vim-airline'
 " auto-close parentheses
 Plug 'jiangmiao/auto-pairs'
 
-" base16 colors
-Plug 'chriskempson/base16-vim'
-
 " Gist
 Plug 'vim-scripts/Gist.vim'
 
@@ -107,6 +104,12 @@ Plug 'Shougo/deoplete.nvim'
 
 " vim tmux integration
 Plug 'christoomey/vim-tmux-navigator'
+
+" vim tmux runner
+Plug 'christoomey/vim-tmux-runner'
+
+" gotham color scheme
+Plug 'whatyouhide/vim-gotham'
 call plug#end()
 " }}}
 "" Show the 80th column
@@ -162,5 +165,4 @@ au Syntax * RainbowParenthesesLoadBraces
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
-" color scheme settings
-source $XDG_CONFIG_HOME/nvim/colors.vim
+colorscheme gotham
