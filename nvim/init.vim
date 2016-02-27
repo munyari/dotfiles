@@ -12,6 +12,9 @@ inoremap <left>  <nop>
 inoremap <right> <nop>
 " }}}
 
+" make space bar leader key
+let mapleader="\<Space>"
+
 " NERDTree toggle
 nnoremap <leader>p :NERDTreeToggle<CR>
 
