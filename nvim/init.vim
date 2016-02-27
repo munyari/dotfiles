@@ -97,6 +97,9 @@ Plug 'mhinz/vim-startify'
 Plug 'kien/rainbow_parentheses.vim'
 
 Plug 'Yggdroot/indentLine'
+
+" asynchronus autocompletion
+Plug 'Shougo/deoplete.nvim'
 call plug#end()
 " }}}
 "" Show the 80th column
@@ -145,6 +148,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 " }}}
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 " color scheme settings
 source $XDG_CONFIG_HOME/nvim/colors.vim
