@@ -86,6 +86,9 @@ Plug 'tpope/vim-endwise'
 
 " whitespace stuff
 Plug 'ntpeters/vim-better-whitespace'
+
+" fancy start screen
+Plug 'mhinz/vim-startify'
 call plug#end()
 " }}}
 
