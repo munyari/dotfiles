@@ -20,3 +20,17 @@ fi
 if [ -f ~/.bash_prompt ]; then
   source ~/.bash_prompt
 fi
+
+# auto attach tmux session when shell is opened
+_not_inside_tmux() {
+  [[ -z "$TMUX" ]]
+}
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tat
+  fi
+}
+
+ensure_tmux_is_running
+
