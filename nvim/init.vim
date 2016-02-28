@@ -112,6 +112,8 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'whatyouhide/vim-gotham'
 
 Plug 'edkolev/tmuxline.vim'
+
+Plug 'amirh/HTML-AutoCloseTag'
 call plug#end()
 " }}}
 "" Show the 80th column
