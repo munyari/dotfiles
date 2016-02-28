@@ -99,8 +99,10 @@ Plug 'kien/rainbow_parentheses.vim'
 
 Plug 'Yggdroot/indentLine'
 
-" asynchronus autocompletion
-Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+  " asynchronus autocompletion
+  Plug 'Shougo/deoplete.nvim'
+endif
 
 " vim tmux integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -198,3 +200,11 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " }}}
 
 colorscheme gotham
+
+"" A hack around a small nvim/vim
+" incompatability about how they handle <C-h> https://goo.gl/NCkU2D
+" This makes vim-tmux-navigator work. Hopefully will be fixed upstream
+" soon
+if has('nvim')
+  nnoremap <BS> <C-w>h
+endif
