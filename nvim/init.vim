@@ -1,17 +1,6 @@
 " line numbers
 set number
 
-" disable arrow keys --{{{
-nnoremap <up>    <nop>
-nnoremap <down>  <nop>
-nnoremap <left>  <nop>
-nnoremap <right> <nop>
-inoremap <up>    <nop>
-inoremap <down>  <nop>
-inoremap <left>  <nop>
-inoremap <right> <nop>
-" }}}
-
 " stop vim's annoying habit of moving cursor one left when leaving insert
 let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
