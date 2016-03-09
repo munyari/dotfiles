@@ -12,8 +12,22 @@ inoremap <left>  <nop>
 inoremap <right> <nop>
 " }}}
 
+" stop vim's annoying habit of moving cursor one left when leaving insert
+let CursorColumnI = 0 "the cursor column position in INSERT
+autocmd InsertEnter * let CursorColumnI = col('.')
+autocmd CursorMovedI * let CursorColumnI = col('.')
+autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+" esc mapped to ii in insert mode --{{{
+inoremap ii <Esc>
+inoremap <Esc> <nop>
+" }}}
+
 " make space bar leader key
 let mapleader="\<Space>"
+
+" source init.vim
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>ev :e $MYVIMRC<CR>
 
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
@@ -34,6 +48,12 @@ nnoremap <Leader>W :ToggleWhitespace<CR>
 
 " rainbow parentheses mappings
 nnoremap <Leader>r :RainbowParenthesesToggle<CR>
+
+" vtr mappings
+nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
+
+" auto save mapping
+nnoremap <leader>as :AutoSaveToggle<CR>
 
 " tab settings
 set expandtab
@@ -99,6 +119,9 @@ Plug 'kien/rainbow_parentheses.vim'
 
 Plug 'Yggdroot/indentLine'
 
+" Plug 'wikitopian/hardmode'
+Plug 'takac/vim-hardtime'
+
 if has('nvim')
   " asynchronus autocompletion
   Plug 'Shougo/deoplete.nvim'
@@ -116,6 +139,11 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'edkolev/tmuxline.vim'
 
 Plug 'amirh/HTML-AutoCloseTag'
+
+Plug '907th/vim-auto-save'
+
+"Fuzzy file finding
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 " }}}
 "" Show the 80th column
@@ -154,6 +182,13 @@ augroup END
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+
+" vim hard mode is default
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+let g:hardtime_default_on = 1
+let g:hardtime_timeout = 1000
+let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:hardtime_allow_different_key = 1
 
 " GitGutter settings --{{{
 let g:gitgutter_sign_modified = 'Δ'
@@ -198,6 +233,16 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " }}}
+
+" vim rspec settings
+let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+
+" vim startify settings
+let g:startify_bookmarks = [{'v':'~/.config/nvim/init.vim'}]
+
+"auto save settings
+let g:auto_save = 1 " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0
 
 colorscheme gotham
 
