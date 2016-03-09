@@ -12,15 +12,12 @@ URxvt.iso14755_52: false
 ! URxvt config
 URxvt.scrollstyle: plain
 URxvt.font: xft:InputMono:size=12
-!URxvt.font: xft:Iosevka:size=12
-!URxvt*.transparent: true
 URxvt*.shading: 1
 
 ! terminal padding
 URxvt.internalBorder: 15
 
 ! make otf/ttf fonts look good
-!Xft.dpi: 160
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -30,7 +27,7 @@ Xft.rgba: rgb
 
 
 ! Scrollbar
-!*scrollBar: false
+*scrollBar: false
 
 ! And scrolling
 *scrollTtyOutput: false
