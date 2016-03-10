@@ -6,31 +6,28 @@ let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
-" esc mapped to ii in insert mode --{{{
-inoremap ii <Esc>
-inoremap <Esc> <nop>
-" }}}
 
 " make space bar leader key
 let mapleader="\<Space>"
 
-" source init.vim
-nnoremap <Leader>sv :source $MYVIMRC<CR>
-nnoremap <Leader>ev :e $MYVIMRC<CR>
+" credit to Chris Toomey
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '~/.config/nvim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
+endfunction 
 
-" zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
-
-" NERDTree toggle
-nnoremap <leader>p :NERDTreeToggle<CR>
+call s:SourceConfigFilesIn('mappings')
+call s:SourceConfigFilesIn('plugins')
 
 " RSpec.vim mappings
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
-nnoremap <Leader>a :call RunAllSpecs()<CR>
-
+nnoremap <Leader>a :call RunAllSpecs()<CR> 
 " Vim better whitespace mappings
 nnoremap <Leader>w :StripWhitespace<CR>
 nnoremap <Leader>W :ToggleWhitespace<CR>
@@ -78,9 +75,6 @@ Plug 'myusuf3/numbers.vim'
 
 " comments
 Plug 'tpope/vim-commentary'
-
-" file tree browser
-Plug 'scrooloose/nerdtree'
 
 " shows git file changes
 Plug 'airblade/vim-gitgutter'
