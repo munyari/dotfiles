@@ -6,6 +6,5 @@ xrdb -I$HOME/.colors -merge ~/.Xresources
 # run wallpaper
 sh ~/.config/feh/fehbg &
 
-sxhkd &
 xsetroot -cursor_name left_ptr &
-exec bspwm
+exec xmonad
