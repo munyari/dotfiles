@@ -3,10 +3,13 @@ xrdb -load ~/.Xresources &
 
 xrdb -I$HOME/.colors -merge ~/.Xresources
 
-# run wallpaper
-sh ~/.config/feh/fehbg &
+# run wallpaper - custom script
+wallpaper &
 
 xsetroot -cursor_name left_ptr &
+
+# screen locking with xautolock and slock
+xautolock -time 10 -locker slock &
 
 unclutter &
 
