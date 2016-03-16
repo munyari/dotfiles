@@ -7,4 +7,9 @@ xrdb -I$HOME/.colors -merge ~/.Xresources
 sh ~/.config/feh/fehbg &
 
 xsetroot -cursor_name left_ptr &
+
+unclutter &
+
+redshift &
+
 exec xmonad
