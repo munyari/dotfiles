@@ -16,3 +16,5 @@
 	ch = checkout
 [push]
 	default = simple
+[github]
+	user = munyari
