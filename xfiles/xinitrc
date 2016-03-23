@@ -3,6 +3,9 @@ xrdb -load ~/.Xresources &
 
 xrdb -I$HOME/.colors -merge ~/.Xresources
 
+# custom keybinding
+xmodmap ~/.xmodmap
+
 # run wallpaper - custom script
 wallpaper &
 
@@ -14,5 +17,7 @@ xautolock -time 10 -locker slock &
 unclutter &
 
 redshift &
+
+xmobar &
 
 exec xmonad
