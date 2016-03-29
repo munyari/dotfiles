@@ -77,3 +77,9 @@ colorscheme gotham
 if has('nvim')
   nnoremap <BS> <C-w>h
 endif
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
