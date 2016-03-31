@@ -34,3 +34,5 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh

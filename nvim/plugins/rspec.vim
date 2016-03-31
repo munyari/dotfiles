@@ -7,7 +7,4 @@ let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
-nnoremap <Leader>a :call RunAllSpecs()<CR> 
-" Vim better whitespace mappings
-nnoremap <Leader>w :StripWhitespace<CR>
-nnoremap <Leader>W :ToggleWhitespace<CR>
+nnoremap <Leader>a :call RunAllSpecs()<CR>
