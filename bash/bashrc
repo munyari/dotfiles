@@ -34,5 +34,11 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
+# TODO: extract such utilities to own script and bring under VC
+weather() {
+  curl "http://wttr.in/$1"
+}
+
 source /usr/share/chruby/chruby.sh
 source /usr/share/chruby/auto.sh
+chruby 2.3.0
