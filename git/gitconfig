@@ -1,10 +1,13 @@
 [user]
 	name = Panashe M. Fundira
 	email = fundirap@gmail.com
+        signingkey = 51BF74B5
 [color]
 	ui = auto
 [core]
 	excludesfile = /home/nash/.gitignore_global
+[commit]
+        gpgsign = true
 [merge]
 	tool = vimdiff
 [alias]
