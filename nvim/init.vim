@@ -45,7 +45,10 @@ set scrolloff=3
 " set cursorline
 
 " creates undofile, allows undo even after closing
-set undofile
+if has('persistent_undo')
+    set undolevels=5000
+    set undofile
+endif
 
 set background=dark
 
@@ -83,3 +86,20 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+
+" make focused split larger than others
+set winwidth=84
+set winheight=5
+set winminheight=5
+set winheight=999
+
+" swap file rotated after 10 keystrokes (never lose more than 10 keystrokes
+" if something goes wrong). Default is 200
+set updatecount=10
+
+" always split below/right
+set splitbelow
+set splitright
+
+" lazyredraw can make macros run faster
+set lazyredraw          " redraw only when we need to.
