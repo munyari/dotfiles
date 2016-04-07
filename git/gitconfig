@@ -1,23 +1,31 @@
 [user]
 	name = Panashe M. Fundira
 	email = fundirap@gmail.com
-        signingkey = 51BF74B5
+	signingkey = 51BF74B5
 [color]
 	ui = auto
 [core]
 	excludesfile = /home/nash/.gitignore_global
-[commit]
-        gpgsign = true
 [merge]
 	tool = vimdiff
 [alias]
+	a = add
+	aa = add --all
 	ci = commit
-	st = status
-	unstage = reset HEAD --
+	cm = commit -m
+	co = checkout
+	d = diff
+	glog = log -E -i --grep
+	l = log --oneline --decorate --graph --all
 	last = log -1 HEAD
-	di = diff
-	ch = checkout
+	ls = log --oneline --graph --decorate --simplify-by-decoration
+	p = push
+	s = status --short --branch
+	su = stash -u
+	unstage = reset HEAD --
 [push]
 	default = simple
 [github]
 	user = munyari
+[commit]
+	gpgsign = true
