@@ -23,6 +23,7 @@
 	s = status --short --branch
 	su = stash -u
 	unstage = reset HEAD --
+	can = commit --amend --no-edit
 [push]
 	default = simple
 [github]
