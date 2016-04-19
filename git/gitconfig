@@ -24,6 +24,8 @@
 	su = stash -u
 	unstage = reset HEAD --
 	can = commit --amend --no-edit
+	cob = checkout -b
+	ap = add --patch
 [push]
 	default = simple
 [github]

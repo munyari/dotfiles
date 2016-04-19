@@ -39,3 +39,7 @@ Thumbs.db
 # vim swap files #
 ##################
 *~
+
+# tag files #
+#############
+tags
