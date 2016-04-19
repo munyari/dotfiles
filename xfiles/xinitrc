@@ -4,9 +4,14 @@ xrdb -load ~/.Xresources &
 xrdb -I$HOME/.colors -merge ~/.Xresources
 
 # custom keybinding
-if [-s ~/.Xmodmap ]; then
+if [ -s ~/.Xmodmap ]; then
   xmodmap ~/.Xmodmap
 fi
+
+xbindkeys &
+
+# let control key serve function of both CTRL and ESC
+xcape &
 
 # run wallpaper - custom script
 wallpaper &
