@@ -103,3 +103,8 @@ set splitright
 
 " lazyredraw can make macros run faster
 set lazyredraw          " redraw only when we need to.
+
+
+
+" Automatically enter insert when entering a terminal window
+autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
