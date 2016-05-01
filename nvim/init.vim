@@ -87,12 +87,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" make focused split larger than others
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
-
 " swap file rotated after 10 keystrokes (never lose more than 10 keystrokes
 " if something goes wrong). Default is 200
 set updatecount=10
