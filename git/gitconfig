@@ -27,14 +27,14 @@
 	l = log --oneline --decorate --graph --all -20
 	last = log -1 HEAD
 	ls = log --oneline --graph --decorate --simplify-by-decoration
-	mup = "!git checkout master && git pull && git checkout -" 
+	mup = "!git checkout master && git pull && git checkout -"
 	p = push
 	ri = rebase -i
 	su = stash -u
 	unchange = checkout --
 	uncommit = reset --soft HEAD^
 	unstage = reset HEAD --
-
+	vdf = difftool
 [push]
 	default = upstream
 [github]
@@ -43,3 +43,14 @@
 	gpgsign = true
 [fetch]
 	prune = true
+[gitsh]
+	noGreeting = true
+	defaultCommand = status --short --branch && :echo
+[gitsh "color"]
+	default = cyan
+	untracked = yellow
+	modified = red
+[merge]
+	tool = vimdiff
+[mergetool "vimdiff"]
+	cmd = "nvim -d  \"$LOCAL\" \"$REMOTE\""
