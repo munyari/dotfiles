@@ -28,12 +28,12 @@ Config { font = "xft:Work Sans:size=10"
                     , Run Cpu ["-L","3","-H","50",
                                "--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run BatteryP ["BAT1"] ["-t", "<fc=#0099CC>Bat:</fc> <acstatus><left>% (<timeleft>)", "--", "-O", "Charging, ", "-o", ""] 150
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }\
-                    \{ <fc=#ee9a00>%date%</fc>| %KHPN% | %uname%"
+       , template = "%cpu% | %memory% | %eth0% - %eth1% }\
+                    \{ <fc=#ee9a00>%date%</fc>| %KHPN% | %battery% | %uname%"
        }
