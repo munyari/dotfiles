@@ -1,5 +1,4 @@
--- Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-Config { font = "xft:Work Sans:size=10"
+Config { font = "xft:Droid Sans:size=11"
        , additionalFonts = []
        , borderColor = "black"
        , border = TopB
