@@ -16,7 +16,8 @@ Config { font = "xft:Droid Sans:size=11"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Weather "KHPN" ["-t","<station>: <tempC>C",
+       , commands = [
+                    Run Weather "KNYC" ["-t","<station>: <tempC>C",
                                           "-L","18","-H","25",
                                           "--normal","green",
                                           "--high","red",
@@ -35,5 +36,5 @@ Config { font = "xft:Droid Sans:size=11"
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%cpu% | %memory% | %wlp3s0% - %enp0s25% }\
-                    \{ <fc=#ee9a00>%date%</fc>| %KHPN% | %battery% | %uname%"
+                    \ <fc=#ee9a00>%date%</fc>{ %KNYC% | %battery% | %uname%"
        }
