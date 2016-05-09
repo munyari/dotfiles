@@ -1,10 +1,11 @@
 Config { font = "xft:Droid Sans:size=11"
        , additionalFonts = []
        , borderColor = "black"
-       , border = TopB
-       , bgColor = "black"
-       , fgColor = "grey"
-       , alpha = 255
+       , border = NoBorder
+       , bgColor = "#0a0f14"
+       --, fgColor = "grey"
+       , fgColor = "#98d1ce"
+       , alpha = 200
        , position = Top
        , textOffset = -1
        , iconOffset = -1
