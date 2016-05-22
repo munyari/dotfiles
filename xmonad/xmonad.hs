@@ -1,13 +1,14 @@
+import System.IO
 import XMonad
 import XMonad.Actions.SpawnOn
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
-import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
-import System.IO
+import XMonad.Util.Run(spawnPipe)
 import qualified XMonad.StackSet as W
 
 -- preferred terminal
@@ -59,6 +60,9 @@ myKeys = [ ("<Print>", spawn "scrot -e 'mkdir -p ~/images/shots && mv $f ~/image
          -- , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
          ]
 
+myLogHook :: X()
+myLogHook = fadeInactiveLogHook fadeAmount where fadeAmount = 0.8
+
 main = xmonad $ defaultConfig
       { modMask = myModMask
       , terminal = myTerminal
@@ -70,6 +74,7 @@ main = xmonad $ defaultConfig
       , manageHook = manageDocks <+> myManageHook <+> manageSpawn
       , layoutHook = myLayoutHook
       , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
+      , logHook = myLogHook
       } `additionalKeysP` myKeys
       -- -- TODO: Screen locking (xscreensaver?)
       -- [ (( myModMask, xK_f), spawn "firefox") -- to open firefox
