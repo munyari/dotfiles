@@ -32,14 +32,6 @@ source /usr/share/chruby/chruby.sh
 source /usr/share/chruby/auto.sh
 chruby 2.3.0
 
-alias n=nvim
-alias gu=guard
-alias b=bundle
-alias ra=rails
-alias dbresetseed="bundle exec rake db:migrate:reset && bundle exec rake db:seed"
-alias rs="rails server"
-alias zc="nvim ~/.zshrc"
-alias zr=". ~/.zshrc"
 # TODO: make a shell function za which will without arguments open the alias file
 # or with arguments will make the first argument an alias for the second and reload the config
 

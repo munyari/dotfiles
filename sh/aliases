@@ -1,4 +1,12 @@
 #!/bin/bash
 
-alias ls='ls --color --group-directories-first'
+alias b=bundle
 alias be='bundle exec'
+alias dbresetseed="bundle exec rake db:migrate:reset && bundle exec rake db:seed"
+alias gu=guard
+alias ls='ls --color --group-directories-first'
+alias n=nvim
+alias ra=rails
+alias rs="rails server"
+alias zc="nvim ~/.zshrc"
+alias zr=". ~/.zshrc"
