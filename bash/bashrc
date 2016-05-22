@@ -3,8 +3,8 @@ if [ -f ~/git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 # aliases
-if [ -f ~/.bash_aliases ]; then
-  source ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
 fi
 
 # environment variables

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-alias aliases='nvim ~/.bash_aliases'
-alias code='cd ~/code'
-alias d='cd ~/.files'
-alias ls='ls --color --group-directories-first'
-alias be='bundle exec'
-# use nvim for vimdiff
-alias vimdiff='nvim -d'
