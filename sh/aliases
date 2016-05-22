@@ -7,6 +7,7 @@ alias gu=guard
 alias ls='ls --color --group-directories-first'
 alias n=nvim
 alias ra=rails
+alias rc="rails console"
 alias rs="rails server"
 alias zc="nvim ~/.zshrc"
 alias zr=". ~/.zshrc"
