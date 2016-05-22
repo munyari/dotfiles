@@ -1,0 +1,56 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+#
+
+# No arguments: `git status`
+# With arguments: acts like `git`
+g() {
+  if [[ $# > 0 ]]; then
+    hub $@
+  else
+    hub status --short --branch
+  fi
+}
+
+# Complete g like git
+compdef g=git
+
+source ~/.env_var
+
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
+chruby 2.3.0
+
+alias n=nvim
+alias gu=guard
+alias b=bundle
+alias ra=rails
+alias dbresetseed="bundle exec rake db:migrate:reset && bundle exec rake db:seed"
+alias rs="rails server"
+alias zc="nvim ~/.zshrc"
+alias zr=". ~/.zshrc"
+# TODO: make a shell function za which will without arguments open the alias file
+# or with arguments will make the first argument an alias for the second and reload the config
+
+em() {
+  emacs $1 &> /dev/null &
+}
+
+# aliases
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+fi
+
+# syntax highlighting in z shell
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
