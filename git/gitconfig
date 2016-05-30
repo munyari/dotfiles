@@ -16,6 +16,7 @@
 	aa = add --all
 	ap = add --patch
 	b = branch
+	bd = branch -d
 	browse = "!hub browse"
 	can = commit --amend --no-edit
 	ci = commit
