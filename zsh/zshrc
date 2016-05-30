@@ -28,6 +28,19 @@ g() {
   fi
 }
 
+# auto attach tmux session when shell is opened
+_not_inside_tmux() {
+  [[ -z "$TMUX" ]]
+}
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tat
+  fi
+}
+
+ensure_tmux_is_running
+
 # Complete g like git
 compdef g=git
 
