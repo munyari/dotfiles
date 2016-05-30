@@ -2,12 +2,16 @@
 
 alias b=bundle
 alias be='bundle exec'
+alias bm='bundle exec rake db:migrate'
+alias brownnoise='play -c 2 -n synth brownnoise'
 alias dbresetseed="bundle exec rake db:migrate:reset && bundle exec rake db:seed"
 alias gu=guard
 alias ls='ls --color --group-directories-first'
 alias n=nvim
+alias pinknoise='play -c 2 -n synth pinknoise'
 alias ra=rails
 alias rc="rails console"
 alias rs="rails server"
+alias whitenoise='play -c 2 -n synth whitenoise'
 alias zc="nvim ~/.zshrc"
 alias zr=". ~/.zshrc"
