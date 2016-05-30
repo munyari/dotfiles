@@ -13,6 +13,11 @@ fi
 # Customize to your needs...
 #
 
+# run startx at login
+if [[ $(tty) == /dev/tty1 ]]; then
+  exec startx
+fi
+
 # No arguments: `git status`
 # With arguments: acts like `git`
 g() {
