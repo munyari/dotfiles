@@ -44,8 +44,6 @@ ensure_tmux_is_running
 # Complete g like git
 compdef g=git
 
-source ~/.env_var
-
 source /usr/share/chruby/chruby.sh
 source /usr/share/chruby/auto.sh
 chruby 2.3.0
@@ -60,6 +58,11 @@ em() {
 # aliases
 if [ -f ~/.aliases ]; then
   source ~/.aliases
+fi
+
+# environment variable definitions
+if [ -f ~/.aliases ]; then
+  source ~/.env_var
 fi
 
 # syntax highlighting in z shell
