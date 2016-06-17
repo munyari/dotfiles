@@ -28,6 +28,20 @@ g() {
   fi
 }
 
+al() {
+  if [[ $# > 0 ]]; then
+    if type $1 > /dev/null; then
+      echo "Error: command" $1 "exists" 1>&2
+      return 1
+    else
+      echo alias $1=\"$2\" >> ~/.aliases
+    fi
+  else
+    nvim ~/.aliases
+  fi
+  source ~/.aliases
+}
+
 # auto attach tmux session when shell is opened
 _not_inside_tmux() {
   [[ -z "$TMUX" ]]
