@@ -68,6 +68,14 @@ augroup filetype_vim
 augroup END
 " }}}
 
+" Rust file settings --------------------{{{
+augroup filetype_rust
+  autocmd!
+  autocmd FileType rust setlocal tags=./rusty-tags.vi;/
+  autocmd BufWrite *.rs :silent exec "!rusty-tags vi --start-dir=" . expand('%:p:h') . "&"
+augroup END
+" }}}
+
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
