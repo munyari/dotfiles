@@ -111,3 +111,7 @@ set lazyredraw          " redraw only when we need to.
 " Automatically enter insert when entering a terminal window
 autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
 let g:tex_conceal = ""
+
+let g:markdown_fenced_languages = ['ruby', 'bash=sh', 'python']
+let g:markdown_syntax_conceal = 0
+
