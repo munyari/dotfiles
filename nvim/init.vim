@@ -115,3 +115,5 @@ let g:tex_conceal = ""
 let g:markdown_fenced_languages = ['ruby', 'bash=sh', 'python']
 let g:markdown_syntax_conceal = 0
 
+" never conceal text from me. Ever
+let g:conceallevel=0
