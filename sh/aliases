@@ -2,16 +2,24 @@
 
 alias b=bundle
 alias be='bundle exec'
+alias bjs="bundle exec jekyll serve"
 alias bm='bundle exec rake db:migrate'
 alias brownnoise='play -c 2 -n synth brownnoise'
 alias c="cargo"
 alias cb="cargo build"
+alias cl="clear"
 alias cr="cargo run"
 alias ct="cargo test"
+alias cw="cargo watch"
 alias dbresetseed="bundle exec rake db:migrate:reset && bundle exec rake db:seed"
+alias ef="exercism fetch"
+alias exc="~/code/programming-problems/exercism.io"
 alias gu=guard
+alias gw="gcc -Wconversion"
 alias ls='ls --color --group-directories-first'
 alias n=nvim
+alias news="newsbeuter"
+alias ntest="LC_ALL=C make test && make oldtest"
 alias pinknoise='play -c 2 -n synth pinknoise'
 alias ra=rails
 alias rc="rails console"
@@ -21,7 +29,3 @@ alias vg="vimgolf put"
 alias whitenoise='play -c 2 -n synth whitenoise'
 alias zc="nvim ~/.zshrc"
 alias zr=". ~/.zshrc"
-alias cl="clear"
-alias exc="~/code/programming-problems/exercism.io"
-alias cw="cargo watch"
-alias ef="exercism fetch"
