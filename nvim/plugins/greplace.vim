@@ -1,1 +1,0 @@
-Plug 'skwp/greplace.vim'
