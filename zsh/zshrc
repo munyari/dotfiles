@@ -47,6 +47,8 @@ _not_inside_tmux() {
   [[ -z "$TMUX" ]]
 }
 
+export PATH=$HOME/bin:$PATH
+
 ensure_tmux_is_running() {
   if _not_inside_tmux; then
     tat
@@ -80,11 +82,12 @@ SSH_ENV="$HOME/.ssh/environment"
 
 start_agent() {
     echo "Initialising new SSH agent..."
+    # >! is zsh-syntax to clobber with noclobber set (>| in bash)
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' >! "${SSH_ENV}"
     echo succeeded
     chmod 600 "${SSH_ENV}"
     . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
+    /usr/bin/ssh-add -t 7200;
 }
 
 # Source SSH settings, if applicable
