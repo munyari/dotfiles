@@ -62,9 +62,6 @@ source /usr/share/chruby/chruby.sh
 source /usr/share/chruby/auto.sh
 chruby 2.3.0
 
-# TODO: make a shell function za which will without arguments open the alias file
-# or with arguments will make the first argument an alias for the second and reload the config
-
 em() {
   emacs $1 &> /dev/null &
 }
@@ -77,6 +74,29 @@ fi
 # environment variable definitions
 if [ -f ~/.aliases ]; then
   source ~/.env_var
+fi
+
+SSH_ENV="$HOME/.ssh/environment"
+
+start_agent() {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' >! "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+  . "${SSH_ENV}" > /dev/null
+  #ps ${SSH_AGENT_PID} doesn't work under cywgin
+  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+  start_agent;
+}
+else
+  start_agent;
 fi
 
 # syntax highlighting in z shell
