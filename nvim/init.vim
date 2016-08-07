@@ -81,14 +81,6 @@ autocmd VimResized * :wincmd =
 
 colorscheme gotham
 
-"" A hack around a small nvim/vim
-" incompatability about how they handle <C-h> https://goo.gl/NCkU2D
-" This makes vim-tmux-navigator work. Hopefully will be fixed upstream
-" soon
-if has('nvim')
-  nnoremap <BS> <C-w>h
-endif
-
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
