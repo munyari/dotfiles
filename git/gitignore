@@ -43,3 +43,7 @@ Thumbs.db
 # tag files #
 #############
 tags
+
+# erlang/elixir byte code #
+###########################
+*.beam
