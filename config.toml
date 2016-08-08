@@ -1,0 +1,16 @@
+# add more filepaths here (relative to the root of this repo) to ignore more
+# TODO: find a good way to specify that I want to symlink whole directories
+# maybe a key called dir?
+# TODO: support wildcard patterns for shell
+ignore = ["tags", "install"]
+
+[zsh]
+zshrc = "~/.zshrc"
+
+[nvim]
+
+[git]
+git-completion = "~/.git-completion.bash"
+gitconfig = "~/.gitconfig"
+gitignore = "~/.gitignore_global"
+gitshrc = "~/.gitshrc"
