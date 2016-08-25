@@ -20,7 +20,7 @@ tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 
 " remove search highlighting in normal mode
-nnoremap <Esc> :nohlsearch<Esc>
+nnoremap <silent> <Esc> :nohlsearch<Esc>
 
 " make arrow keys do something useful
 nnoremap <Left> :vertical resize +2<CR>
