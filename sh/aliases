@@ -34,3 +34,7 @@ alias zr=". ~/.zshrc"
 alias xstuff="xrandr --output DP2 --auto"
 # TODO this should be a script that hooks into a keyboard being inserted
 alias keyboard="xmodmap ~/.Xmodmap; xbindkeys; xcape"
+alias ssh-bit="ssh-add -t 7200 ~/.ssh/bit-bucket"
+alias bi="beet import"
+alias update="sudo pacman -Syyu"
+alias uninstall="sudo pacman -Rns"
