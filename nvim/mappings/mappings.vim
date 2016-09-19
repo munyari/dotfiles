@@ -12,12 +12,14 @@ nnoremap <Leader>i mmgg=G`m<CR>
 " paste from system clipboard at proper indentation level
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
-" terminal naviagation mappings
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
+if (has('nvim'))
+  " terminal naviagation mappings
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+  tnoremap <C-l> <C-\><C-n><C-w>l
+endif
 
 " remove search highlighting in normal mode
 nnoremap <silent> <Esc> :nohlsearch<Esc>
@@ -27,3 +29,23 @@ nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
+
+" Easily upcase a word in normal mode
+nnoremap <leader><c-u> viWU
+"
+inoremap <leader><c-u> <esc>viWUi
+
+iabbrev <buffer> re return<left>
+iabbrev <buffer> return NOPENOPENOPE
+
+" A simple mapping to move lines down
+nnoremap <leader><down> ddp
+
+" vertical split with previous buffer
+nnoremap <leader>vs :execute "rightbelow vsplit " . bufname("#")<cr>
+
+" automatically make searches "very magic"
+nnoremap / /\v
+
+" change working directory to that of the current file
+nnoremap <silent><leader>cd :cd %:p:h<cr>

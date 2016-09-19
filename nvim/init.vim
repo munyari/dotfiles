@@ -1,6 +1,21 @@
 " line numbers
 set number
 
+if (!has('nvim'))
+  set smarttab
+  set autoindent
+  set wildmenu
+  source $VIMRUNTIME/defaults.vim " TODO: unnecessary with Vim8
+else
+  " Convenient command to see the difference between the current buffer and the
+  " file it was loaded from, thus the changes you made.
+  " Only define it when not defined already.
+  if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+          \ | wincmd p | diffthis
+  endif
+endif
+
 " stop vim's annoying habit of moving cursor one left when leaving insert
 let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
@@ -30,6 +45,8 @@ call plug#end()
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+" always round indent to a multiple of shift width
+set shiftround
 
 "" Show the 80th column
 if (exists('+colorcolumn'))
@@ -46,8 +63,8 @@ set scrolloff=3
 
 " creates undofile, allows undo even after closing
 if has('persistent_undo')
-    set undolevels=5000
-    set undofile
+  set undolevels=5000
+  set undofile
 endif
 
 set background=dark
@@ -67,6 +84,8 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldenable
 augroup END
 " }}}
+" TODO: If syntax is set, it seems to use that foldmethod, no matter what.
+" Find a way to fix this
 
 " Rust file settings --------------------{{{
 augroup filetype_rust
@@ -109,3 +128,16 @@ let g:markdown_syntax_conceal = 0
 
 " never conceal text from me. Ever
 let g:conceallevel=0
+
+if (has('nvim'))
+  set termguicolors
+endif
+
+" These mappings are more for inspiration than anything useful
+" Markdown file settings -------------------------------------------------{{{
+augroup filetype_md
+  autocmd!
+  autocmd FileType markdown   onoremap ih :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rkvg_"<cr>
+  autocmd FileType markdown   onoremap ah :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rg_vk0"<cr>
+augroup END
+" }}}
