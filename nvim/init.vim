@@ -74,6 +74,7 @@ set foldmethod=syntax
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+set foldcolumn=1
 " }}}
 
 
