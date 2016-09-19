@@ -1,3 +1,4 @@
+" basic settings {{{
 " line numbers
 set number
 
@@ -24,22 +25,6 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 
 " make space bar leader key
 let mapleader="\<Space>"
-
-" credit to Chris Toomey
-function! s:SourceConfigFilesIn(directory)
-  let directory_splat = '~/.config/nvim/' . a:directory . '/*'
-  for config_file in split(glob(directory_splat), '\n')
-    if filereadable(config_file)
-      execute 'source' config_file
-    endif
-  endfor
-endfunction
-
-call s:SourceConfigFilesIn('mappings')
-
-call plug#begin('~/.vim/plugged')
-call s:SourceConfigFilesIn('plugins')
-call plug#end()
 
 " tab settings
 set expandtab
@@ -69,15 +54,55 @@ endif
 
 set background=dark
 
+" always split below/right
+set splitbelow
+set splitright
+
+" never conceal text from me. Ever
+let g:conceallevel=0
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" lazyredraw can make macros run faster
+set lazyredraw          " redraw only when we need to.
+
+
+" Automatically enter insert when entering a terminal window
+autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
+" }}}
+
+" plugins and mappings {{{
+" credit to Chris Toomey
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '~/.config/nvim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
+endfunction
+
+call s:SourceConfigFilesIn('mappings')
+
+call plug#begin('~/.vim/plugged')
+call s:SourceConfigFilesIn('plugins')
+call plug#end()
+" }}}
+
 " folding settings {{{
-set foldmethod=syntax
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 set foldcolumn=1
 " }}}
 
-
+" Filetype settings {{{
 " Vimscript file settings --------------------{{{
 augroup filetype_vim
   autocmd!
@@ -85,8 +110,6 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldenable
 augroup END
 " }}}
-" TODO: If syntax is set, it seems to use that foldmethod, no matter what.
-" Find a way to fix this
 
 " Rust file settings --------------------{{{
 augroup filetype_rust
@@ -96,44 +119,6 @@ augroup filetype_rust
 augroup END
 " }}}
 
-" automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
-
-colorscheme gotham
-
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
-
-" swap file rotated after 10 keystrokes (never lose more than 10 keystrokes
-" if something goes wrong). Default is 200
-set updatecount=10
-
-" always split below/right
-set splitbelow
-set splitright
-
-" lazyredraw can make macros run faster
-set lazyredraw          " redraw only when we need to.
-
-
-
-" Automatically enter insert when entering a terminal window
-autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
-let g:tex_conceal = ""
-
-let g:markdown_fenced_languages = ['ruby', 'bash=sh', 'python']
-let g:markdown_syntax_conceal = 0
-
-" never conceal text from me. Ever
-let g:conceallevel=0
-
-if (has('nvim'))
-  set termguicolors
-endif
-
 " These mappings are more for inspiration than anything useful
 " Markdown file settings -------------------------------------------------{{{
 augroup filetype_md
@@ -141,4 +126,20 @@ augroup filetype_md
   autocmd FileType markdown   onoremap ih :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rkvg_"<cr>
   autocmd FileType markdown   onoremap ah :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rg_vk0"<cr>
 augroup END
+" }}}
+" }}}
+
+" Other filetype specific settings {{{
+let g:tex_conceal = ""
+
+let g:markdown_fenced_languages = ['ruby', 'bash=sh', 'python']
+let g:markdown_syntax_conceal = 0
+" }}}
+
+" color settings {{{
+colorscheme gotham
+
+if (has('nvim'))
+  set termguicolors
+endif
 " }}}
