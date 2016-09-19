@@ -22,3 +22,5 @@ then run
 ```
 ./install
 ```
+
+**NOTE:** This doesn't actually work yet. I'm working on it.
