@@ -6,7 +6,6 @@ if (!has('nvim'))
   set smarttab
   set autoindent
   set wildmenu
-  source $VIMRUNTIME/defaults.vim " TODO: unnecessary with Vim8
 else
   " Convenient command to see the difference between the current buffer and the
   " file it was loaded from, thus the changes you made.
