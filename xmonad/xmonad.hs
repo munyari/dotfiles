@@ -6,6 +6,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
 import XMonad.Util.Run(spawnPipe)
@@ -46,22 +47,12 @@ myLayoutHook = smartBorders(avoidStruts $ layoutHook defaultConfig)
 -- Default number of workspaces and their names.
 myWorkspaces = ["TERM", "WEB", "MEDIA", "TASKS", "OTHER"]
 
--- TODO: Let xbindkeys handle all non-default keybindings
-myKeys = [ ("<Print>", spawn "scrot -e 'mkdir -p ~/images/shots && mv $f ~/images/shots'")
-         , ("C-<Print>", spawn "scrot -ue 'mkdir -p ~/images/shots && mv $f ~/images/shots'")
-         , ("M1-<Print>", spawn "scrot -se 'mkdir -p ~/images/shots && mv $f ~/images/shots'")
-         , ("M-f", spawn "firefox")
-         -- dmenu_alias recognizes aliases and sorts by recent selection
-         , ("M-p", spawn "dmenu_alias")
-         -- , ("M-q", spawn "qutebrowser")
-         -- , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down")
-         -- , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up")
-         -- , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
-         -- , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5")
-         ]
-
 myLogHook :: X()
 myLogHook = fadeInactiveLogHook fadeAmount where fadeAmount = 0.8
+
+myStartupHook :: X()
+myStartupHook =
+  spawn "compton --backend glx -fcC"
 
 main = xmonad $ defaultConfig
       { modMask = myModMask
@@ -69,17 +60,10 @@ main = xmonad $ defaultConfig
       , borderWidth = myBorderWidth
       , normalBorderColor = myNormalBorderColor
       , focusedBorderColor = myFocusedBorderColor
-      -- , manageHook = manageDocks <+> manageHook defaultConfig
       , workspaces = myWorkspaces
       , manageHook = manageDocks <+> myManageHook <+> manageSpawn
       , layoutHook = myLayoutHook
       , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
       , logHook = myLogHook
-      } `additionalKeysP` myKeys
-      -- -- TODO: Screen locking (xscreensaver?)
-      -- [ (( myModMask, xK_f), spawn "firefox") -- to open firefox
-      -- -- screenshot with print screen
-      -- , (( 0, xK_Print), spawn "scrot -e 'mkdir -p ~/images/shots && mv $f ~/images/shots'")
-      -- -- capture region
-      -- , (( controlMask, xK_Print), spawn "scrot -se 'mkdir -p ~/images/shots && mv $f ~/images/shots'")
-      -- ]
+      , startupHook = setWMName "LG3D" <+> myStartupHook
+      }
