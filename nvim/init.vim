@@ -147,8 +147,11 @@ let g:markdown_syntax_conceal = 0
 " color settings {{{
 colorscheme gotham
 
-if (has('nvim'))
-  set termguicolors
+" Have Vim jump to the last position when
+" " reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g'\"" | endif
 endif
 " list format  {{{
 " Set up formatlistpat to handle various denotions of indention/ hierarchy
