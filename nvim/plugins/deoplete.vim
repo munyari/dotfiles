@@ -1,6 +1,6 @@
 if has('nvim')
   " asynchronus autocompletion
-  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 endif
 
 let g:deoplete#enable_at_startup = 1
