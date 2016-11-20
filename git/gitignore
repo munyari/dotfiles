@@ -6,6 +6,8 @@
 *.exe
 *.o
 *.so
+*.beam
+*.pdf
 
 # Packages #
 ############
@@ -44,6 +46,7 @@ Thumbs.db
 #############
 tags
 
-# erlang/elixir byte code #
-###########################
-*.beam
+# latex build artifacts #
+#########################
+*.aux
+*.out
