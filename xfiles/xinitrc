@@ -27,4 +27,4 @@ redshift &
 
 xmobar &
 
-exec xmonad
+exec bspwm
