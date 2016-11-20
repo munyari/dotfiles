@@ -60,9 +60,18 @@ set splitright
 " never conceal text from me. Ever
 let g:conceallevel=0
 
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+elseif executable('sift')
+  set grepprg=sift\ -nMs\ --no-color\ --binary-skip\ --column\ --no-group\ --git\ --follow
+  set grepformat=%f:%l:%c:%m
+elseif executable('ag')
+  set grepprg=ag\ --vimgrep\ --ignore=\"**.min.js\"
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+elseif executable('ack')
+  set grepprg=ack\ --nogroup\ --nocolor\ --ignore-case\ --column
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
 " automatically rebalance windows on vim resize
