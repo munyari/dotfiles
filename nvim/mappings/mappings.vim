@@ -12,9 +12,11 @@ nnoremap <Leader>i mmgg=G`m<CR>
 " paste from system clipboard at proper indentation level
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
-if (has('nvim'))
+if has('nvim')
   " terminal naviagation mappings
-  tnoremap <Esc> <C-\><C-n>
+  " TODO: I'm having some weird issues where I open a new terminal buffer
+  " and the window doesn't change, just enter insert mode
+  tnoremap <Esc><Esc> <C-\><C-n>:q<cr>
   tnoremap <C-h> <C-\><C-n><C-w>h
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
@@ -33,10 +35,7 @@ nnoremap <Down> :resize -2<CR>
 " Easily upcase a word in normal mode
 nnoremap <leader><c-u> viWU
 "
-inoremap <leader><c-u> <esc>viWUi
-
-iabbrev <buffer> re return<left>
-iabbrev <buffer> return NOPENOPENOPE
+" inoremap <leader><c-u> <esc>viWUi
 
 " A simple mapping to move lines down
 nnoremap <leader><down> ddp
@@ -49,3 +48,6 @@ nnoremap / /\v
 
 " change working directory to that of the current file
 nnoremap <silent><leader>cd :cd %:p:h<cr>
+
+" edit the previous buffer
+nnoremap <BS> <C-^>
