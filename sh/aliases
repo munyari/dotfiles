@@ -18,10 +18,9 @@ alias exc="~/code/programming-problems/exercism.io"
 alias gu=guard
 alias gw="gcc -Wconversion"
 alias id_rsa="pass -c id_rsa"
-alias ls='ls --color --group-directories-first'
+alias ls='ls --color --group-directories-first -F'
 alias n=nvim
 alias news="newsbeuter"
-alias ntest="LC_ALL=C make test && make oldtest"
 alias pinknoise='play -c 2 -n synth pinknoise'
 alias ra=rails
 alias rc="rails console"
@@ -38,3 +37,10 @@ alias ssh-bit="ssh-add -t 7200 ~/.ssh/bit-bucket"
 alias bi="beet import"
 alias update="sudo pacman -Syyu"
 alias uninstall="sudo pacman -Rns"
+
+# disk space usage
+alias df='df -kh'
+# file space usage
+alias du='du -kh'
+alias _='sudo'
+alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
