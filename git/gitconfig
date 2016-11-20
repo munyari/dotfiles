@@ -25,6 +25,7 @@
 	compare = "!hub compare"
 	d = diff
 	dc = diff --cached
+	dw = diff --word-diff
 	glog = log -E -i --grep
 	l = log --oneline --decorate --graph --all -20
 	last = log -1 HEAD
