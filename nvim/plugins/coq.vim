@@ -1,0 +1,1 @@
+Plug 'jvoorhis/coq.vim'
