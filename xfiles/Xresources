@@ -46,4 +46,6 @@ URxvt.url-launcher: /usr/bin/firefox
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
-
+st.font: Input Mono-12:pixelsize=17:antialias=true:autohint=true;
+st.cursorshape: 3
+st.cursorthickness: 1
