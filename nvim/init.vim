@@ -121,6 +121,7 @@ set foldcolumn=1
 " Vimscript file settings --------------------{{{
 augroup filetype_vim
   autocmd!
+  autocmd FileType vim setlocal foldcolumn=1
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType vim setlocal foldenable
 augroup END
