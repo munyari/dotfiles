@@ -44,3 +44,4 @@ alias df='df -kh'
 alias du='du -kh'
 alias _='sudo'
 alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
+alias z="zathura"
