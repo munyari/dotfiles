@@ -8,8 +8,6 @@ if [ -s ~/.Xmodmap ]; then
   xmodmap ~/.Xmodmap
 fi
 
-xbindkeys &
-
 # let control key serve function of both CTRL and ESC
 xcape &
 
