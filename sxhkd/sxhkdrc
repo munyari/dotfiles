@@ -18,6 +18,38 @@ super + p
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# function buttons
+XF86MonBrightnessDown
+	xbacklight -dec 5
+
+XF86MonBrightnessUp
+	xbacklight -inc 5
+
+XF86AudioRaiseVolume
+	amixer -c 1 set Master 5+
+
+XF86AudioLowerVolume
+	amixer -c 1 set Master 5-
+
+XF86AudioMute
+	amixer -c 1 set Master toggle
+
+
+# take screenshots
+Print
+	scrot -e 'mkdir -p ~/images/shots && mv $f ~/images/shots'
+
+Control_R + Print
+	scrot -ue 'mkdir -p ~/images/shots && mv $f ~/images/shots'
+
+Control_L + Print
+	scrot -ue 'mkdir -p ~/images/shots && mv $f ~/images/shots'
+
+Alt_R + Print
+	scrot -se 'mkdir -p ~/images/shots && mv $f ~/images/shots'
+
+Alt_L + Print
+	scrot -se 'mkdir -p ~/images/shots && mv $f ~/images/shots'
 #
 # bspwm hotkeys
 #
