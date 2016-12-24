@@ -152,7 +152,9 @@ let g:markdown_syntax_conceal = 0
 " }}}
 
 " color settings {{{
-colorscheme gotham
+colorscheme jellybeans
+set termguicolors
+" }}}
 
 " Have Vim jump to the last position when
 " " reopening a file
