@@ -43,6 +43,6 @@ source /usr/share/chruby/chruby.sh
 source /usr/share/chruby/auto.sh
 chruby 2.3.0
 
-eval $(dircolors -b $XDG_CONFIG_HOME/dircolors)
+eval $(dircolors -b $HOME/.dircolors)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
