@@ -35,8 +35,8 @@ alias xstuff="xrandr --output DP2 --auto"
 alias keyboard="xmodmap ~/.Xmodmap; xbindkeys; xcape"
 alias ssh-bit="ssh-add -t 7200 ~/.ssh/bit-bucket"
 alias bi="beet import"
-alias update="sudo pacman -Syyu"
-alias uninstall="sudo pacman -Rns"
+alias update="pacaur -Syyu"
+alias uninstall="pacaur -Rns"
 
 # disk space usage
 alias df='df -kh'
