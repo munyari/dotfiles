@@ -1,11 +1,13 @@
 " basic settings {{{
 " line numbers
 set number
+set relativenumber
 
-if (!has('nvim'))
+if !has('nvim')
   set smarttab
   set autoindent
   set wildmenu
+  syntax enable
 else
   " Convenient command to see the difference between the current buffer and the
   " file it was loaded from, thus the changes you made.
@@ -33,7 +35,7 @@ set softtabstop=2
 set shiftround
 
 "" Show the 80th column
-if (exists('+colorcolumn'))
+if exists('+colorcolumn')
   set colorcolumn=80
   highlight ColorColumn ctermbg=9
 endif
@@ -83,6 +85,7 @@ set lazyredraw          " redraw only when we need to.
 
 " Automatically enter insert when entering a terminal window
 autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
+" autocmd BufEnter * if &buftype == "terminal" | setlocal nonumber | endif
 " }}}
 
 " plugins and mappings {{{
@@ -114,7 +117,6 @@ call plug#end()
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
-set foldcolumn=1
 " }}}
 
 " Filetype settings {{{
@@ -143,7 +145,7 @@ augroup filetype_md
   autocmd FileType markdown   onoremap ah :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rg_vk0"<cr>
 augroup END
 " }}}
-" }}}
+" " }}}
 
 " Other filetype specific settings {{{
 let g:tex_conceal = ""
@@ -163,6 +165,11 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g'\"" | endif
 endif
+
+
+" source init.vim when it is changed
+autocmd! bufwritepost init.vim source %
+
 " Automatically open, but do not go to (if there are errors) the quickfix /
 " location list window, or close it when is has become empty.
 "

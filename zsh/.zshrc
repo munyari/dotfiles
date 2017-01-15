@@ -46,8 +46,8 @@ if [ -f ~/.aliases ]; then
 fi
 
 # Gotham Shell
-GOTHAM_SHELL="$HOME/.config/gotham/gotham.sh"
-[[ -s $GOTHAM_SHELL ]] && source $GOTHAM_SHELL
+# GOTHAM_SHELL="$HOME/.config/gotham/gotham.sh"
+# [[ -s $GOTHAM_SHELL ]] && source $GOTHAM_SHELL
 
 SSH_ENV="$HOME/.ssh/environment"
 
@@ -77,3 +77,13 @@ fi
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /home/nash/Downloads/google-cloud-sdk/path.zsh.inc ]; then
+  source '/home/nash/Downloads/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /home/nash/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/home/nash/Downloads/google-cloud-sdk/completion.zsh.inc'
+fi

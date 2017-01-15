@@ -26,13 +26,13 @@ XF86MonBrightnessUp
 	xbacklight -inc 5
 
 XF86AudioRaiseVolume
-	amixer -c 1 set Master 5+
+	amixer -D pulse sset Master 5%+
 
 XF86AudioLowerVolume
-	amixer -c 1 set Master 5-
+	amixer -D pulse sset Master 5%-
 
 XF86AudioMute
-	amixer -c 1 set Master toggle
+	amixer -D pulse sset Master toggle
 
 
 # take screenshots

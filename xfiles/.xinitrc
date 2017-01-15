@@ -29,4 +29,6 @@ xmobar &
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
+wmname LG3D
+
 exec bspwm

@@ -45,3 +45,8 @@ alias du='du -kh'
 alias _='sudo'
 alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 alias z="zathura"
+alias aon="source /opt/anaconda2/bin/activate root"
+alias aoff="source /opt/anaconda2/bin/deactivate root"
+source /home/nash/code/fastai/courses/setup/aws-alias.sh
+alias aws-mount-t2="sshfs -C ubuntu@35.166.12.90: /home/nash/code/fastai/t2 -o IdentityFile=/home/nash/.ssh/aws-key.pem"
+alias aws-mount-p2="sshfs -C ubuntu@35.167.166.118: /home/nash/code/fastai/p2 -o IdentityFile=/home/nash/.ssh/aws-key.pem"
