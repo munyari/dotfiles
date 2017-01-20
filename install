@@ -1,0 +1,16 @@
+#!/bin/env bash
+
+for dir in */
+do
+  for file in $(ls -A "$dir")
+  do
+    existing_file=../"$file"
+    if [[ -f "$existing_file" ]] && [[ ! -L "$existing_file" ]]
+    then
+      mkdir -p ../conflicts
+      printf "Moving "$existing_file" to ../conflicts/"$file""
+      mv "$existing_file" ../conflicts
+    fi
+  done
+  stow "$dir"
+done
