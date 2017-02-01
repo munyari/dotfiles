@@ -211,3 +211,6 @@ set formatlistpat+=\\\|^\\s*[-+o*]\\s\\+
 " apply formatting to lists
 set formatoptions+=n
 " }}}
+
+" nvim's new inccommand feature to see live previews
+set inccommand=nosplit
