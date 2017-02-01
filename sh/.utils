@@ -11,17 +11,18 @@ g() {
 
 # edit aliases defined for this shell
 al() {
+  alias_file=~/.aliases
   if [[ $# > 0 ]]; then
     if type $1 > /dev/null; then
       echo "Error: command" $1 "exists" 1>&2
       return 1
     else
-      echo alias $1=\"$2\" >> ~/.aliases
+      echo alias $1=\"$2\" >> "$alias_file"
     fi
   else
-    nvim ~/.aliases
+    nvim "$alias_file"
   fi
-  source ~/.aliases
+  source "$alias_file"
 }
 
 md_to_pdf() {
