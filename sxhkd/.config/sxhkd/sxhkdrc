@@ -8,8 +8,7 @@ super + Return
 
 # program launcher
 super + space
-	rofi -show drun -terminal st -lines 5 -eh 3 -width 100 -padding 350 -opacity 80 -bw 0 -bc "#555555" -bg "#222222" -hlbg "#222222" -hlfg "#c79595" -font "InputMono 15"
-	# dmenu-frecency
+	rofi -show combi
 
 super + p
 	passmenu
