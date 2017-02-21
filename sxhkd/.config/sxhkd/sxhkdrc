@@ -73,6 +73,12 @@ super + y
 super + g
 	bspc node -s biggest
 
+super + d
+	qutemark
+
+super + f
+	firefox
+
 #
 # state/flags
 #
@@ -157,4 +163,4 @@ super + {Left,Down,Up,Right}
 
 # lock my screen
 F12
-	slock
+	physlock
