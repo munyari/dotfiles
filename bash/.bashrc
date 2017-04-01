@@ -39,9 +39,9 @@ weather() {
   curl "http://wttr.in/$1"
 }
 
-source /usr/share/chruby/chruby.sh
-source /usr/share/chruby/auto.sh
-chruby 2.3.0
+[ -f /usr/share/chruby/chruby.sh ] && source /usr/share/chruby/chruby.sh
+[ -f /usr/share/chruby/auto.sh ] && source /usr/share/chruby/auto.sh
+type chruby > /dev/null 2>&1 && chruby 2.3.0
 
 eval $(dircolors -b $HOME/.dircolors)
 
