@@ -1,1 +1,1 @@
-Plug 'chip/vim-fat-finger'
+" Plug 'chip/vim-fat-finger'

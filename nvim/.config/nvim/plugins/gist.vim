@@ -1,3 +1,3 @@
-Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
+" Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 
-let g:gist_detect_filetype = 1
+" let g:gist_detect_filetype = 1

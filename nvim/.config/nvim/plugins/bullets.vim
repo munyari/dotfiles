@@ -1,1 +1,1 @@
-Plug 'dkarter/bullets.vim'
+" Plug 'dkarter/bullets.vim'

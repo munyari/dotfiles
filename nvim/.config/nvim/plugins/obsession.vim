@@ -1,1 +1,1 @@
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
