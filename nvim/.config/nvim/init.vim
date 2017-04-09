@@ -214,3 +214,6 @@ set termguicolors
 
 " nvim's new inccommand feature to see live previews
 set inccommand=nosplit
+
+" automatically put additions to unnamed reg in clipboard ('+' reg)
+set clipboard=unnamedplus
