@@ -28,11 +28,11 @@ set relativenumber
 let mapleader="\<Space>"
 
 " " tab settings
-" set expandtab
-" set shiftwidth=2
-" set softtabstop=2
-" " always round indent to a multiple of shift width
-" set shiftround
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+" always round indent to a multiple of shift width
+set shiftround
 
 " "" Show the 80th column
 " if exists('+colorcolumn')
@@ -217,3 +217,12 @@ set inccommand=nosplit
 
 " automatically put additions to unnamed reg in clipboard ('+' reg)
 set clipboard=unnamedplus
+
+" ignore files matching this pattern
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+
+" completion options for wildmenu
+set wildmode=longest,list,full
+
+set completeopt+=longest,menuone
+
