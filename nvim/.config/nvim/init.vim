@@ -25,7 +25,7 @@ set relativenumber
 " autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
 " " make space bar leader key
-" let mapleader="\<Space>"
+let mapleader="\<Space>"
 
 " " tab settings
 " set expandtab
