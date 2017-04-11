@@ -38,3 +38,7 @@ em() {
   emacs $1 &> /dev/null &
 }
 
+weather() {
+  curl "http://wttr.in/$1?m"
+}
+
