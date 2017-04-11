@@ -4,8 +4,6 @@ sxhkd &
 
 compton --backend glx &
 
-devmon --exec-on-label "backup" /usr/local/bin/backup &>/tmp/devmon.log &
-
 # make java gui apps work
 wmane LG3D
 
