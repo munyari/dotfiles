@@ -226,3 +226,5 @@ set wildmode=longest,list,full
 
 set completeopt+=longest,menuone
 
+call denite#custom#var('file_rec', 'command',
+  \ ['rg', '--files', '--glob', '!.git', ''])
