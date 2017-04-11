@@ -21,7 +21,7 @@ _not_inside_tmux() {
 }
 
 ensure_tmux_is_running() {
-  if _not_inside_tmux; then
+  if _not_inside_tmux && type tat > /dev/null 2>&1; then
     tat
   fi
 }
@@ -31,9 +31,11 @@ ensure_tmux_is_running
 # Complete g like git
 compdef g=git
 
-source /usr/share/chruby/chruby.sh
-source /usr/share/chruby/auto.sh
-chruby 2.3.0
+if  type chruby > /dev/null 2>&1; then
+  source /usr/share/chruby/chruby.sh
+  source /usr/share/chruby/auto.sh
+  chruby 2.3.0
+fi
 
 # shell utility functions
 if [ -f ~/.utils ]; then
