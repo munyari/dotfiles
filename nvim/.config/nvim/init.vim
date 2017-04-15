@@ -18,11 +18,11 @@ set relativenumber
 "   endif
 " endif
 
-" " stop vim's annoying habit of moving cursor one left when leaving insert
-" let CursorColumnI = 0 "the cursor column position in INSERT
-" autocmd InsertEnter * let CursorColumnI = col('.')
-" autocmd CursorMovedI * let CursorColumnI = col('.')
-" autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+" stop vim's annoying habit of moving cursor one left when leaving insert
+let CursorColumnI = 0 "the cursor column position in INSERT
+autocmd InsertEnter * let CursorColumnI = col('.')
+autocmd CursorMovedI * let CursorColumnI = col('.')
+autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
 " " make space bar leader key
 let mapleader="\<Space>"
