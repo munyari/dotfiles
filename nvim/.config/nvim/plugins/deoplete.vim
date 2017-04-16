@@ -1,9 +1,8 @@
-" if has('nvim')
-"   " asynchronus autocompletion
-"   Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-" endif
+" asynchronus autocompletion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
 
-" " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
