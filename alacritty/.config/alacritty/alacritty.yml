@@ -48,64 +48,6 @@ font:
 # Should display the render timer
 render_timer: false
 
-# Colors (Tomorrow Night Bright)
-colors:
-  # Default colors
-  primary:
-    background: '0x080808'
-    foreground: '0x808080'
-
-  # Normal colors
-  normal:
-    black:   '0x080808'
-    red:     '0xd75f5f'
-    green:   '0x87af5f'
-    yellow:  '0xffaf5f'
-    blue:    '0x87afd7'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0x424242'
-
-  # Bright colors
-  bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0x2a2a2a'
-
-# # Colors (Solarized Dark)
-# colors:
-#   # Default colors
-#   primary:
-#     background: '0x002b36'
-#     foreground: '0x839496'
-
-#   # Normal colors
-#   normal:
-#     black:   '0x073642'
-#     red:     '0xdc322f'
-#     green:   '0x859900'
-#     yellow:  '0xb58900'
-#     blue:    '0x268bd2'
-#     magenta: '0xd33682'
-#     cyan:    '0x2aa198'
-#     white:   '0xeee8d5'
-
-#   # Bright colors
-#   bright:
-#     black:   '0x002b36'
-#     red:     '0xcb4b16'
-#     green:   '0x586e75'
-#     yellow:  '0x657b83'
-#     blue:    '0x839496'
-#     magenta: '0x6c71c4'
-#     cyan:    '0x93a1a1'
-#     white:   '0xfdf6e3'
-
 # Key bindings
 #
 # Each binding is defined as an object with some properties. Most of the
@@ -208,3 +150,33 @@ mouse_bindings:
 #  program: /bin/bash
 #  args:
 #    - --login
+
+# Argonaut (color)
+colors:
+  # Default colors
+  primary:
+    background: '0x0d0f18'
+    foreground: '0xfffaf3'
+
+  # Normal colors
+  normal:
+    black:   '0x222222'
+    red:     '0xff000f'
+    green:   '0x8ce00a'
+    yellow:  '0xffb900'
+    blue:    '0x008df8'
+    magenta: '0x6c43a5'
+    cyan:    '0x00d7eb'
+    white:   '0xffffff'
+
+  # Bright colors
+  bright:
+    black:   '0x444444'
+    red:     '0xff273f'
+    green:   '0xabe05a'
+    yellow:  '0xffd141'
+    blue:    '0x0092ff'
+    magenta: '0x9a5feb'
+    cyan:    '0x67ffef'
+    white:   '0xffffff'
+
