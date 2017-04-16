@@ -163,4 +163,4 @@ super + {Left,Down,Up,Right}
 
 # lock my screen
 F12
-	physlock
+	~/.local/bin/lock
