@@ -1,7 +1,7 @@
 #!/bin/bash
 # No arguments: `git status`
 # With arguments: acts like `git`
-g() {
+function g() {
   if [[ $# > 0 ]]; then
     hub $@
   else
@@ -10,7 +10,7 @@ g() {
 }
 
 # edit aliases defined for this shell
-al() {
+function al() {
   alias_file=~/.aliases
   if [[ $# > 0 ]]; then
     if type $1 > /dev/null; then
@@ -25,7 +25,7 @@ al() {
   source "$alias_file"
 }
 
-md_to_pdf() {
+function md_to_pdf() {
   NEW_PDF="${1%.*}".pdf
   if pandoc -t latex -s $1 -o "$NEW_PDF"; then
     zathura "$NEW_PDF" &> /dev/null &
@@ -34,11 +34,14 @@ md_to_pdf() {
   fi
 }
 
-em() {
+function em() {
   emacs $1 &> /dev/null &
 }
 
-weather() {
+function weather() {
   curl "http://wttr.in/$1?m"
 }
 
+function ssh-aws() {
+  ssh -i ~/.ssh/mville.pem ubuntu@"$1"
+}
