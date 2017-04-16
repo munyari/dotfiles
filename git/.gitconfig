@@ -39,6 +39,8 @@
 	uncommit = reset --soft HEAD^
 	unstage = reset HEAD --
 	vdf = difftool
+[url "https://aur.archlinux.org/"]
+  insteadOf = "a:"
 [push]
 	default = upstream
 [github]
