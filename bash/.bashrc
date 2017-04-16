@@ -46,3 +46,6 @@ type chruby > /dev/null 2>&1 && chruby 2.3.0
 eval $(dircolors -b $HOME/.dircolors)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# enable extended globbing
+shopt -s extglob
