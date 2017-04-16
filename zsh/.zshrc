@@ -43,37 +43,31 @@ if [ -f ~/.utils ]; then
 fi
 
 # aliases
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
-fi
+[ -f ~/.aliases ] && source ~/.aliases
 
-# Gotham Shell
-# GOTHAM_SHELL="$HOME/.config/gotham/gotham.sh"
-# [[ -s $GOTHAM_SHELL ]] && source $GOTHAM_SHELL
+# SSH_ENV="$HOME/.ssh/environment"
 
-SSH_ENV="$HOME/.ssh/environment"
+# start_agent() {
+#   echo "Initialising new SSH agent..."
+#   # >! is zsh-syntax to clobber with noclobber set (>| in bash)
+#   /usr/bin/ssh-agent | sed 's/^echo/#echo/' >! "${SSH_ENV}"
+#   echo succeeded
+#   chmod 600 "${SSH_ENV}"
+#   . "${SSH_ENV}" > /dev/null
+#   /usr/bin/ssh-add -t 7200w;
+# }
 
-start_agent() {
-    echo "Initialising new SSH agent..."
-    # >! is zsh-syntax to clobber with noclobber set (>| in bash)
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' >! "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add -t 7200;
-}
+# # Source SSH settings, if applicable
 
-# Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-  . "${SSH_ENV}" > /dev/null
-  #ps ${SSH_AGENT_PID} doesn't work under cywgin
-  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-  start_agent;
-}
-else
-  start_agent;
-fi
+# if [ -f "${SSH_ENV}" ]; then
+#   . "${SSH_ENV}" > /dev/null
+#   #ps ${SSH_AGENT_PID} doesn't work under cywgin
+#   ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#   start_agent;
+# }
+# else
+#   start_agent;
+# fi
 
 # syntax highlighting in z shell
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
