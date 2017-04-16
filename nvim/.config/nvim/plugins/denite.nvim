@@ -1,3 +1,4 @@
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 
+nnoremap <unique> <c-space> :Denite file_rec buffer <cr>
 " vim:ft=vim
