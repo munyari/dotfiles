@@ -3,7 +3,8 @@ Plug 'tpope/vim-fugitive'
 
 nnoremap <silent><leader>gbl      :Gblame<cr>
 nnoremap <silent><leader>gbr      :Gbrowse<cr>
-nnoremap <silent><leader>gc       :Gcommit<cr>
+nnoremap <silent><leader>gc       :Gcommit -v<cr>
+nnoremap <silent><leader>gd       :Gdiff<cr>
 nnoremap <silent><leader>gg       :Ggrep<cr>
 nnoremap <silent><leader>gm       :Gmerge<cr>
 nnoremap <silent><leader>gpl      :Gpull<cr>
