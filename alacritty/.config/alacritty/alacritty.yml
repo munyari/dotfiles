@@ -180,3 +180,9 @@ colors:
     cyan:    '0x67ffef'
     white:   '0xffffff'
 
+window:
+  dimensions:
+    columns: 84
+    lines: 24
+
+  padding: 5
