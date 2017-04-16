@@ -84,6 +84,8 @@ if [ -f /home/nash/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
   source '/home/nash/Downloads/google-cloud-sdk/completion.zsh.inc'
 fi
 
+eval $(dircolors -b /usr/share/LS_COLORS)
+
 # Set GPG TTY
 export GPG_TTY=$(tty)
 
