@@ -46,7 +46,8 @@ Thumbs.db
 #############
 tags
 
-# latex build artifacts #
-#########################
+# build artifacts #
+###################
 *.aux
 *.out
+.stack-work/
