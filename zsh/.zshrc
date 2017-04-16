@@ -38,9 +38,7 @@ if  type chruby > /dev/null 2>&1; then
 fi
 
 # shell utility functions
-if [ -f ~/.utils ]; then
-  source ~/.utils
-fi
+[[ -f ~/.utils ]] && source ~/.utils
 
 # aliases
 [ -f ~/.aliases ] && source ~/.aliases
