@@ -3,6 +3,7 @@ alacritty-git
 alsa-firmware
 alsa-plugins
 alsa-tools
+anki
 arch-audit
 arch-wiki-docs
 autoconf
@@ -26,7 +27,6 @@ compton
 conky
 connman
 connman-gtk
-ctags
 dropbox-cli
 dunst
 elixir
@@ -39,8 +39,10 @@ fbreader
 file-roller
 firefox
 firejail
+flashplugin
 flex
 fmo
+foldingathome
 fontconfig-ttf-ms-fonts
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
@@ -77,6 +79,7 @@ irssi
 isync
 jfsutils
 keybase
+konsole
 laptop-mode-tools
 libreoffice-fresh
 libtinfo
@@ -95,9 +98,11 @@ man-db
 man-pages
 mdadm
 memtest86+
+mosh
 mpc
 mpdcron-git
 mpv
+mupdf
 nano
 nautilus
 neofetch
@@ -111,9 +116,11 @@ notmuch-mutt
 ntp
 nvm
 offlineimap
+otf-fira-code
 otf-fira-mono
 otf-fira-sans
 otf-font-awesome
+otf-hasklig
 pacaur
 parabola-keyring
 pass-tomb
@@ -121,7 +128,6 @@ patch
 pavucontrol
 pcmciautils
 pdftk-bin
-pepper-flash
 physlock
 pkg-config
 pkgtools
@@ -179,6 +185,7 @@ ttf-roboto
 ttf-roboto-mono
 udevil
 unclutter-xfixes-git
+universal-ctags-git
 urw-garamond
 usbutils
 vi
