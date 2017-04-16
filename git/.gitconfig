@@ -41,6 +41,8 @@
 	vdf = difftool
 [url "https://aur.archlinux.org/"]
   insteadOf = "a:"
+[url "https://github.com/"]
+  insteadOf = "g:"
 [push]
 	default = upstream
 [github]
