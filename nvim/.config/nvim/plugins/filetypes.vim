@@ -45,16 +45,11 @@
 " let g:haskell_indent_case = 4
 " " }}}
 
-" " latex {{{
-" Plug 'lervag/vimtex', { 'for': 'tex' }
-" " let g:vimtex_enabled = 0
-" let g:vimtex_view_method = 'zathura'
-
-" Plug 'xuhdev/vim-latex-live-preview'
-" let g:livepreview_previewer='zathura'
-" " make this local to tex
-" autocmd BufWritePost *.tex :VimtexCompile
-" " }}}
+" latex {{{
+Plug 'lervag/vimtex', { 'for': 'tex' }
+" let g:vimtex_enabled = 0
+let g:vimtex_view_method = 'zathura'
+" }}}
 
 " " markdown {{{
 " Plug 'tpope/vim-markdown', { 'for': 'markdown' }
