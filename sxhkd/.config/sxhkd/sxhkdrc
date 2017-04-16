@@ -49,6 +49,16 @@ Alt_R + Print
 
 Alt_L + Print
 	scrot -se 'mkdir -p ~/images/shots && mv $f ~/images/shots'
+
+super + d
+	qutemark
+
+super + f
+	firefox
+
+super + c
+	connman-gtk
+
 #
 # bspwm hotkeys
 #
@@ -72,12 +82,6 @@ super + y
 # swap the current node and the biggest node
 super + g
 	bspc node -s biggest
-
-super + d
-	qutemark
-
-super + f
-	firefox
 
 #
 # state/flags
