@@ -1,16 +1,16 @@
 " source init.vim
-nnoremap <Leader>sv :source $MYVIMRC<CR>
-nnoremap <Leader>ev :e $MYVIMRC<CR>
+nnoremap <unique> <Leader>sv :source $MYVIMRC<CR>
+nnoremap <unique> <Leader>ev :e $MYVIMRC<CR>
 
 " zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
+nnoremap <unique> <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <unique> <leader>= :wincmd =<cr>
 
 " indent and return to the same line
-nnoremap <Leader>i mmgg=G`m<CR>
+nnoremap <unique> <Leader>i mmgg=G`m<CR>
 
 " paste from system clipboard at proper indentation level
-nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+nnoremap <unique> <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 if has('nvim')
   " terminal naviagation mappings
@@ -24,30 +24,34 @@ if has('nvim')
 endif
 
 " remove search highlighting in normal mode
-nnoremap <silent> <Esc> :nohlsearch<Esc>
+nnoremap <unique> <silent> <Esc> :nohlsearch<Esc>
 
 " make arrow keys do something useful
-nnoremap <Left> :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
+nnoremap <unique> <Left> :vertical resize +2<CR>
+nnoremap <unique> <Right> :vertical resize -2<CR>
+nnoremap <unique> <Up> :resize +2<CR>
+nnoremap <unique> <Down> :resize -2<CR>
 
 " Easily upcase a word in normal mode
-nnoremap <leader><c-u> viWU
+nnoremap <unique> <leader><c-u> viWU
 "
 " inoremap <leader><c-u> <esc>viWUi
 
 " A simple mapping to move lines down
-nnoremap <leader><down> ddp
+nnoremap <unique> <leader><down> ddp
 
 " vertical split with previous buffer
-nnoremap <leader>vs :execute "rightbelow vsplit " . bufname("#")<cr>
+nnoremap <unique> <leader>vs :execute "rightbelow vsplit " . bufname("#")<cr>
 
 " automatically make searches "very magic"
-nnoremap / /\v
+nnoremap <unique> / /\v
 
 " change working directory to that of the current file
-nnoremap <silent><leader>cd :cd %:p:h<cr>
+nnoremap <unique> <silent><leader>cd :cd %:p:h<cr>
 
 " edit the previous buffer
-nnoremap <BS> <C-^>
+nnoremap <unique> <BS> <C-^>
+
+" move to next and previous location
+nnoremap <unique> [l :lprevious<cr>
+nnoremap <unique> ]l :lnext<cr>
