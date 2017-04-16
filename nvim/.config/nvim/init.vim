@@ -3,21 +3,6 @@
 set number
 set relativenumber
 
-" if !has('nvim')
-"   set smarttab
-"   set autoindent
-"   set wildmenu
-"   syntax enable
-" else
-"   " Convenient command to see the difference between the current buffer and the
-"   " file it was loaded from, thus the changes you made.
-"   " Only define it when not defined already.
-"   if !exists(":DiffOrig")
-"     command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-"           \ | wincmd p | diffthis
-"   endif
-" endif
-
 " stop vim's annoying habit of moving cursor one left when leaving insert
 let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
@@ -40,9 +25,6 @@ set shiftround
 "   highlight ColorColumn ctermbg=9
 " endif
 
-" " make vim write to swap file more frequently
-" set updatetime=250
-
 " " minimal number of screen lines to keep below and above the cursor
 " set scrolloff=3
 " " set cursorline
@@ -53,31 +35,26 @@ if has('persistent_undo')
   set undofile
 endif
 
-" set background=dark
+" always split below/right
+set splitbelow
+set splitright
 
-" " always split below/right
-" set splitbelow
-" set splitright
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+elseif executable('sift')
+  set grepprg=sift\ -nMs\ --no-color\ --binary-skip\ --column\ --no-group\ --git\ --follow
+  set grepformat=%f:%l:%c:%m
+elseif executable('ag')
+  set grepprg=ag\ --vimgrep\ --ignore=\"**.min.js\"
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+elseif executable('ack')
+  set grepprg=ack\ --nogroup\ --nocolor\ --ignore-case\ --column
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 
-" " never conceal text from me. Ever
-" let g:conceallevel=0
-
-" if executable('rg')
-"   set grepprg=rg\ --vimgrep
-"   set grepformat=%f:%l:%c:%m
-" elseif executable('sift')
-"   set grepprg=sift\ -nMs\ --no-color\ --binary-skip\ --column\ --no-group\ --git\ --follow
-"   set grepformat=%f:%l:%c:%m
-" elseif executable('ag')
-"   set grepprg=ag\ --vimgrep\ --ignore=\"**.min.js\"
-"   set grepformat=%f:%l:%c:%m,%f:%l:%m
-" elseif executable('ack')
-"   set grepprg=ack\ --nogroup\ --nocolor\ --ignore-case\ --column
-"   set grepformat=%f:%l:%c:%m,%f:%l:%m
-" endif
-
-" " automatically rebalance windows on vim resize
-" autocmd VimResized * :wincmd =
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
 
 " " lazyredraw can make macros run faster
 " set lazyredraw          " redraw only when we need to.
