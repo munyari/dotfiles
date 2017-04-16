@@ -47,11 +47,11 @@ set shiftround
 " set scrolloff=3
 " " set cursorline
 
-" " creates undofile, allows undo even after closing
-" if has('persistent_undo')
-"   set undolevels=5000
-"   set undofile
-" endif
+" creates undofile, allows undo even after closing
+if has('persistent_undo')
+  set undolevels=5000
+  set undofile
+endif
 
 " set background=dark
 
