@@ -16,9 +16,6 @@ wallpaper &
 
 xsetroot -cursor_name left_ptr &
 
-# screen locking with xautolock and slock
-xautolock -time 10 -locker slock &
-
 unclutter &
 
 redshift &
