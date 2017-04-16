@@ -86,6 +86,13 @@ fi
 
 eval $(dircolors -b /usr/share/LS_COLORS)
 
+# allow editing the command line with editor
+autoload edit-command-line
+zle -N edit-command-line
+#
+# bound to Esc v in vi mode
+bindkey -M vicmd v edit-command-line
+
 # Set GPG TTY
 export GPG_TTY=$(tty)
 
