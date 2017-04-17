@@ -25,9 +25,8 @@ set shiftround
 "   highlight ColorColumn ctermbg=9
 " endif
 
-" " minimal number of screen lines to keep below and above the cursor
-" set scrolloff=3
-" " set cursorline
+" minimal number of screen lines to keep below and above the cursor
+set scrolloff=3
 
 " creates undofile, allows undo even after closing
 if has('persistent_undo')
