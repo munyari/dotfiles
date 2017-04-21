@@ -45,7 +45,7 @@ URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
 st.font: FiraCode-12:pixelsize=17:antialias=true:autohint=true;
-st.cursorshape: 1
+st.cursorshape: 2
 st.cursorthickness: 1
 
 ! colors
