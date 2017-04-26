@@ -51,3 +51,5 @@ tags
 *.aux
 *.out
 .stack-work/
+*.hi
+*.o
