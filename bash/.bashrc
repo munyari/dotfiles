@@ -1,3 +1,6 @@
+shopt -s extglob # enable extended globbing
+shopt -s histverify # verify history expansions before run
+
 # script for git completion
 if [ -f ~/git-completion.bash ]; then
   source ~/.git-completion.bash
@@ -42,8 +45,6 @@ eval $(dircolors -b $HOME/.dircolors)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# enable extended globbing
-shopt -s extglob
 
 # Start the gpg-agent if not already running
 if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
