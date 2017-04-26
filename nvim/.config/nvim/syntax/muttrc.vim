@@ -1,0 +1,1 @@
+/usr/share/doc/mutt/neomutt-syntax.vim
