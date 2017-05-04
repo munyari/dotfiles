@@ -10,6 +10,7 @@ noblacklist ~/.Mail
 noblacklist ~/mail
 noblacklist ~/Mail
 noblacklist ~/Maildir
+noblacklist ~/.netrc
 noblacklist ~/sent
 noblacklist ~/postponed
 noblacklist ~/.cache/mutt
