@@ -17,6 +17,7 @@
 	ap = add --patch
 	b = branch
 	bd = branch -d
+        branches = branch -av
 	browse = "!hub browse"
 	can = commit --amend --no-edit
 	ci = commit
@@ -33,10 +34,15 @@
 	mup = "!git checkout master && git pull && git checkout -"
 	p = push
 	pr = pull-request
+        publish = "!git push -u origin $(git branch-name)"
+        remotes = remote -v
 	ri = rebase -i
+        stashes = stash list
 	su = stash -u
+        tags = tag
 	unchange = checkout --
 	uncommit = reset --soft HEAD^
+        unpublish = "!git push origin :$(git branch-name)"
 	unstage = reset HEAD --
 	vdf = difftool
 [url "https://aur.archlinux.org/"]
