@@ -165,7 +165,7 @@ call plug#end()
 " }}}
 
 " color settings {{{
-colorscheme jellybeans
+colorscheme gotham
 set termguicolors
 " }}}
 
