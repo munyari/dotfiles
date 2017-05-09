@@ -55,3 +55,7 @@ nnoremap <unique> <BS> <C-^>
 " move to next and previous location
 nnoremap <unique> [l :lprevious<cr>
 nnoremap <unique> ]l :lnext<cr>
+
+" move to next previous quickfix
+nnoremap <unique> [q :cprevious<cr>
+nnoremap <unique> ]q :cnext<cr>
