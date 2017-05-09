@@ -85,7 +85,82 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-call s:SourceConfigFilesIn('plugins')
+" status bar
+Plug 'bling/vim-airline'
+
+" asynchronus autocompletion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+Plug 'kassio/neoterm'
+nnoremap <unique><leader>t :TREPLSendLine<cr>
+vnoremap <unique><leader>t :TREPLSendSelection<cr>
+
+let g:neoterm_position = "vertical"
+let g:neoterm_autoinsert = 1
+
+Plug 'whatyouhide/vim-gotham'
+
+" async linting
+Plug 'w0rp/ale'
+Plug '907th/vim-auto-save'
+
+" Does what it says on the tin
+" auto save mapping
+nnoremap <leader>as :AutoSaveToggle<CR>
+
+"auto save settings
+let g:auto_save = 1 " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 1 " disable the AutoSave notification
+
+Plug 'tpope/vim-commentary'
+
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+
+nnoremap <silent><leader>gbl      :Gblame<cr>
+nnoremap <silent><leader>gbr      :Gbrowse<cr>
+nnoremap <silent><leader>gc       :Gcommit -v<cr>
+nnoremap <silent><leader>gd       :Gdiff<cr>
+nnoremap <silent><leader>gg       :Ggrep<cr>
+nnoremap <silent><leader>gm       :Gmerge<cr>
+nnoremap <silent><leader>gpl      :Gpull<cr>
+nnoremap <silent><leader>gps      :Gpush<cr>
+nnoremap <silent><leader>grd      :Gread<cr>
+nnoremap <silent><leader>grm      :Gremove<cr>
+nnoremap <silent><leader>gs       :Gstatus<cr>
+nnoremap <silent><leader>gw       :Gwrite<cr>
+
+Plug 'airblade/vim-gitgutter'
+
+let g:gitgutter_sign_modified = 'Δ'
+let g:gitgutter_sign_modified_removed = '∎'
+let g:gitgutter_sign_removed = '⨯'
+let g:gitgutter_sign_column_always = 1
+
+" rainbow parentheses
+Plug 'junegunn/rainbow_parentheses.vim'
+au VimEnter * RainbowParentheses
+
+Plug 'tpope/vim-surround'
+
+Plug 'ntpeters/vim-better-whitespace'
+
+" Vim better whitespace mappings
+nnoremap <silent> <Leader>w :StripWhitespace<CR>
+nnoremap <silent> <Leader>W :ToggleWhitespace<CR>
+
+" vim tmux integration
+Plug 'christoomey/vim-tmux-navigator'
+
+" vim language pack
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }}}
 
