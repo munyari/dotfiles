@@ -80,7 +80,7 @@ rofi.lines:                          10
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
 /* rofi.font:                           mono 15 */
-rofi.font:                           InputMono 15
+rofi.font:                           FiraSans 15
 rofi.color-enabled: true
 ! "Color scheme for normal row" Set from: Default
 rofi.color-normal:                   #d0ffffff,#d0525d76,#d0f5f5f5,#d05294e2,#d0ffffff
