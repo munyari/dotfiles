@@ -92,7 +92,7 @@ colors:
   # Default colors
   primary:
     background: '0x0a0f14'
-    foreground: '0x98d1ce'
+    foreground: '0x98d1ce' # regular text
 
   # Normal colors
   normal:
@@ -108,11 +108,11 @@ colors:
   # Bright colors
   bright:
     black: '0x10151b'
-    red: '0xd26939'
-    green: '0x081f2d'
-    yellow: '0x245361'
+    red: '0xc23127'
+    green: '0x2aa889'
+    yellow: '0xedb443'
     blue: '0x093748'
-    magenta: '0x888ba5'
+    magenta: '0x888ca6'
     cyan: '0x599caa'
     white: '0xd3ebe9'
 
