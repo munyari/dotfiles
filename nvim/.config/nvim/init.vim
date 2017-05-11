@@ -161,6 +161,8 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " vim language pack
 Plug 'sheerun/vim-polyglot'
+
+Plug 'lervag/vimtex'
 call plug#end()
 " }}}
 
