@@ -48,16 +48,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /home/nash/Downloads/google-cloud-sdk/path.zsh.inc ]; then
-  source '/home/nash/Downloads/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /home/nash/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/home/nash/Downloads/google-cloud-sdk/completion.zsh.inc'
-fi
-
 eval $(dircolors -b /usr/share/LS_COLORS)
 
 # allow editing the command line with editor
