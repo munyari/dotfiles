@@ -21,7 +21,7 @@ _not_inside_tmux() {
 }
 
 ensure_tmux_is_running() {
-  if _not_inside_tmux && type tat > /dev/null 2>&1; then
+  if [[ $(tty) != /dev/tty1 ]] && _not_inside_tmux && type tat > /dev/null 2>&1; then
     tat
   fi
 }
