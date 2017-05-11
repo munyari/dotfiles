@@ -31,9 +31,8 @@ macro index,pager gd "c=drafts<enter>"  "Go to 'Drafts'"
 macro index,pager gi "c=inbox<enter>"   "Go to Inbox"
 macro index,pager gs "c=sent<enter>"    "Go to 'Sent Mail'"
 macro index,pager gt "c=trash<enter>" "Go to 'Trash'"
-folder-hook +INBOX 'macro index,pager y "=[Gmail]/All Mail" "Archive conversation"'
-folder-hook +[Gmail]/Trash macro index,pager y =INBOX "Move to inbox"
-folder-hook +[Gmail]/Starred bind  index,pager y flag-message #"Toggle star"
+macro index,pager ma  "<save-message>=archive<enter>" "Archive conversation"
+macro index,pager mi "<save-message>=inbox<enter>" "Move to inbox"
 
 set mailcap_path = ~/.mutt/mailcap # entries for filetypes
 set tmpdir       = ~/.mutt/temp
@@ -196,11 +195,6 @@ source $alias_file
 # bind index,pager,attach <F5>  redraw-screen
 bind index <F5>  refresh
 bind pager <F5>  redraw-screen
-
-# Handler for gpg encrypted mailboxes
-# gpg does not support appending to an encrypted file
-open-hook   '\.gpg$' "gpg --decrypt --compressalgo bzip2 < '%f' > '%t'"
-close-hook  '\.gpg$' "gpg --encrypt --recipient 51BF74B5 --compressalgo bzip2 < '%t' > '%f'"
 
 # alternate email addresses
 alternates '^fundirap([-+].*)?@.*$' '^.*@panashefundira\.me$'
