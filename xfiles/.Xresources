@@ -10,6 +10,7 @@ URxvt.iso14755_52: false
 ! URxvt config
 URxvt.scrollstyle: plain
 URxvt.font: xft:FiraCode:size=12
+URxvt.boldFont: xft:FiraCode-Bold:size=12
 URxvt*.shading: 1
 
 ! terminal padding
