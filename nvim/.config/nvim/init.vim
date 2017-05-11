@@ -293,16 +293,17 @@ set wildmode=longest,list,full
 
 set completeopt+=longest,menuone
 
-" plugin settings {{{
-" denite {{{
-call denite#custom#var('file_rec', 'command',
-      \ ['rg', '--files', '--glob', '!.git', ''])
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['--vimgrep', '--no-heading'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-" }}}
-" }}}
+" write a file with sudo
+command Sudo write !sudo tee % > /dev/null
+
+" automatically change to the folder of the current buffer
+set autochdir
+
+" Make vim colors work!
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" Make transparency work too!
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+
