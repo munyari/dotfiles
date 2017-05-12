@@ -19,6 +19,7 @@ borg
 breeze-icons
 bspwm
 cabal-install
+calibre
 chromium-widevine
 chruby
 cloc
@@ -27,6 +28,7 @@ compton
 conky
 connman
 connman-gtk
+connman_dmenu-git
 dnscrypt-proxy
 dropbox-cli
 dunst
@@ -50,6 +52,7 @@ fontconfig-ttf-ms-fonts
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
 fzf
+gcc-fortran
 gdmap
 ghi
 gist
@@ -65,7 +68,6 @@ gtk-engine-unico
 gtkrc-reload
 hledger-git
 hoogle
-hostsblock
 htop
 hub
 hunspell-de
@@ -84,8 +86,8 @@ keybase
 laptop-mode-tools
 libreoffice-fresh
 libtinfo
+libudev0-shim
 licenses
-linux-grsec
 llpp
 logrotate
 lostfiles
@@ -130,6 +132,7 @@ pdftk-bin
 physlock
 pkg-config
 pkgtools
+polybar-git
 postgresql
 potato
 powerpill
@@ -143,6 +146,7 @@ python2-boto
 python2-notify2
 qt5-styleplugins
 qutebrowser-git
+r
 racket-minimal
 ranger
 rclone
@@ -163,6 +167,9 @@ stow
 terminus-font
 texlive-bibtexextra
 texlive-humanities
+texlive-local-algorithmicx
+texlive-local-mathdesign
+texlive-local-neuralnetwork
 texlive-local-siunitx
 texlive-localmanager-git
 texstudio
@@ -185,6 +192,9 @@ udevil
 unclutter-xfixes-git
 universal-ctags-git
 urw-garamond
+urxvt-perls
+urxvt-resize-font-git
+urxvt-vtwheel
 usbutils
 vi
 virtualbox
@@ -220,6 +230,5 @@ xorg-xmessage
 xorg-xrandr
 xorg-xsetroot
 xst-git
-zathura-epub-git
 zotero
 zsh-syntax-highlighting
