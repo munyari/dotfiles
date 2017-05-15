@@ -2,7 +2,7 @@
 
 sxhkd &
 
-compton --backend glx &
+compton &
 
 # make java gui apps work
 wmane LG3D
