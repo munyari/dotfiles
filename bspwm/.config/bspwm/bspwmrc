@@ -4,10 +4,12 @@ sxhkd &
 
 compton &
 
+polybar top &
+
 # make java gui apps work
 wmane LG3D
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d code web mail books music
 
 bspc config border_width          2
 bspc config window_gap            0

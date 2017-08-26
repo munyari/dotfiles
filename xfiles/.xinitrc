@@ -20,8 +20,6 @@ unclutter &
 
 redshift &
 
-xmobar &
-
 # synchronize primary selection and clipboard
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &

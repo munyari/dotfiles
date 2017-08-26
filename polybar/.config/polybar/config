@@ -1,0 +1,221 @@
+[bar/top]
+enable-ipc = true
+width = 100%
+height = 30 
+offset-x = 0
+offset-y = -1 
+;separator = │
+
+background = #66000000
+foreground = #eee
+
+underline-size = 2
+underline-color = #eee
+
+spacing = 1
+padding-top = 5
+padding-left = 0
+padding-right = 0
+module-margin-left = 1 
+module-margin-right = 1
+
+font-0 = Fira Sans:pixelsize=13;0
+font-1 = FontAwesome:size=15;2
+font-2 = NotoEmoji:size=18;2
+font-3 = Hasklig:size=13;0
+
+modules-left = bspwm xwindow
+modules-center = 
+modules-right = wireless-network cpu memory battery volume date
+
+;tray-position = right
+;tray-padding = 2
+;tray-background = #66333333
+
+wm-restack = bspwm
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+; MODULES
+
+[module/bspwm]
+type = internal/bspwm
+
+ws-icon-0 = code;
+ws-icon-1 = web;
+ws-icon-2 = mail;
+ws-icon-3 = books;
+ws-icon-4 = music;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = #88000000
+label-focused-underline= #ddd
+label-focused-padding = 4
+
+label-occupied = %icon%
+label-occupied-padding = 4
+
+label-urgent = %icon%
+label-urgent-padding = 4
+
+label-empty = %icon%
+label-empty-foreground = #44ffffff
+label-empty-padding = 4
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:120:...%
+label-padding = 4
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 1.0
+
+; See "man date" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %a %b %d, 
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+label = %date% %time%
+format =    <label>
+;format-background = #ddffffff
+format-background = #88000000
+;format-foreground = #333
+format-padding = 3
+
+[module/padding]
+type = custom/text
+content = 	 
+content-foreground = #00000000
+content-background = #55000000
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT1
+adapter = AC0
+
+poll-interval = 5
+
+format-charging = <animation-charging>
+format-discharging = <ramp-capacity>
+format-full = <ramp-capacity>  <label-full>
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = %percentage%
+format-charging-padding = 3
+format-discharging-padding = 3
+format-full-padding = 3
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume>
+format-muted = <label-muted>
+label-volume = %percentage%
+label-muted =   muted
+label-muted-foreground = #aaa
+format-volume-padding = 3
+format-muted-padding = 3
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+
+; [module/spotify]
+; type = custom/script
+
+; exec = /home/gamehelp16/Documents/np
+; interval = 1
+
+format = <label>   
+;format-background = #dd00c6e0
+;format-foreground = #fff
+;format-padding = 4
+
+label = %output%
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+format-connected = <label-connected> <ramp-signal>
+label-connected =  %downspeed% %signal%%
+
+[module/memory]
+type = internal/memory
+label = RAM %percentage_used%%
+format = <label>
+
+[module/cpu]
+type = internal/cpu
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+label = CPU %percentage%%
+format =  <ramp-coreload>
+
+TODO: make graphs slide out when you click on them. Just have smiley emoji, CPU
+
+; [module/pavolume]
+; type = custom/script
+; interval = 2
+; label = %output%
+; exec = ~/.local/bin/pavolume
+; click-right = exec pavucontrol
+; click-left = ~/.local/bin/pavolume --togmute
+; scroll-up = ~/.local/bin/pavolume --up
+; scroll-down = ~/.local/bin/pavolume --down
+
+[module/demo]
+type = custom/ipc
+hook-0 = batc
+hook-1 = date +%s
+hook-2 = whoami
+initial = 1
+click-left = polybar-msg -p %pid% hook demo 1
+click-right = polybar-msg -p %pid% hook demo 2
+double-click-left = polybar-msg -p %pid% hook demo 3
+
+; vim:cms=;%s
