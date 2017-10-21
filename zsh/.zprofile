@@ -35,6 +35,7 @@ cdpath=(
 # Set the list of directories that Zsh searches for programs.
 path=(
   $HOME/.local/bin
+  $HOME/.yarn/bin
   $HOME/.stack/snapshots/x86_64-linux-ncurses6/lts-6.7/7.10.3/bin
   $HOME/.stack/programs/x86_64-linux/ghc-ncurses6-7.10.3/bin
   $HOME/.cargo/bin

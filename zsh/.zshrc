@@ -28,9 +28,6 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
-# Complete g like git
-compdef g=git
-
 if  type chruby > /dev/null 2>&1; then
   source /usr/share/chruby/chruby.sh
   source /usr/share/chruby/auto.sh
@@ -42,13 +39,6 @@ fi
 
 # aliases
 [ -f ~/.aliases ] && source ~/.aliases
-
-# syntax highlighting in z shell
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval $(dircolors -b /usr/share/LS_COLORS)
 
 # allow editing the command line with editor
 autoload edit-command-line
@@ -67,3 +57,20 @@ fi
 
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/nash/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Complete g like git
+compdef g=git
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval $(dircolors -b /usr/share/LS_COLORS)
+
+# syntax highlighting in z shell
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
