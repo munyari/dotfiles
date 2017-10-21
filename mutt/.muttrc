@@ -33,6 +33,7 @@ macro index,pager gs "c=sent<enter>"    "Go to 'Sent Mail'"
 macro index,pager gt "c=trash<enter>" "Go to 'Trash'"
 macro index,pager ma  "<save-message>=archive<enter>" "Archive conversation"
 macro index,pager mi "<save-message>=inbox<enter>" "Move to inbox"
+macro index,pager m "<mail>" "Compose a message"
 
 set mailcap_path = ~/.mutt/mailcap # entries for filetypes
 set tmpdir       = ~/.mutt/temp
@@ -84,6 +85,8 @@ mailboxes +inbox \
           +rust-rfcs \
           +lobsters \
           +tmux-users \
+          +arch-announce \
+          +arch-general \
           +trash
 
 
@@ -192,7 +195,6 @@ set alias_file=~/.mutt/aliases
 set sort_alias=alias
 source $alias_file
 
-# bind index,pager,attach <F5>  redraw-screen
 bind index <F5>  refresh
 bind pager <F5>  redraw-screen
 
@@ -204,7 +206,6 @@ subscribe tmux-users
 subscribe tor-dev
 subscribe gnupg-users
 subscribe rfcs
-subscribe lobsters-GX7HKlmb3h@lobste.rs
 
 bind index,pager \cf next-page
 bind index,pager \cb previous-page
@@ -215,3 +216,13 @@ folder-hook . 'set record="^"'
 color index red default ~P
 color header     brightcolor101           default "^from:"
 color header     brightcolor101           default "^to:"
+
+macro index <F8> \
+     "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
+     "notmuch: search mail"
+macro index <F9> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+     "notmuch: reconstruct thread"
+macro index <F6> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
+     "notmuch: remove message from inbox"
