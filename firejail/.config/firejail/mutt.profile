@@ -23,6 +23,7 @@ noblacklist ~/.emacs
 noblacklist ~/.emacs.d
 noblacklist ~/.signature
 noblacklist ~/.bogofilter
+noblacklist /usr/bin/env
 
 include /etc/firejail/disable-common.inc
 include /etc/firejail/disable-programs.inc
