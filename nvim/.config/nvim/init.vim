@@ -296,9 +296,6 @@ set completeopt+=longest,menuone
 " write a file with sudo
 command Sudo write !sudo tee % > /dev/null
 
-" automatically change to the folder of the current buffer
-set autochdir
-
 " Make vim colors work!
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
