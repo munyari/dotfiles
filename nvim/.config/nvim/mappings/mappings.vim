@@ -59,3 +59,7 @@ nnoremap <unique> ]l :lnext<cr>
 " move to next previous quickfix
 nnoremap <unique> [q :cprevious<cr>
 nnoremap <unique> ]q :cnext<cr>
+
+" move to next and previous buffer
+nnoremap <unique> [b :bprevious<cr>
+nnoremap <unique> ]b :bnext<cr>
