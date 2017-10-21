@@ -27,6 +27,8 @@ set shiftround
 
 " minimal number of screen lines to keep below and above the cursor
 set scrolloff=3
+" always show the gutter
+set signcolumn=yes
 
 " creates undofile, allows undo even after closing
 if has('persistent_undo')
@@ -144,7 +146,6 @@ Plug 'airblade/vim-gitgutter'
 let g:gitgutter_sign_modified = 'Δ'
 let g:gitgutter_sign_modified_removed = '∎'
 let g:gitgutter_sign_removed = '⨯'
-let g:gitgutter_sign_column_always = 1
 
 " rainbow parentheses
 Plug 'junegunn/rainbow_parentheses.vim'
