@@ -169,7 +169,7 @@ Plug 'lervag/vimtex'
 call plug#end()
 
 call denite#custom#var('file_rec', 'command',
-      \ ['rg', '--files', '--glob', '!.git', ''])
+      \ ['rg', '--files', '--glob', '!.git', '!node_modules', ''])
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts',
       \ ['--vimgrep', '--no-heading'])

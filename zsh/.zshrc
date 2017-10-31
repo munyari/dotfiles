@@ -28,12 +28,6 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
-if  type chruby > /dev/null 2>&1; then
-  source /usr/share/chruby/chruby.sh
-  source /usr/share/chruby/auto.sh
-  chruby 2.3.0
-fi
-
 # shell utility functions
 [[ -f ~/.utils ]] && source ~/.utils
 
@@ -47,16 +41,23 @@ zle -N edit-command-line
 # bound to Esc v in vi mode
 bindkey -M vicmd v edit-command-line
 
-# Set GPG TTY
-export GPG_TTY=$(tty)
+# assume we're running linux
+if [[ ! "$(uname -s)" == "Darwin" ]]; then
+  # Set GPG TTY
+  export GPG_TTY=$(tty)
 
-# Start the gpg-agent if not already running
-if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-  gpg-connect-agent /bye >/dev/null 2>&1
+  # Start the gpg-agent if not already running
+  if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+    gpg-connect-agent /bye >/dev/null 2>&1
+  fi
+
+  OSCPKCS11=/usr/lib/ssh-keychain.dylib
+  if [ -e $OSCPKCS11 ]; then export OSCPKCS11;else echo could not find $OSCPKCS11; fi
+
+  # Refresh gpg-agent tty in case user switches into an X session
+  gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
-# Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/nash/.zshrc'
@@ -70,7 +71,13 @@ compdef g=git
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval $(dircolors -b /usr/share/LS_COLORS)
+[ -f /usr/share/LS_COLORS ] && eval $(dircolors -b /usr/share/LS_COLORS)
 
+
+[ -e "${HOME}/.iterm2_shell_integration.zsh" ] && source "${HOME}/.iterm2_shell_integration.zsh"
+
+bindkey -v
+#
 # syntax highlighting in z shell
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
