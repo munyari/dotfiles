@@ -99,9 +99,17 @@ let g:deoplete#auto_complete_delay = 0
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-nnoremap <silent><c-p> :FZF<cr>
+nnoremap <unique><silent><c-p> :Files<cr>
+nnoremap <unique><silent><leader>bc :BCommits<cr>
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 Plug 'kassio/neoterm'
 nnoremap <unique><leader>t :TREPLSendLine<cr>
