@@ -99,7 +99,9 @@ let g:deoplete#auto_complete_delay = 0
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+nnoremap <silent><c-p> :FZF<cr>
 
 Plug 'kassio/neoterm'
 nnoremap <unique><leader>t :TREPLSendLine<cr>
@@ -167,16 +169,6 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'lervag/vimtex'
 call plug#end()
-
-call denite#custom#var('file_rec', 'command',
-      \ ['rg', '--files', '--glob', '!.git', '!node_modules', ''])
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['--vimgrep', '--no-heading'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
 " }}}
 
 " color settings {{{
