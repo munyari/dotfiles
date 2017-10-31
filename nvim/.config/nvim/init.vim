@@ -287,7 +287,7 @@ endif
 set clipboard=unnamedplus
 
 " ignore files matching this pattern
-set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox,node_modules
 
 " completion options for wildmenu
 set wildmode=longest,list,full
