@@ -3,7 +3,7 @@
 # With arguments: acts like `git`
 function g() {
   if [[ $# > 0 ]]; then
-    hub $@
+    hub "$@"
   else
     hub status --short --branch
   fi
@@ -44,4 +44,8 @@ function weather() {
 
 function ssh-aws() {
   ssh -i ~/.ssh/mville.pem ubuntu@"$1"
+}
+
+function arc-diff() {
+  mbzl test //metaserver/static/js:typecheck_with_tests && mbzl test //metaserver/static_tests:package_tests && arc diff "$@"
 }
