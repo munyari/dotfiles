@@ -120,15 +120,26 @@ let g:neoterm_autoinsert = 1
 
 Plug 'whatyouhide/vim-gotham'
 
-" async linting
+" async linting and fixing support
 Plug 'w0rp/ale'
-Plug '907th/vim-auto-save'
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'typescript': ['prettier'],
+      \ 'python':     ['yapf'],
+      \ }
+
+let g:ale_pattern_options = {
+      \ '\v\.(j|t)sx?': {
+      \     'ale_fix_on_save': 1,
+      \   },
+      \ }
+
+let g:ale_lint_on_save = 0
+let g:ale_max_signs = 50
 
 " Does what it says on the tin
-" auto save mapping
+Plug '907th/vim-auto-save'
 nnoremap <leader>as :AutoSaveToggle<CR>
-
-"auto save settings
 let g:auto_save = 1 " enable AutoSave on Vim startup
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1 " disable the AutoSave notification
@@ -176,6 +187,15 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'lervag/vimtex'
+
+Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
+autocmd FileType typescript nnoremap <unique>gd :TSDef<cr>
+autocmd FileType typescript nnoremap <unique><F2> :TSRename<cr>
+autocmd FileType typescript nnoremap <unique>ti :TSImport<cr>
+" display type info on hover
+let g:nvim_typescript#type_info_on_hold = 1
+
+Plug 'Shuogo/echodoc.vim'
 call plug#end()
 " }}}
 
