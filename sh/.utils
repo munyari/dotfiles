@@ -49,3 +49,7 @@ function ssh-aws() {
 function arc-diff() {
   mbzl test //metaserver/static/js:typecheck_with_tests && mbzl test //metaserver/static_tests:package_tests && arc diff "$@"
 }
+
+function bzl() {
+  mbzl "$@"
+}
