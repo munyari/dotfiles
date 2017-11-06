@@ -43,6 +43,12 @@ set splitright
 " sensible defaults when searching
 set smartcase
 set ignorecase
+autocmd FileType typescript setlocal formatprg=prettier\
+                                             \--stdin\
+                                             \--print-width\ 80\
+                                             \--single-quote\
+                                             \--trailing-comma\ es5
+
 if executable('rg')
   set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m
