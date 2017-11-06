@@ -77,6 +77,9 @@ compdef g=git
 [ -e "${HOME}/.iterm2_shell_integration.zsh" ] && source "${HOME}/.iterm2_shell_integration.zsh"
 
 bindkey -v
+bindkey -a "?" history-incremental-search-backward
+bindkey -a "/" history-incremental-search-forward
+
 #
 # syntax highlighting in z shell
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
