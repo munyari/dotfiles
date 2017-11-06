@@ -333,4 +333,3 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Make transparency work too!
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
-

@@ -43,9 +43,6 @@ nnoremap <unique> <leader><down> ddp
 " vertical split with previous buffer
 nnoremap <unique> <leader>vs :execute "rightbelow vsplit " . bufname("#")<cr>
 
-" automatically make searches "very magic"
-nnoremap <unique> / /\v
-
 " change working directory to that of the current file
 nnoremap <unique> <silent><leader>cd :cd %:p:h<cr>
 
