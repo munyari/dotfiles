@@ -28,30 +28,36 @@ ensure_tmux_is_running
 autoload edit-command-line
 zle -N edit-command-line
 
-autoload -U promptinit; promptinit
-# move to zprofile
+source /usr/share/zsh/scripts/zplug/init.zsh
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+zplug zdharma/fast-syntax-highlighting, from:github
+zplug plugins/archlinux, from:oh-my-zsh
+zplug plugins/gpg-agent, from:oh-my-zsh
+zplug load
+
 [[ "$(uname)" == "Darwin" ]] && PURE_GIT_PULL=0
-prompt pure
+
 #
 # bound to Esc v in vi mode
 bindkey -M vicmd v edit-command-line
 
-# assume we're running linux
-if [[ ! "$(uname -s)" == "Darwin" ]]; then
-  # Set GPG TTY
-  export GPG_TTY=$(tty)
+# # assume we're running linux
+# if [[ ! "$(uname -s)" == "Darwin" ]]; then
+#   # Set GPG TTY
+#   export GPG_TTY=$(tty)
 
-  # Start the gpg-agent if not already running
-  if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-    gpg-connect-agent /bye >/dev/null 2>&1
-  fi
+#   # Start the gpg-agent if not already running
+#   if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+#     gpg-connect-agent /bye >/dev/null 2>&1
+#   fi
 
-  OSCPKCS11=/usr/lib/ssh-keychain.dylib
-  [[ -e $OSCPKCS11 ]] && export OSCPKCS11
+#   OSCPKCS11=/usr/lib/ssh-keychain.dylib
+#   [[ -e $OSCPKCS11 ]] && export OSCPKCS11
 
-  # Refresh gpg-agent tty in case user switches into an X session
-  gpg-connect-agent updatestartuptty /bye >/dev/null
-fi
+#   # Refresh gpg-agent tty in case user switches into an X session
+#   gpg-connect-agent updatestartuptty /bye >/dev/null
+# fi
 
 
 # The following lines were added by compinstall
@@ -73,8 +79,3 @@ compdef g=git
 bindkey -v
 bindkey -a "?" history-incremental-search-backward
 bindkey -a "/" history-incremental-search-forward
-
-#
-# syntax highlighting in z shell
-[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

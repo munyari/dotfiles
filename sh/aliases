@@ -19,6 +19,7 @@ alias gu=guard
 alias gw="gcc -Wconversion"
 alias id_rsa="pass -c id_rsa"
 alias ls='ls --color --group-directories-first -F'
+alias ll='ls -l'
 alias n=nvim
 alias news="newsbeuter"
 alias pinknoise='play -c 2 -n synth pinknoise'
