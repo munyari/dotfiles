@@ -1,14 +1,4 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+setopt autocd
 
 # run startx at login
 if [[ $(tty) == /dev/tty1 ]]; then
@@ -32,11 +22,16 @@ ensure_tmux_is_running
 [[ -f ~/.utils ]] && source ~/.utils
 
 # aliases
-[ -f ~/.aliases ] && source ~/.aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
 
 # allow editing the command line with editor
 autoload edit-command-line
 zle -N edit-command-line
+
+autoload -U promptinit; promptinit
+# move to zprofile
+[[ "$(uname)" == "Darwin" ]] && PURE_GIT_PULL=0
+prompt pure
 #
 # bound to Esc v in vi mode
 bindkey -M vicmd v edit-command-line
@@ -52,7 +47,7 @@ if [[ ! "$(uname -s)" == "Darwin" ]]; then
   fi
 
   OSCPKCS11=/usr/lib/ssh-keychain.dylib
-  if [ -e $OSCPKCS11 ]; then export OSCPKCS11;else echo could not find $OSCPKCS11; fi
+  [[ -e $OSCPKCS11 ]] && export OSCPKCS11
 
   # Refresh gpg-agent tty in case user switches into an X session
   gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -69,12 +64,11 @@ compinit
 # Complete g like git
 compdef g=git
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-[ -f /usr/share/LS_COLORS ] && eval $(dircolors -b /usr/share/LS_COLORS)
+[[ -f /usr/share/LS_COLORS ]] && eval $(dircolors -b /usr/share/LS_COLORS)
 
-
-[ -e "${HOME}/.iterm2_shell_integration.zsh" ] && source "${HOME}/.iterm2_shell_integration.zsh"
+[[ -e "${HOME}/.iterm2_shell_integration.zsh" ]] && source "${HOME}/.iterm2_shell_integration.zsh"
 
 bindkey -v
 bindkey -a "?" history-incremental-search-backward

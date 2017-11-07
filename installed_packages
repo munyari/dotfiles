@@ -113,7 +113,7 @@ neomutt
 netctl
 network-manager-applet
 networkmanager-openvpn
-newsbeuter
+newsboat
 nodejs-material-design-icons
 notmuch-mutt
 ntp
@@ -133,6 +133,7 @@ patch
 pavucontrol
 pcmciautils
 pcsc-tools
+pdfjs
 pdftk-bin
 physlock
 pkgtools
@@ -140,6 +141,7 @@ polybar-git
 postgresql
 potato
 powerpill
+prettier
 pspp
 pulseaudio-ctl
 pycharm-community
@@ -151,13 +153,11 @@ python2-boto
 python2-notify2
 python2-praw
 qt5-styleplugins
-qutebrowser
 racket-minimal
 ranger
 rclone
 redshift
 reiserfsprogs
-rfkill
 ripgrep
 ruby-install
 rustup
@@ -195,6 +195,7 @@ ttf-material-design-icons
 ttf-monoid-git
 ttf-roboto
 ttf-roboto-mono
+typescript
 udevil
 unclutter-xfixes-git
 universal-ctags-git
@@ -237,6 +238,9 @@ xorg-xmessage
 xorg-xrandr
 xorg-xsetroot
 xst-git
+xtitle-git
 yubikey-personalization-gui
 zotero
+zplug
+zsh-fast-syntax-highlighting-git
 zsh-syntax-highlighting
