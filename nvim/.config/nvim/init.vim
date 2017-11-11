@@ -198,9 +198,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
 
 Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
-autocmd FileType typescript nnoremap <unique>gd :TSDef<cr>
-autocmd FileType typescript nnoremap <unique><F2> :TSRename<cr>
-autocmd FileType typescript nnoremap <unique>ti :TSImport<cr>
+autocmd FileType typescript nnoremap gd :TSDef<cr>
+autocmd FileType typescript nnoremap <F2> :TSRename<cr>
+autocmd FileType typescript nnoremap ti :TSImport<cr>
 " display type info on hover
 let g:nvim_typescript#type_info_on_hold = 1
 
