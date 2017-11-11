@@ -19,11 +19,12 @@ set softtabstop=2
 " always round indent to a multiple of shift width
 set shiftround
 
-" "" Show the 80th column
-" if exists('+colorcolumn')
-"   set colorcolumn=80
-"   highlight ColorColumn ctermbg=9
-" endif
+"" Show the 100th and 120th columns
+if exists('+colorcolumn')
+  set colorcolumn=100
+  set colorcolumn=120
+  highlight ColorColumn ctermbg=9
+endif
 
 " minimal number of screen lines to keep below and above the cursor
 set scrolloff=3
@@ -204,7 +205,7 @@ autocmd FileType typescript nnoremap ti :TSImport<cr>
 " display type info on hover
 let g:nvim_typescript#type_info_on_hold = 1
 
-Plug 'Shuogo/echodoc.vim'
+Plug 'Shougo/echodoc.vim'
 call plug#end()
 " }}}
 
