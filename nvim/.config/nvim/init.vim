@@ -192,12 +192,22 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'lervag/vimtex'
 
-Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
-autocmd FileType typescript nnoremap gd :TSDef<cr>
-autocmd FileType typescript nnoremap <F2> :TSRename<cr>
-autocmd FileType typescript nnoremap ti :TSImport<cr>
-" display type info on hover
-let g:nvim_typescript#type_info_on_hold = 1
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'python': ['pyls'],
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ }
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 Plug 'Shougo/echodoc.vim'
 call plug#end()
