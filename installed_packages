@@ -79,6 +79,7 @@ i2p
 iputils
 irssi
 isync
+javascript-typescript-langserver
 jfsutils
 jq
 keybase-bin
@@ -135,7 +136,9 @@ pcmciautils
 pcsc-tools
 pdfjs
 pdftk-bin
+pharo
 physlock
+pkg-config
 pkgtools
 polybar-git
 postgresql
@@ -147,12 +150,15 @@ pulseaudio-ctl
 pycharm-community
 python-habitica
 python-httplib2
+python-language-server
 python-proselint
+python-rope
 python-virtualenvwrapper
 python2-boto
 python2-notify2
 python2-praw
 qt5-styleplugins
+r
 racket-minimal
 ranger
 rclone
@@ -195,7 +201,6 @@ ttf-material-design-icons
 ttf-monoid-git
 ttf-roboto
 ttf-roboto-mono
-typescript
 udevil
 unclutter-xfixes-git
 universal-ctags-git
