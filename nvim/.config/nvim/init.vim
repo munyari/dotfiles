@@ -70,12 +70,6 @@ autocmd VimResized * :wincmd =
 " " lazyredraw can make macros run faster
 " set lazyredraw          " redraw only when we need to.
 
-
-" " Automatically enter insert when entering a terminal window
-" autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
-" " autocmd BufEnter * if &buftype == "terminal" | setlocal nonumber | endif
-" }}}
-
 " plugins and mappings {{{
 " credit to Chris Toomey
 function! s:SourceConfigFilesIn(directory)
@@ -230,14 +224,6 @@ set termguicolors
 " augroup END
 " " }}}
 
-" " Rust file settings --------------------{{{
-" augroup filetype_rust
-"   autocmd!
-"   autocmd FileType rust setlocal tags=./rusty-tags.vi;/
-"   autocmd BufWrite *.rs :silent exec "!rusty-tags vi --start-dir=" . expand('%:p:h') . "&"
-" augroup END
-" " }}}
-
 " " These mappings are more for inspiration than anything useful
 " " Markdown file settings -------------------------------------------------{{{
 " augroup filetype_md
@@ -262,9 +248,6 @@ set termguicolors
 "         \| exe "normal! g'\"" | endif
 " endif
 
-
-" " source init.vim when it is changed
-" autocmd! bufwritepost init.vim source %
 
 " " Automatically open, but do not go to (if there are errors) the quickfix /
 " " location list window, or close it when is has become empty.
