@@ -133,7 +133,7 @@ let g:ale_fixers = {
       \ }
 
 let g:ale_pattern_options = {
-      \ '\v\.(j|t)sx?': {
+      \ '\v.*\.(j|t)sx?': {
       \     'ale_fix_on_save': 1,
       \   },
       \ }
