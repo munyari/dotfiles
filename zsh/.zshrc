@@ -1,5 +1,9 @@
 setopt autocd
 
+function is_macos() {
+  [[ "$(uname)" == "Darwin" ]]
+}
+
 # run startx at login
 if [[ $(tty) == /dev/tty1 ]]; then
   exec startx
@@ -28,7 +32,13 @@ ensure_tmux_is_running
 autoload edit-command-line
 zle -N edit-command-line
 
-source /usr/share/zsh/scripts/zplug/init.zsh
+
+if is_macos; then
+  ZPLUG_HOME=/usr/local/opt/zplug
+else
+  source /usr/share/zsh/scripts/zplug
+fi
+source $ZPLUG_HOME/init.zsh
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 zplug zdharma/fast-syntax-highlighting, from:github
@@ -36,7 +46,7 @@ zplug plugins/archlinux, from:oh-my-zsh
 zplug plugins/gpg-agent, from:oh-my-zsh
 zplug load
 
-[[ "$(uname)" == "Darwin" ]] && PURE_GIT_PULL=0
+is_macos && PURE_GIT_PULL=0
 
 #
 # bound to Esc v in vi mode
