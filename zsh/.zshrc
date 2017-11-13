@@ -89,3 +89,12 @@ compdef g=git
 bindkey -v
 bindkey -a "?" history-incremental-search-backward
 bindkey -a "/" history-incremental-search-forward
+
+# By doing this, only the past commands matching the current line up to the
+# current cursor position will be shown when Up or Down keys are pressed.
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
+[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
