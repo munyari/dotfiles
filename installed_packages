@@ -4,9 +4,7 @@ alacritty-git
 alacritty-terminfo-git
 alsa-firmware
 alsa-tools
-android-tools
 anki20-bin
-arch-audit
 arch-wiki-docs
 autoconf
 autocutsel
@@ -58,6 +56,7 @@ ghi
 gist
 gitsh
 gnucash-docs
+gobject-introspection-runtime
 goobook-git
 google-musicmanager
 gpmdp
@@ -75,7 +74,6 @@ hunspell-fr
 hunspell-he
 hunspell-it
 hunspell-ro
-i2p
 iputils
 irssi
 isync
@@ -85,7 +83,6 @@ jq
 keybase-bin
 laptop-mode-tools
 laverna
-libreoffice-fresh
 libtinfo
 libu2f-host
 libudev0-shim
@@ -152,7 +149,6 @@ python-habitica
 python-httplib2
 python-language-server
 python-proselint
-python-rope
 python-virtualenvwrapper
 python2-boto
 python2-notify2
@@ -188,19 +184,13 @@ texstudio
 the_silver_searcher
 thunar
 tix
-tor
-tor-browser-en
 ttf-adobe-fonts
 ttf-ebgaramond
 ttf-fira-mono
 ttf-font-awesome
-ttf-gentium
-ttf-impallari-cabin-font
 ttf-input
 ttf-material-design-icons
 ttf-monoid-git
-ttf-roboto
-ttf-roboto-mono
 udevil
 unclutter-xfixes-git
 universal-ctags-git
@@ -244,7 +234,6 @@ xorg-xrandr
 xorg-xsetroot
 xst-git
 xtitle-git
-yubikey-personalization-gui
 zotero
 zplug
 zsh-fast-syntax-highlighting-git
