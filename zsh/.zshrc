@@ -34,11 +34,11 @@ zle -N edit-command-line
 
 
 if is_macos; then
-  ZPLUG_HOME=/usr/local/opt/zplug
+  ZPLUG_DIR=/usr/local/opt/zplug
 else
-  source /usr/share/zsh/scripts/zplug
+  ZPLUG_DIR=/usr/share/zsh/scripts/zplug
 fi
-source $ZPLUG_HOME/init.zsh
+source $ZPLUG_DIR/init.zsh
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 zplug zdharma/fast-syntax-highlighting, from:github
