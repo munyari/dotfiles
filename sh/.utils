@@ -53,3 +53,11 @@ function arc-diff() {
 function bzl() {
   mbzl "$@"
 }
+
+function n() {
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    reattach-to-user-namespace -l nvim
+  else
+    nvim
+  fi
+}
