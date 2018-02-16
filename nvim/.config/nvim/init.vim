@@ -9,7 +9,7 @@ autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
-" " make space bar leader key
+" make space bar leader key
 let mapleader="\<Space>"
 
 " " tab settings
@@ -19,7 +19,7 @@ set softtabstop=2
 " always round indent to a multiple of shift width
 set shiftround
 
-"" Show the 100th and 120th columns
+" Show the 100th and 120th columns
 if exists('+colorcolumn')
   set colorcolumn=100
   set colorcolumn=120
