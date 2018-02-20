@@ -1,3 +1,4 @@
+abduco
 abs
 acpi
 alacritty-git
@@ -108,6 +109,7 @@ nano
 nautilus
 ncmpcpp
 neomutt
+neovim-remote
 netctl
 network-manager-applet
 networkmanager-openvpn
@@ -149,6 +151,7 @@ python-habitica
 python-httplib2
 python-language-server
 python-proselint
+python-scikit-learn
 python-virtualenvwrapper
 python2-boto
 python2-notify2
@@ -194,6 +197,7 @@ ttf-monoid-git
 udevil
 unclutter-xfixes-git
 universal-ctags-git
+urlview
 urw-garamond
 urxvt-perls
 urxvt-resize-font-git
@@ -207,6 +211,7 @@ weston
 which
 whippet
 whois
+wipe
 wmname
 wmutils-git
 xautolock
@@ -219,7 +224,6 @@ xf86-video-intel
 xi-gtk-git
 xloadimage
 xmobar
-xonsh
 xorg-server
 xorg-server-xephyr
 xorg-server-xwayland
