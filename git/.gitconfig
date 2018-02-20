@@ -1,7 +1,5 @@
-[user]
-	email = contact@panashefundira.me
-	name = Panashe M. Fundira
-	signingkey = 51BF74B5
+[include]
+        path = ~/.gitconfig-user
 [color]
 	ui = auto
 [core]
