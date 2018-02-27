@@ -135,6 +135,7 @@ let g:ale_pattern_options = {
 
 let g:ale_lint_on_save = 0
 let g:ale_max_signs = 50
+nnoremap <leader>af :ALEFix<cr>
 
 " Does what it says on the tin
 Plug '907th/vim-auto-save'
