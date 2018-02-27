@@ -347,3 +347,8 @@ autocmd BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
+
+let work_config = '~/.config/nvim/work.vim'
+if filereadable(glob(work_config))
+  execute 'source' work_config
+endif
