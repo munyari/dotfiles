@@ -200,14 +200,17 @@ let g:LanguageClient_serverCommands = {
     \ }
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_diagnosticsList = 'location'
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 Plug 'Shougo/echodoc.vim'
-
 Plug 'machakann/vim-highlightedyank'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'bps/vim-textobj-python'
 call plug#end()
 " }}}
 
@@ -329,3 +332,18 @@ hi! NonText ctermbg=NONE guibg=NONE
 if has('nvim') && executable('nvr')
   let $VISUAL = 'nvr --remote-wait'
 endif
+
+autocmd BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=100
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+
+autocmd BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
