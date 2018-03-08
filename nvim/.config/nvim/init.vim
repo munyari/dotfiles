@@ -71,17 +71,18 @@ endif
 packadd minpac
 call minpac#init()
 
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+
 if !exists("g:gui_oni")
     " status bar
     call minpac#add('bling/vim-airline')
 endif
 
-" asynchronus autocompletion
-call minpac#add('Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' })
-
+" async completion support
+call minpac#add('Shougo/deoplete.nvim', {'do': 'UpdateRemotePlugins'})
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
-
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -90,13 +91,7 @@ call minpac#add('junegunn/fzf.vim')
 nnoremap <unique><silent><c-p> :Files<cr>
 nnoremap <unique><silent><leader>bc :BCommits<cr>
 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
+" convenience terminal bindings
 call minpac#add('kassio/neoterm')
 nnoremap <unique><leader>t :TREPLSendLine<cr>
 vnoremap <unique><leader>t :TREPLSendSelection<cr>
@@ -104,7 +99,10 @@ vnoremap <unique><leader>t :TREPLSendSelection<cr>
 let g:neoterm_default_mod = "vertical"
 let g:neoterm_autoinsert = 1
 
+" colorscheme
 call minpac#add('munyari/vim-gotham')
+colorscheme gotham
+set termguicolors
 
 " async linting and fixing support
 call minpac#add('w0rp/ale')
@@ -114,10 +112,8 @@ let g:ale_fixers = {
       \ 'python':     ['yapf'],
       \ }
 
-let g:ale_pattern_options = {
-      \ '\v.*\.(j|t)sx?': {
-      \     'ale_fix_on_save': 1,
-      \   },
+let g:ale_linters = {
+      \ 'typescript': ['tslint'],
       \ }
 
 let g:ale_lint_on_save = 0
@@ -173,7 +169,7 @@ call minpac#add('christoomey/vim-tmux-navigator')
 " vim language pack
 call minpac#add('sheerun/vim-polyglot')
 
-call minpac#add('lervag/vimtex')
+call minpac#add('lervag/vimtex', {'type': 'opt'})
 
 
 " Required for operations modifying multiple buffers like rename.
@@ -204,10 +200,6 @@ call minpac#add('michaeljsmith/vim-indent-object')
 call minpac#add('bps/vim-textobj-python')
 call minpac#add('mhinz/vim-grepper')
 " }}}
-
-" color settings {{{
-colorscheme gotham
-set termguicolors
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
