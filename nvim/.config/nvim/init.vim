@@ -86,8 +86,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-" status bar
-Plug 'bling/vim-airline'
+if !exists("g:gui_oni") 
+    " status bar
+    Plug 'bling/vim-airline'
+endif
 
 " asynchronus autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -191,20 +193,19 @@ Plug 'lervag/vimtex'
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'python': ['pyls'],
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ }
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsList = 'location'
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" let g:LanguageClient_serverCommands = {
+"     \ 'javascript': ['javascript-typescript-stdio'],
+"     \ 'python': ['pyls'],
+"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+"     \ 'typescript': ['javascript-typescript-stdio'],
+"     \ }
+" " Automatically start language servers.
+" let g:LanguageClient_autoStart = 1
 
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 Plug 'Shougo/echodoc.vim'
 Plug 'machakann/vim-highlightedyank'
