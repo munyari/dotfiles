@@ -9,19 +9,6 @@ if [[ $(tty) == /dev/tty1 ]]; then
   exec startx
 fi
 
-# auto attach tmux session when shell is opened
-_not_inside_tmux() {
-  [[ -z "$TMUX" ]]
-}
-
-ensure_tmux_is_running() {
-  if [[ $(tty) != /dev/tty1 ]] && _not_inside_tmux && type tat > /dev/null 2>&1; then
-    tat
-  fi
-}
-
-ensure_tmux_is_running
-
 # shell utility functions
 [[ -f ~/.utils ]] && source ~/.utils
 
