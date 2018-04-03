@@ -78,21 +78,19 @@ endfunction
 
 call s:SourceConfigFilesIn('mappings')
 
-" autoinstall vim plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+if empty(glob('~/.config/nvim/pack/minpac'))
+silent !git clone https://github.com/k-takata/minpac.git
+      \ ~/.config/nvim/pack/minpac/opt/minpac
 endif
+packadd minpac
 
-call plug#begin('~/.vim/plugged')
-if !exists("g:gui_oni") 
+if !exists("g:gui_oni")
     " status bar
-    Plug 'bling/vim-airline'
+    call minpac#add('bling/vim-airline')
 endif
 
 " asynchronus autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+call minpac#add('Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' })
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
@@ -100,8 +98,8 @@ let g:deoplete#auto_complete_delay = 0
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+call minpac#add('junegunn/fzf', { 'do': 'terminal ~/.fzf/install --all' })
+call minpac#add('junegunn/fzf.vim')
 nnoremap <unique><silent><c-p> :Files<cr>
 nnoremap <unique><silent><leader>bc :BCommits<cr>
 
@@ -112,17 +110,17 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-Plug 'kassio/neoterm'
+call minpac#add('kassio/neoterm')
 nnoremap <unique><leader>t :TREPLSendLine<cr>
 vnoremap <unique><leader>t :TREPLSendSelection<cr>
 
 let g:neoterm_position = "vertical"
 let g:neoterm_autoinsert = 1
 
-Plug 'whatyouhide/vim-gotham'
+call minpac#add('whatyouhide/vim-gotham')
 
 " async linting and fixing support
-Plug 'w0rp/ale'
+call minpac#add('w0rp/ale')
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'typescript': ['prettier'],
@@ -140,16 +138,16 @@ let g:ale_max_signs = 50
 nnoremap <leader>af :ALEFix<cr>
 
 " Does what it says on the tin
-Plug '907th/vim-auto-save'
+call minpac#add('907th/vim-auto-save')
 nnoremap <leader>as :AutoSaveToggle<CR>
 let g:auto_save = 1 " enable AutoSave on Vim startup
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1 " disable the AutoSave notification
 
-Plug 'tpope/vim-commentary'
+call minpac#add('tpope/vim-commentary')
 
 " Git wrapper
-Plug 'tpope/vim-fugitive'
+call minpac#add('tpope/vim-fugitive')
 
 nnoremap <silent><leader>gbl      :Gblame<cr>
 nnoremap <silent><leader>gbr      :Gbrowse<cr>
@@ -164,31 +162,31 @@ nnoremap <silent><leader>grm      :Gremove<cr>
 nnoremap <silent><leader>gs       :Gstatus<cr>
 nnoremap <silent><leader>gw       :Gwrite<cr>
 
-Plug 'airblade/vim-gitgutter'
+call minpac#add('airblade/vim-gitgutter')
 
 let g:gitgutter_sign_modified = 'Δ'
 let g:gitgutter_sign_modified_removed = '∎'
 let g:gitgutter_sign_removed = '⨯'
 
 " rainbow parentheses
-Plug 'junegunn/rainbow_parentheses.vim'
+call minpac#add('junegunn/rainbow_parentheses.vim')
 au VimEnter * RainbowParentheses
 
-Plug 'tpope/vim-surround'
+call minpac#add('tpope/vim-surround')
 
-Plug 'ntpeters/vim-better-whitespace'
+call minpac#add('ntpeters/vim-better-whitespace')
 
 " Vim better whitespace mappings
 nnoremap <silent> <Leader>w :StripWhitespace<CR>
 nnoremap <silent> <Leader>W :ToggleWhitespace<CR>
 
 " vim tmux integration
-Plug 'christoomey/vim-tmux-navigator'
+call minpac#add('christoomey/vim-tmux-navigator')
 
 " vim language pack
-Plug 'sheerun/vim-polyglot'
+call minpac#add('sheerun/vim-polyglot')
 
-Plug 'lervag/vimtex'
+call minpac#add('lervag/vimtex')
 
 
 " Required for operations modifying multiple buffers like rename.
@@ -207,12 +205,11 @@ set hidden
 " nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 " nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
-Plug 'Shougo/echodoc.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'bps/vim-textobj-python'
-call plug#end()
+call minpac#add('Shougo/echodoc.vim')
+call minpac#add('machakann/vim-highlightedyank')
+call minpac#add('hynek/vim-python-pep8-indent')
+call minpac#add('michaeljsmith/vim-indent-object')
+call minpac#add('bps/vim-textobj-python')
 " }}}
 
 " color settings {{{
