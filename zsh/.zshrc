@@ -35,10 +35,6 @@ zplug load
 
 is_macos && PURE_GIT_PULL=0
 
-#
-# bound to Esc v in vi mode
-bindkey -M vicmd v edit-command-line
-
 # # assume we're running linux
 # if [[ ! "$(uname -s)" == "Darwin" ]]; then
 #   # Set GPG TTY
@@ -73,13 +69,11 @@ compdef g=git
 
 [[ -e "${HOME}/.iterm2_shell_integration.zsh" ]] && source "${HOME}/.iterm2_shell_integration.zsh"
 
-bindkey -v
-bindkey -a "?" history-incremental-search-backward
-bindkey -a "/" history-incremental-search-forward
-
 # By doing this, only the past commands matching the current line up to the
 # current cursor position will be shown when Up or Down keys are pressed.
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
+# emacs mode!
+bindkey -e
