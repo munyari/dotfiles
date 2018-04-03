@@ -29,8 +29,8 @@ source $ZPLUG_DIR/init.zsh
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 zplug zdharma/fast-syntax-highlighting, from:github
-zplug plugins/archlinux, from:oh-my-zsh
-zplug plugins/gpg-agent, from:oh-my-zsh
+is_macos || zplug plugins/archlinux, from:oh-my-zsh
+is_macos || zplug plugins/gpg-agent, from:oh-my-zsh
 zplug load
 
 is_macos && PURE_GIT_PULL=0
