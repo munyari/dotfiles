@@ -191,19 +191,24 @@ call minpac#add('lervag/vimtex')
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-" let g:LanguageClient_serverCommands = {
-"     \ 'javascript': ['javascript-typescript-stdio'],
-"     \ 'python': ['pyls'],
-"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-"     \ 'typescript': ['javascript-typescript-stdio'],
-"     \ }
-" " Automatically start language servers.
-" let g:LanguageClient_autoStart = 1
+call minpac#add('autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'terminal bash install.sh'
+      \ })
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'python': ['pyls'],
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ }
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_diagnosticsList = 'Quickfix'
+let g:LanguageClient_diagnosticsEnable = 0
 
-" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 call minpac#add('Shougo/echodoc.vim')
 call minpac#add('machakann/vim-highlightedyank')
