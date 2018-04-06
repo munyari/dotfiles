@@ -83,6 +83,7 @@ silent !git clone https://github.com/k-takata/minpac.git
       \ ~/.config/nvim/pack/minpac/opt/minpac
 endif
 packadd minpac
+call minpac#init()
 
 if !exists("g:gui_oni")
     " status bar
