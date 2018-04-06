@@ -115,7 +115,7 @@ call minpac#add('kassio/neoterm')
 nnoremap <unique><leader>t :TREPLSendLine<cr>
 vnoremap <unique><leader>t :TREPLSendSelection<cr>
 
-let g:neoterm_position = "vertical"
+let g:neoterm_default_mod = "vertical"
 let g:neoterm_autoinsert = 1
 
 call minpac#add('whatyouhide/vim-gotham')
