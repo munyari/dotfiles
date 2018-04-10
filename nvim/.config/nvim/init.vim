@@ -330,7 +330,8 @@ hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 
 if has('nvim') && executable('nvr')
-  let $VISUAL = 'nvr --remote-wait'
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+  let $EDITOR = $VISUAL
 endif
 
 autocmd BufNewFile,BufRead *.py
