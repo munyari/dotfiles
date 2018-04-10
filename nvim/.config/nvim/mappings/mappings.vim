@@ -26,9 +26,6 @@ nnoremap <unique> <leader><c-u> viWU
 "
 " inoremap <leader><c-u> <esc>viWUi
 
-" A simple mapping to move lines down
-nnoremap <unique> <leader><down> ddp
-
 " vertical split with previous buffer
 nnoremap <unique> <leader>vs :execute "rightbelow vsplit " . bufname("#")<cr>
 
