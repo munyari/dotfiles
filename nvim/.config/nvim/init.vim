@@ -202,6 +202,7 @@ call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('hynek/vim-python-pep8-indent')
 call minpac#add('michaeljsmith/vim-indent-object')
 call minpac#add('bps/vim-textobj-python')
+call minpac#add('mhinz/vim-grepper')
 " }}}
 
 " color settings {{{
