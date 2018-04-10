@@ -77,3 +77,7 @@ zle -N down-line-or-beginning-search
 
 # emacs mode!
 bindkey -e
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
