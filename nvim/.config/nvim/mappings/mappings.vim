@@ -12,17 +12,6 @@ nnoremap <unique> <Leader>i mmgg=G`m<CR>
 " paste from system clipboard at proper indentation level
 nnoremap <unique> <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
-if has('nvim')
-  " terminal naviagation mappings
-  " TODO: I'm having some weird issues where I open a new terminal buffer
-  " and the window doesn't change, just enter insert mode
-  tnoremap <Esc><Esc> <C-\><C-n>:q<cr>
-  tnoremap <C-h> <C-\><C-n><C-w>h
-  tnoremap <C-j> <C-\><C-n><C-w>j
-  tnoremap <C-k> <C-\><C-n><C-w>k
-  tnoremap <C-l> <C-\><C-n><C-w>l
-endif
-
 " remove search highlighting in normal mode
 nnoremap <unique> <silent> <Esc> :nohlsearch<Esc>
 
