@@ -32,10 +32,15 @@ set scrolloff=3
 set signcolumn=yes
 
 " creates undofile, allows undo even after closing
-if has('persistent_undo')
-  set undolevels=5000
-  set undofile
+set undofile
+set undolevels=5000
+if !has('nvim')
+  set undodir=~/.vim/undo
 endif
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+augroup END
 
 " always split below/right
 set splitbelow
