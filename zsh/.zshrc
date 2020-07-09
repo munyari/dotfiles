@@ -19,42 +19,8 @@ fi
 autoload edit-command-line
 zle -N edit-command-line
 
-
-if is_macos; then
-  ZPLUG_DIR=/usr/local/opt/zplug
-else
-  ZPLUG_DIR=/usr/share/zsh/scripts/zplug
-fi
-source $ZPLUG_DIR/init.zsh
-zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
-zplug zdharma/fast-syntax-highlighting, from:github
-is_macos || zplug plugins/archlinux, from:oh-my-zsh
-is_macos || zplug plugins/gpg-agent, from:oh-my-zsh
-zplug load
-
-is_macos && PURE_GIT_PULL=0
-
-# # assume we're running linux
-# if [[ ! "$(uname -s)" == "Darwin" ]]; then
-#   # Set GPG TTY
-#   export GPG_TTY=$(tty)
-
-#   # Start the gpg-agent if not already running
-#   if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-#     gpg-connect-agent /bye >/dev/null 2>&1
-#   fi
-
-#   OSCPKCS11=/usr/lib/ssh-keychain.dylib
-#   [[ -e $OSCPKCS11 ]] && export OSCPKCS11
-
-#   # Refresh gpg-agent tty in case user switches into an X session
-#   gpg-connect-agent updatestartuptty /bye >/dev/null
-# fi
-
-
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/nash/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -66,8 +32,6 @@ compdef g=git
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 [[ -f /usr/share/LS_COLORS ]] && eval $(dircolors -b /usr/share/LS_COLORS)
-
-[[ -e "${HOME}/.iterm2_shell_integration.zsh" ]] && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # By doing this, only the past commands matching the current line up to the
 # current cursor position will be shown when Up or Down keys are pressed.
