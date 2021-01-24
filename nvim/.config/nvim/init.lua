@@ -2,12 +2,42 @@ local cmd = vim.cmd   -- to execute vim commands e.g. cmd('pwd')
 local fn = vim.fn     -- to call vim functions e.g. fn.bufnr()
 local g = vim.g       -- a table to access global variables
 
--- TODO: read paq-nvim docs
 -- TODO: a comment alignment plugin?
--- TODO: check out packer instead
-cmd 'packadd paq-nvim'             -- Load package
-local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
-paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
+-- ensure packager is installed
+local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  execute 'packadd packer.nvim'
+end
+
+cmd 'packadd packer.nvim'
+require'packer'.startup(function()
+  use {'wbthomason/packer.nvim', opt=true} -- package manager
+
+  ---- Colors
+  use 'norcalli/nvim-colorizer.lua' -- renders colors inline
+  use 'munyari/vim-gotham'          -- colorscheme
+
+  
+  -- LSP
+  use 'neovim/nvim-lspconfig'  -- sane defaults for the built-in LSP
+  use 'ojroques/nvim-lspfuzzy' -- FZF integration
+  use 'shougo/deoplete-lsp'    -- Deoplete integration
+
+  -- FZF
+  use {'junegunn/fzf', cmd = 'call fzf#install()'}
+  use 'junegunn/fzf.vim'
+  use 'vijaymarupudi/nvim-fzf'
+  use 'vijaymarupudi/nvim-fzf-commands'
+
+  -- Misc
+  use {'shougo/deoplete.nvim', cmd = 'UpdateRemotePlugins'}                      -- completions
+  use 'tpope/vim-commentary'                                                     -- manipulate comments
+  use 'tpope/vim-surround'                                                       -- manipulate parenthesizing characters
+  use {'tpope/vim-fugitive', opt = true, cmd = {'Gstatus', 'Gcommit', 'Gwrite'}} -- git client
+  use 'nvim-treesitter/nvim-treesitter'                                          -- fast syntax highlighting
+end)
 
 --TODO: section comments plugin?
 
@@ -87,16 +117,13 @@ for i = 1, #autosave_events do
   cmd(string.format('autocmd %s * lua auto_save()', event))
 end
 
-paq {'tpope/vim-commentary'} -- manipulate comments
 
 opt('g', 'clipboard', 'unnamedplus') -- automatically put additions to unnamed reg in clipboard ('+' reg)
 opt('g', 'inccommand', 'split') -- preview searches in a split
 -----------------------------COLORSCHEME----------------------------------
-paq {'munyari/vim-gotham'}
 cmd 'colorscheme gotham256'
 opt('g', 'termguicolors') -- enable 24 bit RGB color in TUI
 
-paq {'norcalli/nvim-colorizer.lua'}
 require'colorizer'.setup()
 
 
@@ -119,20 +146,12 @@ map('t', '<C-l>', '<C-\\><C-n><C-w>l') -- C-l to move to right window
 cmd 'autocmd TermOpen * startinsert'
 
 -- Fuzzy finder
-paq {'vijaymarupudi/nvim-fzf'}
-paq {'vijaymarupudi/nvim-fzf-commands'}
 
 map('n', '<C-p>', [[<cmd>lua require('fzf-commands').files()<cr>]])
 ---------------------------------LSP-----------------------------------------
 -- deoplete
-paq {'shougo/deoplete-lsp'}
-paq {'shougo/deoplete.nvim', hook = fn['remote#host#UpdateRemotePlugins']}
 g['deoplete#enable_at_startup'] = 1
 
-paq {'junegunn/fzf', hook = fn['fzf#install']}
-paq {'junegunn/fzf.vim'}
-paq {'neovim/nvim-lspconfig'}
-paq {'ojroques/nvim-lspfuzzy'}
 
 local nvim_lsp = require'lspconfig'
 
@@ -194,7 +213,6 @@ end
 
 
 --------------------------TREESITTER---------------------------------------
-paq {'nvim-treesitter/nvim-treesitter'}
 require'nvim-treesitter.configs'.setup {
   ensure_installed = 'maintained', -- ensure all maintained parsers are installed
   highlight = {enable = true}
