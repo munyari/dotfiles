@@ -93,7 +93,7 @@ export WAYLAND_TERMINAL="alacritty"
 # --hidden: Search hidden files and folders
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-export FZF_DEFAULT_COMMAND='rg --files --glob="!git/*" --glob="!paper/*" --glob="!.mypy_cache/*" --glob="!chime/*" --glob="!typescript/**/*.js" --glob="!typescript/**/dist/*" --glob="!*.jpg" 2>/dev/null'
+export FZF_DEFAULT_COMMAND='fd .'
 
 export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
 export LESS_TERMCAP_md=$'\E[01;31m'      # Begins bold.
