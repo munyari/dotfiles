@@ -169,6 +169,12 @@ map('n', '<leader><leader>', [[<cmd>Buffers<cr>]])
 -- config
 map('n', '<leader>ev', [[<cmd>e $MYVIMRC<cr>]])
 map('n', '<leader>sv', [[<cmd>luafile $MYVIMRC<cr>]])
+
+-- make arrow keys do something useful
+map('n', '<Right>', [[<cmd>vertical resize +2<CR>]])
+map('n', '<Up>', [[<cmd>resize +2<CR>]])
+map('n', '<Left>', [[<cmd>vertical resize -2<CR>]])
+map('n', '<Down>', [[<cmd>resize -2<CR>]])
 ---------------------------------LSP-----------------------------------------
 -- deoplete
 g['deoplete#enable_at_startup'] = 1
