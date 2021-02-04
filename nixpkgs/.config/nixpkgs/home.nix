@@ -22,6 +22,7 @@
   home.packages = [
     pkgs.bash
     pkgs.black
+    pkgs.chicken
     pkgs.ctags
     pkgs.curl
     pkgs.fd
