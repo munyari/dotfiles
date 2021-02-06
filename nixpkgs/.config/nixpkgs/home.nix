@@ -26,6 +26,7 @@
     pkgs.ctags
     pkgs.curl
     pkgs.fd
+    pkgs.ffmpeg
     pkgs.fzf
     pkgs.gnupg
     pkgs.gnused
