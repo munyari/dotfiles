@@ -4,8 +4,8 @@
 	ui = auto
 [core]
 	editor = "if type nvr >/dev/null 2>&1; then ED='nvr -cc split --remote-wait-silent'; else ED='nvim'; fi; $ED"
-	excludesfile = /home/nash/.gitignore_global
-	pager = less -F
+	excludesfile = ./.config/git/gitignore_global
+	pager = delta
 [merge]
 	tool = vimdiff
 	ff = only
