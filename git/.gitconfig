@@ -66,3 +66,5 @@
 	tool = vimdiff
 [mergetool "vimdiff"]
 	cmd = "nvim -d  \"$LOCAL\" \"$REMOTE\""
+[delta]
+        features = line-numbers
