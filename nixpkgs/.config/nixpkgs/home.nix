@@ -21,10 +21,12 @@
 
   home.packages = [
     pkgs.bash
+    pkgs.bat      # upgraded cat, with syntax highlighting and built in pager
     pkgs.black
     pkgs.chicken
     pkgs.ctags
     pkgs.curl
+    pkgs.delta    # better diffs
     pkgs.fd
     pkgs.ffmpeg
     pkgs.fzf
