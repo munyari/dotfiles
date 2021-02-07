@@ -45,6 +45,7 @@
     pkgs.pandoc
     pkgs.python
     pkgs.python3
+    pkgs.qemu # virual machine go brrr
     pkgs.ripgrep
     pkgs.ruby
     pkgs.stack
