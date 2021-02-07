@@ -1,0 +1,37 @@
+# better diffs by language
+*.c     diff=cpp
+*.c++   diff=cpp
+*.cc    diff=cpp
+*.cpp   diff=cpp
+*.cs    diff=csharp
+*.css   diff=css
+*.el    diff=lisp
+*.ex    diff=elixir
+*.exs   diff=elixir
+*.go    diff=golang
+*.h     diff=cpp
+*.h++   diff=cpp
+*.hh    diff=cpp
+*.hpp   diff=cpp
+*.html  diff=html
+*.java  diff=java
+*.lisp  diff=lisp
+*.m     diff=objc
+*.md    diff=markdown
+*.mm    diff=objc
+*.php   diff=php
+*.pl    diff=perl
+*.py    diff=python
+*.rake  diff=ruby
+*.rb    diff=ruby
+*.rs    diff=rust
+*.sh    diff=bash
+*.tex   diff=tex
+*.xhtml diff=html
+
+# don't show me generated protobufs
+*pb2.py -diff linguist-generated=true
+*pb2.pyi -diff linguist-generated=true
+*pb2_grpc.py -diff linguist-generated=true
+*pb2_grpc.pyi -diff linguist-generated=true
+*.pb.go -diff linguist-generated=true
