@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
 
-for dir in */
-do
-  for file in $(ls -A "$dir")
-  do
-    existing_file=../"$file"
-    if [[ -f "$existing_file" ]] && [[ ! -L "$existing_file" ]]
-    then
-      mkdir -p ../conflicts
-      printf "Moving "$existing_file" to ../conflicts/"$file""
-      mv "$existing_file" ../conflicts
-    fi
-  done
-  stow "$dir"
+# The below is to get the the directory that this script is in, and respects symbolic links
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
+DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+echo $DIR
+
+sudo rm -rf ~/.nix-profile /nix ~/.config/nixpkgs
+# install nix
+sh <(curl -L https://nixos.org/nix/install)
+
+# source relevant environment variables
+source ~/.nix-profile/etc/profile.d/nix.sh
+
+# add home manager channel
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+
+ln -s $DIR/nixpkgs/.config/nixpkgs $HOME/.config/nixpkgs
+nix-shell '<home-manager>' -A install
