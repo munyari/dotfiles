@@ -2,6 +2,7 @@
 
 let
   rSERVER = "~/src/server";
+  metaserver_target = "//services/metaserver";
 in
 {
   # Let Home Manager install and manage itself.
@@ -113,7 +114,44 @@ in
       }
     ];
 
-    initExtra = "source $HOME/.nix-profile/etc/profile.d/nix.sh";
+    initExtra = ''
+source $HOME/.nix-profile/etc/profile.d/nix.sh
+# No arguments: `git status`
+# With arguments: acts like `git`
+function g() {
+  if [[ $# > 0 ]]; then
+    git "$@"
+  else
+    git status --short --branch
+  fi
+}
+
+function n() {
+  eval "$EDITOR" "$@"
+}
+
+function bzl() {
+  mbzl --use-fsnotify "$@"
+}
+
+function sms() {
+  bzl itest-start "${metaserver_target}" "$@"
+}
+
+function sam() {
+  bzl itest-stop-all --force "$@"
+}
+
+function rms() {
+  bzl itest-reload-current "$@" || (sam && sms)
+  osascript -e 'display notification "Hooray!" with title "Devbox has finished building!"'
+  auto-reload-meta
+}
+
+function tail_metaserver() {
+    mbzl itest-exec //services/metaserver:metaserver -- tail -f /tmp/bzl/logs/service_logs/metaserver/metaserver_core/service.log
+}
+    '';
 
     sessionVariables = {
       EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'";
@@ -122,12 +160,11 @@ in
       # Set the default Less options.
       # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
       # Remove -X and -F (exit if the content fits on one screen) to enable it.
-      LESS="-F -g -i -M -R -S -w -X -z-4 --RAW-CONTROL-CHARS";
+      LESS = "-F -g -i -M -R -S -w -X -z-4 --RAW-CONTROL-CHARS";
     };
 
     shellGlobalAliases = {
-      n = "nvim";
-      g = "git";
+      bzl = "mbzl";
     };
   };
 
