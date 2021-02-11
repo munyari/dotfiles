@@ -77,11 +77,11 @@ in
     defaultCommand = "fd";
   };
 
-  programs.alacritty = {
+  programs.alacritty = if pkgs.stdenv.isLinux then {
       enable = true;
       package =
         pkgs.writeShellScriptBin "alacritty" ''${nixGLIntel}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty "$@"'';
-  };
+  } else { enable = true; };
 
   programs.neovim = {
     enable = true;
