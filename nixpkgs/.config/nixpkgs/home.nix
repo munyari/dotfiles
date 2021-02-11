@@ -3,6 +3,10 @@
 let
   rSERVER = "~/src/server";
   metaserver_target = "//services/metaserver";
+  nixGLIntel = (pkgs.callPackage "${builtins.fetchTarball {
+    url = https://github.com/guibou/nixGL/archive/7d6bc1b21316bab6cf4a6520c2639a11c25a220e.tar.gz;
+    sha256 = "02y38zmdplk7a9ihsxvnrzhhv7324mmf5g8hmxqizaid5k5ydpr3";
+  }}/nixGL.nix" {}).nixGLIntel;
 in
 {
   # Let Home Manager install and manage itself.
@@ -59,8 +63,6 @@ in
     youtube-dl
   ];
 
-  programs.alacritty.enable = true;
-
   programs.bat = {
     enable = true;
     config = {
@@ -73,6 +75,12 @@ in
     enableBashIntegration = true;
     enableZshIntegration = true;
     defaultCommand = "fd";
+  };
+
+  programs.alacritty = {
+      enable = true;
+      package =
+        pkgs.writeShellScriptBin "alacritty" ''${nixGLIntel}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty "$@"'';
   };
 
   programs.neovim = {
