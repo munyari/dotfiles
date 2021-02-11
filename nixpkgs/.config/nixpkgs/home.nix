@@ -77,11 +77,50 @@ in
     defaultCommand = "fd";
   };
 
-  programs.alacritty = if pkgs.stdenv.isLinux then {
-      enable = true;
-      package =
-        pkgs.writeShellScriptBin "alacritty" ''${nixGLIntel}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty "$@"'';
-  } else { enable = true; };
+  programs.alacritty = {
+    enable = true;
+    package =
+      if pkgs.stdenv.isLinux then
+        pkgs.writeShellScriptBin "alacritty" ''${nixGLIntel}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty "$@"''
+      else
+        pkgs.alacritty;
+    settings = {
+      font = {
+        normal.family = "Fira Code";
+        size = 15.0;
+        use_thin_strokes = true;
+      };
+
+      colors = {
+        primary = {
+          background = "0x0a0f14";
+          foreground = "0x98d1ce";
+        };
+
+        normal = {
+          black = "0x0a0f14";
+          red = "0xc33027";
+          green = "0x26a98b";
+          yellow = "0xedb54b";
+          blue = "0x195465";
+          magenta = "0x4e5165";
+          cyan = "0x33859d";
+          white = "0x98d1ce";
+        };
+
+        bright = {
+          black = "0x10151b";
+          red = "0xc23127";
+          green = "0x2aa889";
+          yellow = "0xedb443";
+          blue = "0x093748";
+          magenta = "0x888ca6";
+          cyan = "0x599caa";
+          white = "0xd3ebe9";
+        };
+      };
+    };
+  };
 
   programs.neovim = {
     enable = true;
