@@ -106,6 +106,8 @@ opt('g', 'scrolloff', 3)      -- minimum number of screen lines to keep below an
 opt('g', 'joinspaces', false) -- don't add additional space when joining after period
 opt('w', 'wrap', false)       -- disable line wrap
 
+opt('w', 'list') -- show characters like tabs, nbsp and trailing whitespace
+
 -- TODO: make this togglable off
 -- autosave
 function auto_save()
