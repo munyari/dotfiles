@@ -13,6 +13,8 @@ function g() {
     git status --short --branch
   fi
 }
+# use git completions
+compdef g=git
 
 function n() { eval "$EDITOR" "$@" }
 

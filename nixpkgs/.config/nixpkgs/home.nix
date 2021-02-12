@@ -122,6 +122,149 @@ in
     };
   };
 
+  programs.git = {
+    enable = true;
+    package =
+      if pkgs.stdenv.isDarwin then
+        pkgs.writeShellScriptBin "git" "/opt/dropbox-override/bin/git"
+      else
+        pkgs.git;
+    aliases = {
+        a = "add";
+        ap = "add --patch";
+        b = "branch";
+        bd = "branch -d";
+        branches = "branch -av";
+        can = "commit --amend --no-edit";
+        co = "checkout";
+        cob = "checkout -b";
+        cm = "commit -m";
+        d = "diff";
+        dc = "diff --cached";
+        glog = "log -E -i --grep";
+        l = "log --oneline --decorate --graph --all -20";
+        last = "log -1 HEAD";
+        p = "push";
+        stashes = "stash list";
+        su = "stash -u";
+        unchange = "checkout --";
+        uncommit = "reset --soft HEAD^";
+        unstage = "reset HEAD --";
+    };
+    attributes = [
+      # better diffs by language
+      "*.c     diff=cpp"
+      "*.c++   diff=cpp"
+      "*.cc    diff=cpp"
+      "*.cpp   diff=cpp"
+      "*.cs    diff=csharp"
+      "*.css   diff=css"
+      "*.el    diff=lisp"
+      "*.ex    diff=elixir"
+      "*.exs   diff=elixir"
+      "*.go    diff=golang"
+      "*.h     diff=cpp"
+      "*.h++   diff=cpp"
+      "*.hh    diff=cpp"
+      "*.hpp   diff=cpp"
+      "*.html  diff=html"
+      "*.java  diff=java"
+      "*.lisp  diff=lisp"
+      "*.m     diff=objc"
+      "*.md    diff=markdown"
+      "*.mm    diff=objc"
+      "*.php   diff=php"
+      "*.pl    diff=perl"
+      "*.py    diff=python"
+      "*.rake  diff=ruby"
+      "*.rb    diff=ruby"
+      "*.rs    diff=rust"
+      "*.sh    diff=bash"
+      "*.tex   diff=tex"
+      "*.xhtml diff=html"
+
+      # don't show me generated protobufs
+      "*pb2.py -diff linguist-generated=true"
+      "*pb2.pyi -diff linguist-generated=true"
+      "*pb2_grpc.py -diff linguist-generated=true"
+      "*pb2_grpc.pyi -diff linguist-generated=true"
+      "*.pb.go -diff linguist-generated=true"
+    ];
+    delta = {
+      enable = true;
+      options = {
+        features = "line-numbers";
+      };
+    };
+    extraConfig = {
+      color.ui = "auto";
+      push.default = "upstream";
+      fetch.prune = true;
+    };
+    ignores = [
+      # Compiled source #
+      ####################
+      "*.com"
+      "*.class"
+      "*.dll"
+      "*.exe"
+      "*.o"
+      "*.so"
+      "*.beam"
+      "*.pdf"
+
+      # Packages #
+      ############
+      # it's better to unpack these files and commit the raw source
+      # git has its own built in compression methods
+      "*.7z"
+      "*.dmg"
+      "*.gz"
+      "*.iso"
+      "*.jar"
+      "*.rar"
+      "*.tar"
+      "*.zip"
+
+      ## Logs and databases #
+      #######################
+      "*.log"
+      "*.sql"
+      "*.sqlite"
+
+      ## OS generated files #
+      #######################
+      ".DS_Store"
+      ".DS_Store?"
+      "._*"
+      ".Spotlight-V100"
+      ".Trashes"
+      "ehthumbs.db"
+      "Thumbs.db"
+
+      # vim swap files #
+      ##################
+      "*~"
+
+      # tag files #
+      #############
+      "tags"
+
+      ## build artifacts #
+      ####################
+      "*.aux"
+      "*.out"
+      ".stack-work/"
+      "*.hi"
+      "*.o"
+
+      "node_modules/"
+      ".ropeproject/"
+     ];
+     userEmail = "panashe@hey.com";
+     userName = "Panashe M. Fundira";
+  };
+
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
@@ -174,6 +317,7 @@ in
 
     shellGlobalAliases = {
       bzl = "mbzl";
+      less = "bat";
     };
   };
 
