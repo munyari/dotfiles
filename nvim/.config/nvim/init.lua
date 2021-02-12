@@ -37,6 +37,7 @@ require'packer'.startup(function()
   use 'tpope/vim-surround'                                                       -- manipulate parenthesizing characters
   use {'tpope/vim-fugitive', opt = true, cmd = {'Gstatus', 'Gcommit', 'Gwrite'}} -- git client
   use 'nvim-treesitter/nvim-treesitter'                                          -- fast syntax highlighting
+  use 'airblade/vim-gitgutter'                                                   -- Git signs in sidebar
 end)
 
 --TODO: section comments plugin?
@@ -177,6 +178,15 @@ map('n', '<Right>', [[<cmd>vertical resize +2<CR>]])
 map('n', '<Up>', [[<cmd>resize +2<CR>]])
 map('n', '<Left>', [[<cmd>vertical resize -2<CR>]])
 map('n', '<Down>', [[<cmd>resize -2<CR>]])
+--------------------------------------GIT GUTTER-----------------------------------------
+cmd [[let g:gitgutter_sign_modified = 'Δ']]
+cmd [[let g:gitgutter_sign_modified_removed = '∎']]
+cmd [[let g:gitgutter_sign_removed = '⨯']]
+cmd [[let g:gitgutter_sign_column_always = 1]]
+map('n', '[g', [[<cmd>GitGutterNextHunk<CR>]])
+map('n', ']g', [[<cmd>GitGutterNextHunk<CR>]])
+map('n', '<leader>hs', [[<cmd>GitGutterStageHunk<cr>]])
+
 ---------------------------------LSP-----------------------------------------
 -- deoplete
 g['deoplete#enable_at_startup'] = 1
