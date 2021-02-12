@@ -2,13 +2,15 @@
 
 let
   rSERVER = "~/src/server";
-  metaserver_target = "//services/metaserver";
-  nixGLIntel = (pkgs.callPackage "${builtins.fetchTarball {
-    url = https://github.com/guibou/nixGL/archive/7d6bc1b21316bab6cf4a6520c2639a11c25a220e.tar.gz;
-    sha256 = "02y38zmdplk7a9ihsxvnrzhhv7324mmf5g8hmxqizaid5k5ydpr3";
-  }}/nixGL.nix" {}).nixGLIntel;
-in
-{
+  # TODO: pin a commit for neovim
+  nixGLIntel = (pkgs.callPackage "${
+      builtins.fetchTarball {
+        url =
+          "https://github.com/guibou/nixGL/archive/7d6bc1b21316bab6cf4a6520c2639a11c25a220e.tar.gz";
+        sha256 = "02y38zmdplk7a9ihsxvnrzhhv7324mmf5g8hmxqizaid5k5ydpr3";
+      }
+    }/nixGL.nix" { }).nixGLIntel;
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -27,49 +29,52 @@ in
   # changes in each release.
   home.stateVersion = "21.03";
 
-  home.packages = with pkgs; [
-    bash
-    black
-    cachix
-    chicken
-    ctags
-    curl
-    delta    # better diffs
-    fd
-    ffmpeg
-    gnupg
-    gnused
-    gnutar
-    go
-    gopls
-    htop
-    jq
-    less
-    mosh
-    mpv
-    ncdu # ncurses disk space visualizer
-    neovim-remote
-    nodejs
-    pandoc
-    python
-    python3
-    ripgrep
-    ruby
-    stack
-    stow
-    tree
-    wget
-    which
-    youtube-dl
-  ] ++ (if pkgs.stdenv.isLinux then [
-    qemu # virtual machine go brr
-  ] else []);
+  home.packages = with pkgs;
+    [
+      bash
+      black
+      cachix
+      chicken
+      ctags
+      curl
+      delta # better diffs
+      fd
+      ffmpeg
+      gnupg
+      gnused
+      gnutar
+      go
+      gopls
+      htop
+      jq
+      less
+      mosh
+      mpv
+      ncdu # ncurses disk space visualizer
+      neovim-remote
+      nixfmt
+      nodejs
+      pandoc
+      python
+      python3
+      ripgrep
+      ruby
+      stack
+      stow
+      tree
+      wget
+      which
+      youtube-dl
+    ] ++ (if pkgs.stdenv.isLinux then
+      [
+        qemu # virtual machine go brr
+      ]
+    else
+      [ ]);
 
   programs.bat = {
     enable = true;
-    config = {
-      map-syntax = "BUILD.in:Python";
-    };
+    config = { map-syntax = "BUILD.in:Python"; };
   };
 
   programs.fzf = {
@@ -81,11 +86,11 @@ in
 
   programs.alacritty = {
     enable = true;
-    package =
-      if pkgs.stdenv.isLinux then
-        pkgs.writeShellScriptBin "alacritty" ''${nixGLIntel}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty "$@"''
-      else
-        pkgs.alacritty;
+    package = if pkgs.stdenv.isLinux then
+      pkgs.writeShellScriptBin "alacritty"
+      ''${nixGLIntel}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty "$@"''
+    else
+      pkgs.alacritty;
     settings = {
       font = {
         normal.family = "Fira Code";
@@ -126,32 +131,31 @@ in
 
   programs.git = {
     enable = true;
-    package =
-      if pkgs.stdenv.isDarwin then
-        pkgs.writeShellScriptBin "git" "/opt/dropbox-override/bin/git"
-      else
-        pkgs.git;
+    package = if pkgs.stdenv.isDarwin then
+      pkgs.writeShellScriptBin "git" "/opt/dropbox-override/bin/git"
+    else
+      pkgs.git;
     aliases = {
-        a = "add";
-        ap = "add --patch";
-        b = "branch";
-        bd = "branch -d";
-        branches = "branch -av";
-        can = "commit --amend --no-edit";
-        co = "checkout";
-        cob = "checkout -b";
-        cm = "commit -m";
-        d = "diff";
-        dc = "diff --cached";
-        glog = "log -E -i --grep";
-        l = "log --oneline --decorate --graph --all -20";
-        last = "log -1 HEAD";
-        p = "push";
-        stashes = "stash list";
-        su = "stash -u";
-        unchange = "checkout --";
-        uncommit = "reset --soft HEAD^";
-        unstage = "reset HEAD --";
+      a = "add";
+      ap = "add --patch";
+      b = "branch";
+      bd = "branch -d";
+      branches = "branch -av";
+      can = "commit --amend --no-edit";
+      co = "checkout";
+      cob = "checkout -b";
+      cm = "commit -m";
+      d = "diff";
+      dc = "diff --cached";
+      glog = "log -E -i --grep";
+      l = "log --oneline --decorate --graph --all -20";
+      last = "log -1 HEAD";
+      p = "push";
+      stashes = "stash list";
+      su = "stash -u";
+      unchange = "checkout --";
+      uncommit = "reset --soft HEAD^";
+      unstage = "reset HEAD --";
     };
     attributes = [
       # better diffs by language
@@ -194,9 +198,7 @@ in
     ];
     delta = {
       enable = true;
-      options = {
-        features = "line-numbers";
-      };
+      options = { features = "line-numbers"; };
     };
     extraConfig = {
       color.ui = "auto";
@@ -262,9 +264,9 @@ in
 
       "node_modules/"
       ".ropeproject/"
-     ];
-     userEmail = "panashe@hey.com";
-     userName = "Panashe M. Fundira";
+    ];
+    userEmail = "panashe@hey.com";
+    userName = "Panashe M. Fundira";
   };
 
   programs.neovim = {
@@ -281,11 +283,7 @@ in
     defaultKeymap = "emacs";
     enableCompletion = true;
     autocd = true;
-    cdpath = [
-      "."
-      "~"
-      rSERVER
-    ];
+    cdpath = [ "." "~" rSERVER ];
 
     history = {
       expireDuplicatesFirst = true;
@@ -323,7 +321,8 @@ in
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      url =
+        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     }))
   ];
 }
