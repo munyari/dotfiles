@@ -37,4 +37,16 @@ function rms() {
 function tail_metaserver() {
     mbzl itest-exec "${metaserver_target}" -- tail -f /tmp/bzl/logs/service_logs/metaserver/metaserver_core/service.log
 }
+
+if [[ $NVIM_LISTEN_ADDRESS ]]
+then
+  export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+else
+  export EDITOR="nvim"
+fi
+
+export VISUAL="$EDITOR"
+
+# ================== edit above this line ==========================================
 ''
+

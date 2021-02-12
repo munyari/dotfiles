@@ -307,8 +307,6 @@ in
     initExtra = import ./config/zsh/initExtra.nix;
 
     sessionVariables = {
-      EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'";
-      VISUAL = "$EDITOR";
       PATH = "/opt/dropbox-override/bin:$PATH";
       # Set the default Less options.
       # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
