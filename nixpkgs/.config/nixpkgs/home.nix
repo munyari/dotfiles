@@ -47,6 +47,7 @@ in
     less
     mosh
     mpv
+    ncdu # ncurses disk space visualizer
     neovim-remote
     nodejs
     pandoc
