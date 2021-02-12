@@ -52,7 +52,6 @@ in
     pandoc
     python
     python3
-    qemu # virual machine go brrr
     ripgrep
     ruby
     stack
@@ -61,7 +60,9 @@ in
     wget
     which
     youtube-dl
-  ];
+  ] ++ (if pkgs.stdenv.isLinux then [
+    qemu # virtual machine go brr
+  ] else []);
 
   programs.bat = {
     enable = true;
