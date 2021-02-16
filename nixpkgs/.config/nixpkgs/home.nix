@@ -132,7 +132,7 @@ in {
   programs.git = {
     enable = true;
     package = if pkgs.stdenv.isDarwin then
-      pkgs.writeShellScriptBin "git" "/opt/dropbox-override/bin/git"
+      pkgs.writeShellScriptBin "git" ''/opt/dropbox-override/bin/git "$@"''
     else
       pkgs.git;
     aliases = {
