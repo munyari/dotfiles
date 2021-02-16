@@ -137,24 +137,32 @@ in {
       pkgs.git;
     aliases = {
       a = "add";
+      ab = "!arc branch --by-status";
       ap = "add --patch";
       b = "branch";
+      bD = "branch -D";
       bd = "branch -d";
       branches = "branch -av";
       can = "commit --amend --no-edit";
+      cm = "commit -m";
       co = "checkout";
       cob = "checkout -b";
-      cm = "commit -m";
       d = "diff";
       dc = "diff --cached";
+      dw = "diff --word-diff";
       glog = "log -E -i --grep";
       l = "log --oneline --decorate --graph --all -20";
       last = "log -1 HEAD";
+      ls = "log --oneline --graph --decorate --simplify-by-decoration";
       p = "push";
+      publish = "!git push -u origin $(git branch-name)";
+      remotes = "remote -v";
       stashes = "stash list";
       su = "stash -u";
-      unchange = "checkout --";
+      tags = "tag";
+      unchange = "reset --hard";
       uncommit = "reset --soft HEAD^";
+      unpublish = "!git push origin :$(git branch-name)";
       unstage = "reset HEAD --";
     };
     attributes = [
