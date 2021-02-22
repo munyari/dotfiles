@@ -19,7 +19,7 @@ require'packer'.startup(function()
 
   ---- Colors
   use 'norcalli/nvim-colorizer.lua' -- renders colors inline
-  use 'munyari/vim-gotham'          -- colorscheme
+  use 'arcticicestudio/nord-vim'    -- colorscheme
 
   
   -- LSP
@@ -131,7 +131,7 @@ end
 opt('g', 'clipboard', 'unnamedplus') -- automatically put additions to unnamed reg in clipboard ('+' reg)
 opt('g', 'inccommand', 'split')      -- preview searches in a split
 -----------------------------COLORSCHEME----------------------------------
-cmd 'colorscheme gotham256'
+cmd 'colorscheme nord'
 opt('g', 'termguicolors') -- enable 24 bit RGB color in TUI
 
 require'colorizer'.setup()
