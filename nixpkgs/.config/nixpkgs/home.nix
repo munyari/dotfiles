@@ -194,7 +194,10 @@ in {
       ls = "log --oneline --graph --decorate --simplify-by-decoration";
       p = "push";
       publish = "!git push -u origin $(git branch-name)";
+      r = "rebase";
+      rc = "rebase --continue";
       remotes = "remote -v";
+      ri = "rebase -i";
       stashes = "stash list";
       su = "stash -u";
       tags = "tag";
@@ -247,9 +250,26 @@ in {
       options = { features = "line-numbers"; };
     };
     extraConfig = {
+      branch.autoSetupMerge = "always";
+      core = {
+        compression = 0;
+        looseCompression = 0;
+        whitespace = "space-before-tab, tab-in-indent, trailing-space";
+      };
       color.ui = "auto";
-      push.default = "upstream";
+      commit.verbose = true;
+      dbx.messagedisplayversion = 1;
       fetch.prune = true;
+      grep.extendedRegexp = true;
+      rebase = {
+        autostash = true;
+        abbreviateCommands = true;
+      };
+      pull.rebase = true;
+      push.default = "upstream";
+      merge = {
+        renamelimit = 1815;
+      };
     };
     ignores = [
       # Compiled source #
@@ -311,7 +331,7 @@ in {
       "node_modules/"
       ".ropeproject/"
     ];
-    userEmail = "panashe@hey.com";
+    userEmail = "panashe@dropbox.com";
     userName = "Panashe M. Fundira";
   };
 
