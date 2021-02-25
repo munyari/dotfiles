@@ -378,6 +378,7 @@ in {
       # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
       # Remove -X and -F (exit if the content fits on one screen) to enable it.
       LESS = "-F -g -i -M -R -S -w -X -z-4 --RAW-CONTROL-CHARS";
+      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     };
 
     shellGlobalAliases = {
