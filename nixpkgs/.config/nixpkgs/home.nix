@@ -54,6 +54,7 @@ in {
       neovim-remote
       nixfmt
       nodejs
+      noti # useful for notification of long-running commands
       pandoc
       python
       python3
