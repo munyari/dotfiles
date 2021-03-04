@@ -45,7 +45,6 @@ in {
       gnutar
       go
       gopls
-      htop
       jq
       less
       mosh
@@ -334,6 +333,14 @@ in {
     ];
     userEmail = "panashe@dropbox.com";
     userName = "Panashe M. Fundira";
+  };
+
+  programs.htop = {
+    enable = true;
+    hideThreads = true;
+    hideKernelThreads = true;
+    colorScheme = 6;
+    treeView = true;
   };
 
   programs.neovim = {
