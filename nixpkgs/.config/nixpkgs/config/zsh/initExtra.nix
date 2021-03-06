@@ -35,7 +35,11 @@ function rms() {
 }
 
 function tail_metaserver() {
-    mbzl itest-exec "${metaserver_target}" -- tail -f /tmp/bzl/logs/service_logs/metaserver/metaserver_core/service.log
+    bzl itest-exec "${metaserver_target}" -- tail -f /tmp/bzl/logs/service_logs/metaserver/metaserver_core/service.log
+}
+
+function aishell() {
+    bzl build //metaserver/shell:autoimport_shell && bzl itest-exec "${metaserver_target}" -- bazel-bin/metaserver/shell/autoimport_shell
 }
 
 if [[ $NVIM_LISTEN_ADDRESS ]]
