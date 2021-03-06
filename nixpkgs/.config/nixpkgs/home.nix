@@ -167,6 +167,7 @@ in {
     };
   };
 
+  # TODO: configure difftool to work with nvim -d and nvr
   programs.git = {
     enable = true;
     package = if pkgs.stdenv.isDarwin then
@@ -267,9 +268,7 @@ in {
       };
       pull.rebase = true;
       push.default = "upstream";
-      merge = {
-        renamelimit = 1815;
-      };
+      merge = { renamelimit = 1815; };
     };
     ignores = [
       # Compiled source #
