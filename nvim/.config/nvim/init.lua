@@ -254,7 +254,36 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
+-- Improve diagnostic error display
+cmd [[highlight LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red]]           -- Errors in red
+cmd [[highlight LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow]]   -- warnings in yellow
+cmd [[highlight LspDiagnosticsVirtualTextInformation guifg=White ctermfg=White]] -- info in white
+cmd [[highlight LspDiagnosticsVirtualTextHint guifg=White ctermfg=White]]        -- hint in white
 
+-- Add underlines
+cmd [[highlight LspDiagnosticsUnderlineError guifg=NONE ctermfg=NONE cterm=underline gui=underline]]       -- Underline errors in red
+cmd [[highlight LspDiagnosticsUnderlineWarning guifg=NONE ctermfg=NONE cterm=underline gui=underline]]     -- Underline warnings in yellow
+cmd [[highlight LspDiagnosticsUnderlineInformation guifg=NONE ctermfg=NONE cterm=underline gui=underline]] -- Underline info in white
+cmd [[highlight LspDiagnosticsUnderlineHint guifg=NONE ctermfg=NONE cterm=underline gui=underline]]        -- Underline hints in white
+
+lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
+  lsp.diagnostic.on_publish_diagnostics, {
+    -- Enable underline, use default values
+    underline = true,
+    virtual_text = {
+      spacing = 2,
+      severity_limit = "Hint",
+    },
+  }
+)
+
+cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+
+-- highlight line numbers instead of displaying in the gutter
+fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsVirtualTextError"})
+fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsVirtualTextWarning"})
+fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsVirtualTextInformation"})
+fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsVirtualTextHint"})
 --------------------------TREESITTER---------------------------------------
 require'nvim-treesitter.configs'.setup {
   ensure_installed = 'maintained', -- ensure all maintained parsers are installed
