@@ -10,6 +10,10 @@ let
         sha256 = "02y38zmdplk7a9ihsxvnrzhhv7324mmf5g8hmxqizaid5k5ydpr3";
       }
     }/nixGL.nix" { }).nixGLIntel;
+  customPlugins = pkgs.callPackage ./config/nvim-plugins.nix {
+    lib = pkgs.lib;
+    buildVimPluginFrom2Nix = pkgs.vimUtils.buildVimPluginFrom2Nix;
+  };
 in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -345,9 +349,32 @@ in {
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
+    viAlias = true;
+    vimAlias = true;
     vimdiffAlias = true;
     withPython3 = true;
     extraConfig = import ./config/neovim.nix;
+    plugins = with pkgs.vimPlugins;
+      [
+        Tabular
+        commentary
+        deoplete-lsp
+        deoplete-nvim
+        fugitive
+        fzf-vim
+        fzf-lsp-nvim
+        gitgutter
+        nvim-lspconfig
+        nvim-treesitter
+        packer-nvim
+        surround
+      ] ++ (with customPlugins; [
+        # TODO: bring the generator into this repo too
+        nvim-fzf
+        nvim-fzf-commands
+        nvim-colorizer-lua
+        vim-gotham
+      ]);
   };
 
   programs.zsh = {
