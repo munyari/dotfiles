@@ -1,6 +1,7 @@
 local cmd = vim.cmd   -- to execute vim commands e.g. cmd('pwd')
 local fn = vim.fn     -- to call vim functions e.g. fn.bufnr()
 local g = vim.g       -- a table to access global variables
+local lsp = vim.lsp   -- LSP commands
 
 -- ensure packager is installed
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
@@ -14,7 +15,7 @@ cmd 'packadd packer.nvim'
 require'packer'.startup(function()
   use {'wbthomason/packer.nvim', opt=true} -- package manager
 
-  ---- Colors
+  -- Colors
   use 'norcalli/nvim-colorizer.lua' -- renders colors inline
   use 'munyari/vim-gotham'          -- colorscheme
 
@@ -32,13 +33,14 @@ require'packer'.startup(function()
 
   -- Misc
   use {'shougo/deoplete.nvim', cmd = 'UpdateRemotePlugins'}                      -- completions
-  use {'godlygeek/tabular', opt = true, cmd = {'Tabular'}}                       -- alignment
+  use {'godlygeek/tabular', opt = true, cmd = {'Tabularize, Tab'}}               -- alignment
   use 'tpope/vim-commentary'                                                     -- manipulate comments
   use 'tpope/vim-surround'                                                       -- manipulate parenthesizing characters
-  use {'tpope/vim-fugitive', opt = true, cmd = {'Gstatus', 'Gcommit', 'Gwrite'}} -- git client
+  use 'tpope/vim-fugitive'                                                       -- git client
   use 'nvim-treesitter/nvim-treesitter'                                          -- fast syntax highlighting
   use 'airblade/vim-gitgutter'                                                   -- Git signs in sidebar
 end)
+
 
 --TODO: section comments plugin?
 
@@ -82,6 +84,7 @@ opt('w', 'relativenumber') -- show relative line numbers. Set after number so th
 -- tab settings
 opt('b', 'expandtab')      -- inserts spaces when you press tab
 opt('b', 'shiftwidth', 2)  -- number of spaces to use for each step of autoindent
+opt('b', 'tabstop', 4)  -- a tab character expands to 4 spaces
 opt('b', 'softtabstop', 2) -- number of spaces Tab counts for while editing
 opt('g', 'shiftround')     -- always round indent to a multiple of shift width
 
@@ -188,6 +191,7 @@ map('n', ']g', [[<cmd>GitGutterNextHunk<CR>]])
 map('n', '<leader>hs', [[<cmd>GitGutterStageHunk<cr>]])
 
 ---------------------------------LSP-----------------------------------------
+
 -- deoplete
 g['deoplete#enable_at_startup'] = 1
 
@@ -231,9 +235,9 @@ local on_attach = function(client, bufnr)
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     require('lspconfig').util.nvim_multiline_command [[
-      :hi LspReferenceRead cterm=bold ctermbg=red guibg=#252525
-      :hi LspReferenceText cterm=bold ctermbg=red guibg=#252525
-      :hi LspReferenceWrite cterm=bold ctermbg=red guibg=#252525
+      :highlight LspReferenceRead cterm=bold ctermbg=red guibg=#252525
+      :highlight LspReferenceText cterm=bold ctermbg=red guibg=#252525
+      :highlight LspReferenceWrite cterm=bold ctermbg=red guibg=#252525
       augroup lsp_document_highlight
         autocmd!
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
