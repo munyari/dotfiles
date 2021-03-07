@@ -77,7 +77,8 @@ in {
       [ ]);
 
   # TODO: look at targets.darwin configuration
-  # TODO: make bat MANPAGER
+  home.sessionPath = [ "/opt/dropbox-override/bin" ];
+
   programs.bat = {
     enable = true;
     config = {
@@ -405,7 +406,6 @@ in {
     initExtra = import ./config/zsh/initExtra.nix;
 
     sessionVariables = {
-      PATH = "/opt/dropbox-override/bin:$PATH";
       # Set the default Less options.
       # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
       # Remove -X and -F (exit if the content fits on one screen) to enable it.
