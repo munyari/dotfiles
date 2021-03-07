@@ -15,7 +15,11 @@ function is_macos() {
 
 sudo rm -rf ~/.nix-profile /nix ~/.config/nixpkgs
 # install nix
-sh <(curl -L https://nixos.org/nix/install)
+if is_macos; then
+  sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+else
+  sh <(curl -L https://nixos.org/nix/install)
+fi
 
 # source relevant environment variables
 source ~/.nix-profile/etc/profile.d/nix.sh
@@ -24,10 +28,11 @@ source ~/.nix-profile/etc/profile.d/nix.sh
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 
-ln -s $DIR/nixpkgs/.config/nixpkgs $HOME/.config/nixpkgs
-
 # install home-manager
 nix-shell '<home-manager>' -A install
+rm -rf ~/.config/nixpkgs
+ln -s $DIR/nixpkgs/.config/nixpkgs $HOME/.config/nixpkgs
+home-manager switch
 
 
 if is_macos
@@ -35,4 +40,6 @@ then
   # install nix-darwin
   nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
   ./result/bin/darwin-installer
+  darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin-configuration.nix
+  rm -rf result
 fi
