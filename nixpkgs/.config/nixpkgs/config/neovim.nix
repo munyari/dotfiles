@@ -146,9 +146,6 @@ g['deoplete#enable_at_startup'] = 1
 
 local nvim_lsp = require'lspconfig'
 
-require 'lspfuzzy'.setup {}
--- TODO: lspfuzzy can be operated with :LspDiagnostics<bufnr> and :LspDiagnosticsAll
-
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
