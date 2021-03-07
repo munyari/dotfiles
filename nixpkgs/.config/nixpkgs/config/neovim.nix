@@ -5,45 +5,6 @@ local cmd = vim.cmd   -- to execute vim commands e.g. cmd('pwd')
 local fn = vim.fn     -- to call vim functions e.g. fn.bufnr()
 local g = vim.g       -- a table to access global variables
 
--- ensure packager is installed
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  cmd('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-  cmd 'packadd packer.nvim'
-end
-
-cmd 'packadd packer.nvim'
-require'packer'.startup(function()
-  use {'wbthomason/packer.nvim', opt=true} -- package manager
-
-  ---- Colors
-  use 'norcalli/nvim-colorizer.lua' -- renders colors inline
-  use 'arcticicestudio/nord-vim'    -- colorscheme
-
-  
-  -- LSP
-  use 'neovim/nvim-lspconfig'  -- sane defaults for the built-in LSP
-  use 'ojroques/nvim-lspfuzzy' -- FZF integration
-  use 'shougo/deoplete-lsp'    -- Deoplete integration
-
-  -- FZF
-  use {'junegunn/fzf', cmd = 'call fzf#install()'}
-  use 'junegunn/fzf.vim'
-  use 'vijaymarupudi/nvim-fzf'
-  use 'vijaymarupudi/nvim-fzf-commands'
-
-  -- Misc
-  use {'shougo/deoplete.nvim', cmd = 'UpdateRemotePlugins'}                      -- completions
-  use {'godlygeek/tabular', opt = true, cmd = {'Tabular'}}                       -- alignment
-  use 'tpope/vim-commentary'                                                     -- manipulate comments
-  use 'tpope/vim-surround'                                                       -- manipulate parenthesizing characters
-  use {'tpope/vim-fugitive', opt = true, cmd = {'Gstatus', 'Gcommit', 'Gwrite'}} -- git client
-  use 'nvim-treesitter/nvim-treesitter'                                          -- fast syntax highlighting
-end)
-
---TODO: section comments plugin?
-
 -- Unix Editor variables
 if fn.executable('nvr') then
   vim.env.VISUAL = "nvr -cc split --remote-wait +'set bufhidden=wipe'"

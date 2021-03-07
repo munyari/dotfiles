@@ -3,6 +3,18 @@
 let
   packages = ( self:
 {
+  nord-vim = buildVimPluginFrom2Nix {
+    pname = "nord-vim";
+    version = "2020-07-06";
+    src = fetchFromGitHub {
+      owner = "arcticicestudio";
+      repo = "nord-vim";
+      rev = "57dffa746907e8ce5c4b520146ed0d89d3c29a51";
+      sha256 = "0xpz71rj74514789v6x9wrg95n8bsag8f5ygd7js40qrwpxq6b4j";
+    };
+    meta.homepage = "https://github.com/arcticicestudio/nord-vim/";
+  };
+
   nvim-colorizer-lua = buildVimPluginFrom2Nix {
     pname = "nvim-colorizer-lua";
     version = "2020-06-11";
@@ -37,18 +49,6 @@ let
       sha256 = "11fvfc6a4izh38qpwqgpf78rmfrgin374rky5csdifixasn88abi";
     };
     meta.homepage = "https://github.com/vijaymarupudi/nvim-fzf-commands/";
-  };
-
-  vim-gotham = buildVimPluginFrom2Nix {
-    pname = "vim-gotham";
-    version = "2018-04-10";
-    src = fetchFromGitHub {
-      owner = "munyari";
-      repo = "vim-gotham";
-      rev = "08957d4b5c7074b91e771e8ec4aa40362cd4f9e4";
-      sha256 = "0bj7riiwiv9r2dqayk5a9vgrchrrijnikpfyanfrzkq1b43sj0kc";
-    };
-    meta.homepage = "https://github.com/munyari/vim-gotham/";
   };
 
 });

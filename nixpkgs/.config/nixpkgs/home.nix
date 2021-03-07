@@ -366,14 +366,13 @@ in {
         gitgutter
         nvim-lspconfig
         nvim-treesitter
-        packer-nvim
         surround
       ] ++ (with customPlugins; [
         # TODO: bring the generator into this repo too
+        nord-vim
+        nvim-colorizer-lua
         nvim-fzf
         nvim-fzf-commands
-        nvim-colorizer-lua
-        vim-gotham
       ]);
   };
 
