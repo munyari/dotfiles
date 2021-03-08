@@ -377,6 +377,11 @@ in {
       ]);
   };
 
+  programs.ssh = {
+    enable = true;
+    extraConfig = import ./config/ssh.nix;
+  };
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
