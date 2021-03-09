@@ -79,7 +79,7 @@ in {
       [ ]);
 
   # TODO: look at targets.darwin configuration
-  home.sessionPath = [ "/opt/dropbox-override/bin" ];
+  home.sessionPath = [ "/opt/dropbox-override/bin" "/usr/local/engtools/bin" ];
 
   programs.bat = {
     enable = true;
