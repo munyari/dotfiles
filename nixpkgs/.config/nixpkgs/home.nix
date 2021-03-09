@@ -38,6 +38,7 @@ in {
       bash
       black
       cachix
+      coreutils
       chicken
       ctags
       curl
@@ -85,6 +86,13 @@ in {
       map-syntax = "BUILD.in:Python";
       theme = "Nord";
     };
+  };
+
+  programs.dircolors = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    extraConfig = import ./config/LS_COLORS.nix;
   };
 
   programs.fzf = {
@@ -421,6 +429,7 @@ in {
     shellGlobalAliases = {
       bzl = "mbzl";
       less = "bat";
+      ls = "ls --color=auto";
     };
   };
 
