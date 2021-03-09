@@ -63,6 +63,7 @@ in {
       python
       python3
       ripgrep
+      rsync
       ruby
       stack
       stow
