@@ -1,1 +1,0 @@
-" Plug 'dkarter/bullets.vim'
