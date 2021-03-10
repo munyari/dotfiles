@@ -78,8 +78,11 @@ in {
     else
       [ ]);
 
-  # TODO: look at targets.darwin configuration
-  home.sessionPath = [ "/opt/dropbox-override/bin" "/usr/local/engtools/bin" ];
+  home.sessionPath = [
+    "/opt/dropbox-override/bin"
+    "/usr/local/engtools/bin"
+    "$HOME/src/dbarcanist/bin"
+  ];
 
   programs.bat = {
     enable = true;
