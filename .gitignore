@@ -1,5 +1,5 @@
 # exclude bc of work stuff
-nixpkgs/.config/nixpkgs/config/ssh.nix
+ssh.nix
 nvim/.config/nvim/.netrwhist
 nvim/.config/nvim/autoload/
 nvim/.config/nvim/spell/en.utf-8.add.spl

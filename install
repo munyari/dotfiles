@@ -13,7 +13,9 @@ function is_macos() {
   [[ "$(uname)" == "Darwin" ]]
 }
 
-sudo rm -rf ~/.nix-profile /nix ~/.config/nixpkgs
+CONFIG_DIR="$HOME/.config"
+
+sudo rm -rf ~/.nix-profile /nix "$CONFIG_DIR/nixpkgs"
 # install nix
 if is_macos; then
   sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
@@ -30,8 +32,8 @@ nix-channel --update
 
 # install home-manager
 nix-shell '<home-manager>' -A install
-rm -rf ~/.config/nixpkgs
-ln -s $DIR/nixpkgs/.config/nixpkgs $HOME/.config/nixpkgs
+rm -rf "$CONFIG_DIR/nixpkgs"
+ln -s $DIR/nixpkgs "$CONFIG_DIR/nixpkgs"
 home-manager switch
 
 
