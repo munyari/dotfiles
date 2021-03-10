@@ -94,6 +94,9 @@ opt('g', 'inccommand', 'split')      -- preview searches in a split
 cmd 'colorscheme nord'
 opt('g', 'termguicolors') -- enable 24 bit RGB color in TUI
 
+-- highlight terminal cursor
+cmd [[highlight! TermCursorNC guibg=#ef7c8e guifg=white ctermbg=1 ctermfg=15]]
+
 require'colorizer'.setup()
 
 
