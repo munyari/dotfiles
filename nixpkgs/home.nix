@@ -56,6 +56,7 @@ in {
       mpv
       ncdu # ncurses disk space visualizer
       neovim-remote
+      nerdfonts
       nixfmt
       nodejs
       noti # useful for notification of long-running commands
@@ -115,7 +116,7 @@ in {
       pkgs.alacritty;
     settings = {
       font = {
-        normal.family = "Fira Code";
+        normal.family = "FiraCode Nerd Font Mono";
         size = 15.0;
         use_thin_strokes = true;
       };
@@ -366,12 +367,17 @@ in {
     vimAlias = true;
     vimdiffAlias = true;
     withPython3 = true;
-    extraConfig = import ./config/neovim.nix;
+    extraConfig = import ./config/nvim/extraConfig.nix;
     plugins = with pkgs.vimPlugins;
       [
         Tabular
         commentary
         deoplete-lsp
+        nvim-web-devicons
+        {
+          plugin = galaxyline-nvim;
+          config = import ./config/nvim/plugins/galaxyline.nix;
+        }
         deoplete-nvim
         {
           plugin = fugitive;
