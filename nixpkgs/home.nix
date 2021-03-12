@@ -10,7 +10,7 @@ let
         sha256 = "02y38zmdplk7a9ihsxvnrzhhv7324mmf5g8hmxqizaid5k5ydpr3";
       }
     }/nixGL.nix" { }).nixGLIntel;
-  customPlugins = pkgs.callPackage ./config/nvim-plugins.nix {
+  customPlugins = pkgs.callPackage ./config/nvim/plugins/customPlugins.nix {
     lib = pkgs.lib;
     buildVimPluginFrom2Nix = pkgs.vimUtils.buildVimPluginFrom2Nix;
   };
@@ -378,41 +378,35 @@ in {
           plugin = galaxyline-nvim;
           config = import ./config/nvim/plugins/galaxyline.nix;
         }
-        deoplete-nvim
+        {
+          plugin = deoplete-nvim;
+          config = "g['deoplete#enable_at_startup'] = 1";
+        }
         {
           plugin = fugitive;
-          config = ''
-            nnoremap <silent><leader>gb       :Gblame<cr>
-            nnoremap <silent><leader>gc       :Gcommit -v<cr>
-            nnoremap <silent><leader>gd       :Gdiff<cr>
-            nnoremap <silent><leader>gp       :Gpush<cr>
-            nnoremap <silent><leader>gr       :Gread<cr>
-            nnoremap <silent><leader>gs       :Gstatus<cr>
-            nnoremap <silent><leader>gw       :Gwrite<cr>
-          '';
+          config = import ./config/nvim/plugins/fugitive.nix;
         }
         fzf-vim
         fzf-lsp-nvim
         {
           plugin = gitgutter;
-          config = ''
-            let g:gitgutter_sign_modified = 'Δ'
-            let g:gitgutter_sign_modified_removed = '∎'
-            let g:gitgutter_sign_removed = '⨯'
-            let g:gitgutter_sign_column_always = 1
-            nnoremap <unique> [g :GitGutterPrevHunk<cr>
-            nnoremap <unique> ]g :GitGutterNextHunk<cr>
-            nnoremap <unique> <leader>hs :GitGutterStageHunk<cr>
-            nnoremap <unique> <leader>hp :GitGutterPreviewHunk<cr>
-            nnoremap <unique> <leader>hu :GitGutterUndoHunk<cr>
-          '';
+          config = import ./config/nvim/plugins/gitgutter.nix;
         }
-        nvim-lspconfig
-        nvim-treesitter
+        {
+          plugin = nvim-lspconfig;
+          config = import ./config/nvim/plugins/lspconfig.nix;
+        }
+        {
+          plugin = nvim-treesitter;
+          config = import ./config/nvim/plugins/treesitter.nix;
+        }
         surround
+        {
+          plugin = nord-vim;
+          config = import ./config/nvim/plugins/colorscheme.nix;
+        }
       ] ++ (with customPlugins; [
         # TODO: bring the generator into this repo too
-        nord-vim
         nvim-colorizer-lua
         nvim-fzf
         nvim-fzf-commands

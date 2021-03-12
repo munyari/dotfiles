@@ -55,6 +55,8 @@ opt('g', 'splitright') -- Always split to the right
 
 opt('g', 'hidden')  -- Required for operations modifying multiple buffers like rename.
 
+opt('g', 'termguicolors') -- enable 24 bit RGB color in TUI
+
 -- UI
 opt('w', 'signcolumn', 'yes')                                         -- always show the gutter
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}' -- highlight yanked area. On visual stops it from erring when we delete
@@ -91,12 +93,6 @@ end
 opt('g', 'clipboard', 'unnamedplus') -- automatically put additions to unnamed reg in clipboard ('+' reg)
 opt('g', 'inccommand', 'split')      -- preview searches in a split
 -----------------------------COLORSCHEME----------------------------------
-cmd 'colorscheme nord'
-opt('g', 'termguicolors') -- enable 24 bit RGB color in TUI
-
--- highlight terminal cursor
-cmd [[highlight! TermCursorNC guibg=#ef7c8e guifg=white ctermbg=1 ctermfg=15]]
-
 require'colorizer'.setup()
 
 
@@ -141,72 +137,6 @@ map('n', '<Right>', [[<cmd>vertical resize +2<CR>]])
 map('n', '<Up>', [[<cmd>resize +2<CR>]])
 map('n', '<Left>', [[<cmd>vertical resize -2<CR>]])
 map('n', '<Down>', [[<cmd>resize -2<CR>]])
----------------------------------LSP-----------------------------------------
--- deoplete
-g['deoplete#enable_at_startup'] = 1
-
-
-local nvim_lsp = require'lspconfig'
-
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
-  -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  end
-  
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    require('lspconfig').util.nvim_multiline_command [[
-      :hi LspReferenceRead cterm=bold ctermbg=red guibg=#252525
-      :hi LspReferenceText cterm=bold ctermbg=red guibg=#252525
-      :hi LspReferenceWrite cterm=bold ctermbg=red guibg=#252525
-      augroup lsp_document_highlight
-        autocmd!
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]]
-  end
-end
-
--- Use a loop to conveniently both setup defined servers 
--- and map buffer local keybindings when the language server attaches
-local servers = { "pyright", "gopls" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
-end
-
-
---------------------------TREESITTER---------------------------------------
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = 'maintained', -- ensure all maintained parsers are installed
-  highlight = {enable = true}
-}
 EOF
 " vim:ft=lua
 ''

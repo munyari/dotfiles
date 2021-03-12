@@ -3,18 +3,6 @@
 let
   packages = ( self:
 {
-  nord-vim = buildVimPluginFrom2Nix {
-    pname = "nord-vim";
-    version = "2020-07-06";
-    src = fetchFromGitHub {
-      owner = "arcticicestudio";
-      repo = "nord-vim";
-      rev = "57dffa746907e8ce5c4b520146ed0d89d3c29a51";
-      sha256 = "0xpz71rj74514789v6x9wrg95n8bsag8f5ygd7js40qrwpxq6b4j";
-    };
-    meta.homepage = "https://github.com/arcticicestudio/nord-vim/";
-  };
-
   nvim-colorizer-lua = buildVimPluginFrom2Nix {
     pname = "nvim-colorizer-lua";
     version = "2020-06-11";
