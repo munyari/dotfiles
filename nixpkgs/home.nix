@@ -411,6 +411,7 @@ in {
           plugin = nord-vim;
           config = import ./config/nvim/plugins/colorscheme.nix;
         }
+        vim-nix
       ] ++ (with customPlugins; [
         # TODO: bring the generator into this repo too
         nvim-colorizer-lua
