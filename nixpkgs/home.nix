@@ -38,8 +38,8 @@ in {
       bash
       black
       cachix
-      coreutils
       chicken
+      coreutils
       ctags
       curl
       delta # better diffs
@@ -360,6 +360,12 @@ in {
     treeView = true;
   };
 
+  programs.lsd = {
+    enable = true;
+    enableAliases = true;
+  };
+  xdg.configFile."lsd/config.yaml".source = ./config/lsd.yaml;
+
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
@@ -457,7 +463,7 @@ in {
     shellGlobalAliases = {
       bzl = "mbzl";
       less = "bat";
-      ls = "ls --color=auto";
+      ls = "lsd";
     };
   };
 
