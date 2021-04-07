@@ -72,7 +72,7 @@ in {
       wget
       which
       youtube-dl
-    ] ++ (if pkgs.stdenv.isLinux then
+    ] ++ (with pkgs.nodePackages; [ pyright ]) ++ (if pkgs.stdenv.isLinux then
       [
         qemu # virtual machine go brr
       ]
