@@ -84,6 +84,9 @@ in {
     "/opt/dropbox-override/bin"
     "/usr/local/engtools/bin"
     "$HOME/src/dbarcanist/bin"
+    "/opt/git/contrib"
+    "/opt/git/bin"
+    "/usr/local/engtools/linux/bin"
   ];
 
   programs.bat = {
@@ -275,6 +278,10 @@ in {
         compression = 0;
         looseCompression = 0;
         whitespace = "space-before-tab, tab-in-indent, trailing-space";
+        # Dropbox 'fast' repo config below
+        untrackedcache = true;
+        # make this more generic?
+        fsmonitor = "/opt/git/contrib/rs-git-fsmonitor";
       };
       color.ui = "auto";
       commit.verbose = true;
@@ -288,6 +295,11 @@ in {
       pull.rebase = true;
       push.default = "upstream";
       merge = { renamelimit = 1815; };
+      # Dropbox 'fast' repo config below
+      receive = {
+        denydeletes = true;
+        denynonfastforwards = true;
+      };
     };
     ignores = [
       # Compiled source #
