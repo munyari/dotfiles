@@ -64,6 +64,7 @@ in {
       python
       python3
       ripgrep
+      rlwrap
       rsync
       ruby
       stack
@@ -459,12 +460,14 @@ in {
       # Remove -X and -F (exit if the content fits on one screen) to enable it.
       LESS = "-F -g -i -M -R -S -w -X -z-4 --RAW-CONTROL-CHARS";
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      DB_DEPS_OVERRIDE_XCODE_VERSION = 12.4;
     };
 
     shellGlobalAliases = {
       bzl = "mbzl";
       less = "bat";
       ls = "lsd";
+      scheme = "rlwrap scheme";
     };
   };
 
