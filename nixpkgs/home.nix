@@ -81,7 +81,6 @@ in {
       [ ]);
 
   home.sessionPath = [
-    "/opt/dropbox-override/bin"
     "/usr/local/engtools/bin"
     "$HOME/src/dbarcanist/bin"
     "/opt/git/contrib"
@@ -476,6 +475,7 @@ in {
     };
 
     shellGlobalAliases = {
+      arc = "PATH=/opt/dropbox-override/bin:$PATH arc";
       bzl = "mbzl";
       less = "bat";
       ls = "lsd";
