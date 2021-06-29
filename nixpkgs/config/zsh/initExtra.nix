@@ -31,7 +31,6 @@ function sam() {
 function rms() {
   bzl itest-reload-current "$@" || (sam && sms)
   osascript -e 'display notification "Hooray!" with title "Devbox has finished building!"'
-  auto-reload-meta
 }
 
 function tail_metaserver() {
