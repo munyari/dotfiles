@@ -84,6 +84,7 @@ in {
   home.sessionPath = [
     "/usr/local/engtools/bin"
     "$HOME/src/dbarcanist/bin"
+    "/opt/dropbox-override/bin"
     "/opt/git/contrib"
     "/opt/git/bin"
     "/usr/local/engtools/linux/bin"
