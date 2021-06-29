@@ -200,9 +200,9 @@ in {
       ab = "!arc branch --by-status";
       ap = "add --patch";
       b = "branch";
-      bD = "branch -D";
       bd = "branch -d";
       branches = "branch -av";
+      brm = "branch -D";
       can = "commit --amend --no-edit";
       cm = "commit -m";
       co = "checkout";
