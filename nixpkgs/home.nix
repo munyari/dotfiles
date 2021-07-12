@@ -70,6 +70,7 @@ in {
       stack
       stow
       tree
+      tree-sitter
       wget
       which
       youtube-dl
