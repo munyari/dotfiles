@@ -401,7 +401,7 @@ in {
         }
         {
           plugin = deoplete-nvim;
-          config = "g['deoplete#enable_at_startup'] = 1";
+          config = "let g:deoplete#enable_at_startup = 1";
         }
         {
           plugin = fugitive;
