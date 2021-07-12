@@ -368,10 +368,12 @@ in {
 
   programs.htop = {
     enable = true;
-    hideThreads = true;
-    hideKernelThreads = true;
-    colorScheme = 6;
-    treeView = true;
+    settings = {
+      color_scheme = 6;
+      hide_kernel_threads = true;
+      hide_threads = true;
+      tree_view = true;
+    };
   };
 
   programs.lsd = {
